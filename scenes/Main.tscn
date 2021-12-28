@@ -26,10 +26,10 @@ tracks/0/keys = {
 script = ExtResource( 2 )
 
 [node name="btn_start" type="Button" parent="."]
-margin_left = 40.0
-margin_top = 715.0
-margin_right = 465.0
-margin_bottom = 782.0
+margin_left = 180.0
+margin_top = 1069.0
+margin_right = 605.0
+margin_bottom = 1136.0
 custom_fonts/font = ExtResource( 1 )
 text = "Start"
 __meta__ = {
@@ -37,10 +37,10 @@ __meta__ = {
 }
 
 [node name="btn_quit" type="Button" parent="."]
-margin_left = 40.0
-margin_top = 800.0
-margin_right = 465.0
-margin_bottom = 867.0
+margin_left = 180.0
+margin_top = 1154.0
+margin_right = 605.0
+margin_bottom = 1221.0
 custom_fonts/font = ExtResource( 1 )
 text = "Quit"
 __meta__ = {
@@ -48,7 +48,8 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_right = 499.0
+margin_left = 144.0
+margin_right = 643.0
 margin_bottom = 246.0
 custom_fonts/font = ExtResource( 3 )
 text = "GAMEBOOK"
@@ -59,11 +60,12 @@ __meta__ = {
 }
 
 [node name="ClickArea" parent="." instance=ExtResource( 5 )]
+position = Vector2( 398, 568 )
 scale = Vector2( 16, 8 )
 
 [node name="Eye" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.392157 )
-position = Vector2( 260, 351 )
+position = Vector2( 398, 568 )
 texture = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Eye"]

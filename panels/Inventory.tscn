@@ -4,8 +4,8 @@
 [ext_resource path="res://panels/Inventory.gd" type="Script" id=2]
 
 [node name="Inventory" type="ColorRect"]
-margin_right = 500.0
-margin_bottom = 900.0
+margin_right = 768.0
+margin_bottom = 1366.0
 color = Color( 0.105882, 0.137255, 0.294118, 0.941176 )
 script = ExtResource( 2 )
 __meta__ = {
@@ -14,7 +14,7 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="."]
 margin_top = 63.0
-margin_right = 499.0
+margin_right = 768.0
 margin_bottom = 156.0
 custom_fonts/font = ExtResource( 1 )
 text = "Inventario"
@@ -25,9 +25,10 @@ __meta__ = {
 }
 
 [node name="btn_hide" type="Button" parent="."]
-margin_top = 781.0
-margin_right = 500.0
-margin_bottom = 901.0
+margin_left = 6.0
+margin_top = 1232.0
+margin_right = 774.0
+margin_bottom = 1366.0
 custom_fonts/font = ExtResource( 1 )
 text = "Volver"
 __meta__ = {
