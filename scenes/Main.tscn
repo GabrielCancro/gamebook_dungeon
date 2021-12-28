@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://font/font_big_dungeon.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scenes/Main.gd" type="Script" id=2]
+[ext_resource path="res://font/font_title.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/eye.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.392157 ), Color( 1, 1, 1, 0.784314 ), Color( 1, 1, 1, 0.392157 ) ]
+}
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="btn_start" type="Button" parent="."]
+margin_left = 40.0
+margin_top = 715.0
+margin_right = 465.0
+margin_bottom = 782.0
+custom_fonts/font = ExtResource( 1 )
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btn_quit" type="Button" parent="."]
+margin_left = 40.0
+margin_top = 800.0
+margin_right = 465.0
+margin_bottom = 867.0
+custom_fonts/font = ExtResource( 1 )
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 499.0
+margin_bottom = 246.0
+custom_fonts/font = ExtResource( 3 )
+text = "GAMEBOOK"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Eye" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.392157 )
+position = Vector2( 260, 351 )
+texture = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Eye"]
+reset_on_save = false
+anims/idle = SubResource( 1 )
