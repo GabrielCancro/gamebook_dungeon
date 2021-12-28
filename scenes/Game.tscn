@@ -1,12 +1,23 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/Game.gd" type="Script" id=1]
 [ext_resource path="res://font/font_big_dungeon.tres" type="DynamicFont" id=2]
 [ext_resource path="res://font/font_title.tres" type="DynamicFont" id=3]
 [ext_resource path="res://assets/max.jpg" type="Texture" id=4]
+[ext_resource path="res://panels/Inventory.tscn" type="PackedScene" id=5]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
+
+[node name="Room" type="Node2D" parent="."]
+position = Vector2( 250, 317 )
+
+[node name="Sprite" type="Sprite" parent="Room"]
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Label" type="Label" parent="."]
 margin_top = 7.0
@@ -31,12 +42,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Room" type="Node2D" parent="."]
-position = Vector2( 250, 317 )
-
-[node name="Sprite" type="Sprite" parent="Room"]
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 4 )
+[node name="btn_inventory" type="Button" parent="."]
+margin_left = 430.0
+margin_top = 82.0
+margin_right = 496.0
+margin_bottom = 149.0
+custom_fonts/font = ExtResource( 2 )
+text = "Inv"
 __meta__ = {
-"_edit_lock_": true
+"_edit_use_anchors_": false
 }
+
+[node name="Inventory" parent="." instance=ExtResource( 5 )]
+visible = false
