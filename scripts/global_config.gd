@@ -1,9 +1,10 @@
 extends Node
 
+var lang = "sp"
+var Game = null
+var RoomManager = null
+var RoomData = {}
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
 
 # Called when the node enters the scene tree for the first time.

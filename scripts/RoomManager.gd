@@ -1,16 +1,16 @@
 extends Node2D
 
-var r1 = preload("res://rooms/Room_001.tscn")
+onready var currentRoom = null
 
-var currentRoom = null
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	GC.RoomManager = self
 
 func gotoRoom(nro):
-	var rooms = get_node("/root/Game/Rooms")
+	if !GC.RoomData.has(nro): 
+		GC.RoomData[nro] = {}
 	if currentRoom != null:
-		rooms.remove_child(currentRoom)
-#		currentRoom.queue_free()
-	currentRoom = r1.instance()
-	rooms.add_child(currentRoom)
+		remove_child(currentRoom)
+		currentRoom.queue_free()
+	currentRoom = load("res://rooms/Room_"+nro+".tscn").instance()
+	add_child(currentRoom)
+	GC.RoomData[nro]["visited"] = true

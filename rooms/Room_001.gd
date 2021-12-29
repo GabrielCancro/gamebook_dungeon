@@ -1,15 +1,16 @@
 extends Node2D
 
+var id = "001"
+var _desc = {
+	"sp":"Una habitacion muy muy oscura, repleta de abundante oscuridad",
+	"en":"jjj"
+}
+var options = []
+var data = null
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	$ClickArea.connect("onClickArea",self,"onClick",["mancha"])
+	GC.Game.show_desc(_desc[GC.lang])
+	print( "Room " + id + ": ", GC.RoomData[id] )
 
-func onClick(arg,type):
-	if type=="mancha": 
-		print("CLICK EN MANCHA!")
+func onClickAreaMethod(name):
+	if name=="ClickArea": GC.RoomManager.gotoRoom("002")

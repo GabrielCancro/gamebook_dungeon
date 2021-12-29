@@ -17,7 +17,6 @@ config/icon="res://icon.png"
 [autoload]
 
 GC="*res://scripts/global_config.gd"
-RM="*res://scripts/RoomManager.gd"
 
 [display]
 

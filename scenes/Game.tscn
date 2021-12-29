@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/Game.gd" type="Script" id=1]
+[ext_resource path="res://scripts/RoomManager.gd" type="Script" id=2]
 [ext_resource path="res://font/button_main.tres" type="DynamicFont" id=3]
 [ext_resource path="res://assets/ui.jpg" type="Texture" id=4]
 [ext_resource path="res://panels/Inventory.tscn" type="PackedScene" id=5]
 [ext_resource path="res://font/options_foot.tres" type="DynamicFont" id=6]
 [ext_resource path="res://font/description.tres" type="DynamicFont" id=7]
+[ext_resource path="res://panels/button_1x1_style.tres" type="StyleBox" id=8]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
@@ -15,7 +17,8 @@ position = Vector2( 388, 712 )
 scale = Vector2( 1.28548, 1.28548 )
 texture = ExtResource( 4 )
 
-[node name="Rooms" type="Node2D" parent="."]
+[node name="RoomManager" type="Node2D" parent="."]
+script = ExtResource( 2 )
 
 [node name="Desc" type="Label" parent="."]
 margin_left = 96.0
@@ -30,88 +33,112 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Tween" type="Tween" parent="Desc"]
+
 [node name="btn_main" type="Button" parent="."]
 margin_left = 671.0
 margin_top = 10.0
-margin_right = 750.0
-margin_bottom = 92.0
+margin_right = 751.0
+margin_bottom = 90.0
 custom_fonts/font = ExtResource( 6 )
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 8 )
+custom_styles/disabled = ExtResource( 8 )
+custom_styles/normal = ExtResource( 8 )
 text = "X"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Items" type="CenterContainer" parent="."]
-margin_left = 124.0
+[node name="Items" type="Control" parent="."]
+margin_left = 145.0
 margin_top = 10.0
-margin_right = 658.0
-margin_bottom = 92.0
+margin_right = 623.0
+margin_bottom = 127.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBox" type="HBoxContainer" parent="Items"]
-margin_left = 2.0
-margin_top = 6.0
-margin_right = 531.0
-margin_bottom = 75.0
-custom_constants/separation = 5
-
-[node name="it1" type="Button" parent="Items/HBox"]
-margin_right = 84.0
-margin_bottom = 69.0
+[node name="it1" type="Button" parent="Items"]
+margin_right = 80.0
+margin_bottom = 80.0
 custom_fonts/font = ExtResource( 3 )
-text = "___"
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 8 )
+custom_styles/disabled = ExtResource( 8 )
+custom_styles/normal = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="it2" type="Button" parent="Items/HBox"]
-margin_left = 89.0
-margin_right = 173.0
-margin_bottom = 69.0
+[node name="it2" type="Button" parent="Items"]
+margin_left = 80.0
+margin_right = 160.0
+margin_bottom = 80.0
 custom_fonts/font = ExtResource( 3 )
-text = "___"
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 8 )
+custom_styles/disabled = ExtResource( 8 )
+custom_styles/normal = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="it3" type="Button" parent="Items/HBox"]
-margin_left = 178.0
-margin_right = 262.0
-margin_bottom = 69.0
+[node name="it3" type="Button" parent="Items"]
+margin_left = 160.0
+margin_right = 240.0
+margin_bottom = 80.0
 custom_fonts/font = ExtResource( 3 )
-text = "___"
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 8 )
+custom_styles/disabled = ExtResource( 8 )
+custom_styles/normal = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="it4" type="Button" parent="Items/HBox"]
-margin_left = 267.0
-margin_right = 351.0
-margin_bottom = 69.0
+[node name="it4" type="Button" parent="Items"]
+margin_left = 240.0
+margin_right = 320.0
+margin_bottom = 80.0
 custom_fonts/font = ExtResource( 3 )
-text = "___"
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 8 )
+custom_styles/disabled = ExtResource( 8 )
+custom_styles/normal = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="it5" type="Button" parent="Items/HBox"]
-margin_left = 356.0
-margin_right = 440.0
-margin_bottom = 69.0
+[node name="it5" type="Button" parent="Items"]
+margin_left = 320.0
+margin_right = 400.0
+margin_bottom = 80.0
 custom_fonts/font = ExtResource( 3 )
-text = "___"
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 8 )
+custom_styles/disabled = ExtResource( 8 )
+custom_styles/normal = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="it6" type="Button" parent="Items/HBox"]
-margin_left = 445.0
-margin_right = 529.0
-margin_bottom = 69.0
+[node name="it6" type="Button" parent="Items"]
+margin_left = 400.0
+margin_right = 480.0
+margin_bottom = 80.0
 custom_fonts/font = ExtResource( 3 )
-text = "___"
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 8 )
+custom_styles/disabled = ExtResource( 8 )
+custom_styles/normal = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -119,9 +146,14 @@ __meta__ = {
 [node name="btn_inventory" type="Button" parent="."]
 margin_left = 27.0
 margin_top = 10.0
-margin_right = 109.0
-margin_bottom = 92.0
+margin_right = 107.0
+margin_bottom = 90.0
 custom_fonts/font = ExtResource( 6 )
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 8 )
+custom_styles/disabled = ExtResource( 8 )
+custom_styles/normal = ExtResource( 8 )
 text = "P"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -134,6 +166,8 @@ margin_bottom = 1337.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Tween" type="Tween" parent="Options"]
 
 [node name="HBox" type="HBoxContainer" parent="Options"]
 margin_left = 42.0
