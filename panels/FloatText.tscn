@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://font/font_float_text.tres" type="DynamicFont" id=1]
+[ext_resource path="res://panels/FloatText.gd" type="Script" id=2]
+
+[node name="FloatText" type="Label"]
+margin_left = -200.0
+margin_top = -200.0
+margin_right = 200.0
+margin_bottom = 200.0
+custom_colors/font_color = Color( 0.776471, 0.788235, 0.823529, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Este es un texto flotante"
+align = 1
+valign = 1
+autowrap = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/Game.gd" type="Script" id=1]
 [ext_resource path="res://scripts/RoomManager.gd" type="Script" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://font/options_foot.tres" type="DynamicFont" id=6]
 [ext_resource path="res://font/description.tres" type="DynamicFont" id=7]
 [ext_resource path="res://panels/button_1x1_style.tres" type="StyleBox" id=8]
+[ext_resource path="res://assets/btn.jpg" type="Texture" id=9]
+[ext_resource path="res://assets/gem.png" type="Texture" id=10]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
@@ -63,12 +65,16 @@ __meta__ = {
 [node name="it1" type="Button" parent="Items"]
 margin_right = 80.0
 margin_bottom = 80.0
+focus_mode = 0
 custom_fonts/font = ExtResource( 3 )
 custom_styles/hover = ExtResource( 8 )
 custom_styles/pressed = ExtResource( 8 )
 custom_styles/focus = ExtResource( 8 )
 custom_styles/disabled = ExtResource( 8 )
 custom_styles/normal = ExtResource( 8 )
+enabled_focus_mode = 0
+icon = ExtResource( 10 )
+expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -77,12 +83,15 @@ __meta__ = {
 margin_left = 80.0
 margin_right = 160.0
 margin_bottom = 80.0
+focus_mode = 0
 custom_fonts/font = ExtResource( 3 )
 custom_styles/hover = ExtResource( 8 )
 custom_styles/pressed = ExtResource( 8 )
 custom_styles/focus = ExtResource( 8 )
 custom_styles/disabled = ExtResource( 8 )
 custom_styles/normal = ExtResource( 8 )
+enabled_focus_mode = 0
+expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -91,12 +100,15 @@ __meta__ = {
 margin_left = 160.0
 margin_right = 240.0
 margin_bottom = 80.0
+focus_mode = 0
 custom_fonts/font = ExtResource( 3 )
 custom_styles/hover = ExtResource( 8 )
 custom_styles/pressed = ExtResource( 8 )
 custom_styles/focus = ExtResource( 8 )
 custom_styles/disabled = ExtResource( 8 )
 custom_styles/normal = ExtResource( 8 )
+enabled_focus_mode = 0
+expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -105,12 +117,15 @@ __meta__ = {
 margin_left = 240.0
 margin_right = 320.0
 margin_bottom = 80.0
+focus_mode = 0
 custom_fonts/font = ExtResource( 3 )
 custom_styles/hover = ExtResource( 8 )
 custom_styles/pressed = ExtResource( 8 )
 custom_styles/focus = ExtResource( 8 )
 custom_styles/disabled = ExtResource( 8 )
 custom_styles/normal = ExtResource( 8 )
+enabled_focus_mode = 0
+expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -119,12 +134,15 @@ __meta__ = {
 margin_left = 320.0
 margin_right = 400.0
 margin_bottom = 80.0
+focus_mode = 0
 custom_fonts/font = ExtResource( 3 )
 custom_styles/hover = ExtResource( 8 )
 custom_styles/pressed = ExtResource( 8 )
 custom_styles/focus = ExtResource( 8 )
 custom_styles/disabled = ExtResource( 8 )
 custom_styles/normal = ExtResource( 8 )
+enabled_focus_mode = 0
+expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -133,15 +151,37 @@ __meta__ = {
 margin_left = 400.0
 margin_right = 480.0
 margin_bottom = 80.0
+focus_mode = 0
 custom_fonts/font = ExtResource( 3 )
 custom_styles/hover = ExtResource( 8 )
 custom_styles/pressed = ExtResource( 8 )
 custom_styles/focus = ExtResource( 8 )
 custom_styles/disabled = ExtResource( 8 )
 custom_styles/normal = ExtResource( 8 )
+enabled_focus_mode = 0
+expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Label" type="Label" parent="Items"]
+margin_left = -142.0
+margin_top = 73.0
+margin_right = 619.0
+margin_bottom = 137.0
+custom_fonts/font = ExtResource( 3 )
+text = "Elije donde utilizar este item.."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Selector" type="Sprite" parent="Items"]
+modulate = Color( 0.992157, 1, 0.196078, 0.301961 )
+position = Vector2( 40, 42 )
+scale = Vector2( 1.95283, 1.95283 )
+texture = ExtResource( 9 )
 
 [node name="btn_inventory" type="Button" parent="."]
 margin_left = 27.0
