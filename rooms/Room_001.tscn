@@ -13,6 +13,14 @@ position = Vector2( 380, 451 )
 scale = Vector2( 1.34056, 1.34056 )
 texture = ExtResource( 2 )
 
-[node name="ClickArea" parent="." instance=ExtResource( 1 )]
-position = Vector2( 612, 411 )
+[node name="CA_Cueva" parent="." instance=ExtResource( 1 )]
+position = Vector2( 226, 466 )
+scale = Vector2( 7, 7 )
+
+[node name="CA_Herido" parent="." instance=ExtResource( 1 )]
+position = Vector2( 417, 212 )
+scale = Vector2( 7, 7 )
+
+[node name="CA_Muerto" parent="." instance=ExtResource( 1 )]
+position = Vector2( 634, 423 )
 scale = Vector2( 7, 7 )

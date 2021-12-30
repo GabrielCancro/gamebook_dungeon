@@ -1,8 +1,8 @@
 extends Node2D
 
 var data = {
-	"id":"002",
-	"name":"Cueva Salon",
+	"id":"003",
+	"name":"Guardia Herido",
 	"sp":"Un guardia herido bla bla",
 #	"op1":{"sp":"Mejor no"},
 }

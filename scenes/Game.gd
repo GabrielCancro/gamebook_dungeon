@@ -29,10 +29,10 @@ func show_desc(text):
 func show_options():
 	for i in range(4): $Options/HBox.get_node("op"+str(i+1)).visible = false
 	var room = GC.RoomManager.currentRoom
-	if "options" in room:
-		for i in room.options.size():
-			$Options/HBox.get_node("op"+str(i+1)).visible = true
-			$Options/HBox.get_node("op"+str(i+1)).text = room.options[i][GC.lang]
+	for i in range(4):
+		if !"op"+str(i+1) in room.data: break
+		$Options/HBox.get_node("op"+str(i+1)).visible = true
+		$Options/HBox.get_node("op"+str(i+1)).text = room.data["op"+str(i+1)][GC.lang]
 	$Options/Tween.interpolate_property($Options, "modulate",
 		Color(1,1,1,0), Color(1,1,1,1), .2,Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Options/Tween.start()
