@@ -2,7 +2,9 @@ extends Node
 
 var lang = "sp"
 var Game = null
+var Items = null
 var RoomManager = null
+var Inventory = null
 var RoomData = {}
 var screen = Vector2( ProjectSettings.get_setting("display/window/size/width"),  ProjectSettings.get_setting("display/window/size/height") )
 var item_selected = -1
@@ -15,8 +17,4 @@ func _ready():
 func showFloatText(text,pos):
 	var ft = preload("res://panels/FloatText.tscn").instance()
 	Game.add_child(ft)
-	ft.text = text
-	ft.rect_position = pos - ft.rect_size/2
-	if ft.rect_position.x < 0: ft.rect_position.x = 0
-	if ft.rect_position.x > GC.screen.x-ft.rect_size.x: ft.rect_position.x = GC.screen.x-ft.rect_size.x
-
+	ft.showText(text, (pos - ft.rect_size/2) )
