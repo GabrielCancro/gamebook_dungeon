@@ -23,7 +23,7 @@ func colorRectTransition():
 	var tw = cr.get_node("Tween")
 	cr.visible = true
 	tw.interpolate_property(cr, "modulate",
-		Color(0,0,0,0), Color(0,0,0,1), .2,Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+		cr.modulate, Color(0,0,0,1), .2,Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tw.start()
 	yield(tw,"tween_completed")
 	emit_signal("colorRectTransition_in_completed")

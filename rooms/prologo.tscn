@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://panels/button_1x1_style.tres" type="StyleBox" id=1]
+[ext_resource path="res://font/options_foot.tres" type="DynamicFont" id=2]
+[ext_resource path="res://font/font_title.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/ui/BotonMenu.png" type="Texture" id=4]
+[ext_resource path="res://assets/ui/Garb.png" type="Texture" id=5]
+[ext_resource path="res://assets/ui/TextoGrande.png" type="Texture" id=6]
+[ext_resource path="res://rooms/prologo.gd" type="Script" id=7]
+
+[node name="Prologo" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="bg" type="ColorRect" parent="."]
+margin_right = 768.0
+margin_bottom = 1366.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 384, 658 )
+texture = ExtResource( 6 )
+
+[node name="Garb" type="Sprite" parent="."]
+position = Vector2( 384, 222 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="."]
+margin_top = 238.0
+margin_right = 767.0
+margin_bottom = 368.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "Rescata al principe"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Desc" type="Label" parent="."]
+margin_left = 104.0
+margin_top = 388.0
+margin_right = 665.0
+margin_bottom = 1109.0
+rect_pivot_offset = Vector2( 620, 634 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "Una habitacion muy muy oscura, repleta de abundante oscuridad"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Desc"]
+
+[node name="btn_next" type="Button" parent="."]
+margin_left = 329.0
+margin_top = 1200.0
+margin_right = 439.0
+margin_bottom = 1310.0
+custom_fonts/font = ExtResource( 2 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 1 )
+custom_styles/focus = ExtResource( 1 )
+custom_styles/disabled = ExtResource( 1 )
+custom_styles/normal = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BotonMenu" type="Sprite" parent="btn_next"]
+position = Vector2( 55, 55 )
+texture = ExtResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_right = 768.0
+margin_bottom = 1366.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="ColorRect"]

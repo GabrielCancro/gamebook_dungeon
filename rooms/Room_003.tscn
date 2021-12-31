@@ -2,7 +2,7 @@
 
 [ext_resource path="res://prefab/ClickArea.tscn" type="PackedScene" id=1]
 [ext_resource path="res://rooms/Room_003.gd" type="Script" id=2]
-[ext_resource path="res://rooms/Room_001.jpg" type="Texture" id=3]
+[ext_resource path="res://rooms/Room_example.jpg" type="Texture" id=3]
 
 [node name="Room_003" type="Node2D"]
 script = ExtResource( 2 )

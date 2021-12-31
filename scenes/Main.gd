@@ -7,7 +7,7 @@ func _ready():
 	$ClickArea.connect("onClickArea",self,"onClickArea")
 
 func onClick(arg):
-	if arg=="start": get_tree().change_scene("res://scenes/Game.tscn")
+	if arg=="start": get_tree().change_scene("res://rooms/prologo.tscn")
 	if arg=="quit": get_tree().quit()
 
 func onClickArea(arg):

@@ -6,23 +6,24 @@
 [ext_resource path="res://assets/gem.png" type="Texture" id=4]
 
 [node name="Room" type="Node2D"]
+position = Vector2( 0, 46 )
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 380, 451 )
-scale = Vector2( 1.34056, 1.34056 )
+scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 2 )
 
 [node name="CA_Cueva" parent="." instance=ExtResource( 1 )]
-position = Vector2( 226, 466 )
-scale = Vector2( 7, 7 )
+position = Vector2( 442, 257 )
+scale = Vector2( 12.149, 10.101 )
 
 [node name="CA_Herido" parent="." instance=ExtResource( 1 )]
-position = Vector2( 417, 212 )
-scale = Vector2( 7, 7 )
+position = Vector2( 502, 603 )
+scale = Vector2( 9.021, 7.572 )
 
 [node name="CA_Muerto" parent="." instance=ExtResource( 1 )]
-position = Vector2( 634, 423 )
+position = Vector2( 144, 436 )
 scale = Vector2( 7, 7 )
 
 [node name="sword" type="Sprite" parent="."]
