@@ -14,7 +14,9 @@ func _ready():
 	GC.RoomManager = self
 
 func gotoRoom(id):
-	if GC.item_selected != -1: return
+	if GC.Items.item_selected != -1: return
+	GC.colorRectTransition()
+	yield(GC,"colorRectTransition_in_completed")
 	if currentRoom != null:
 		remove_child(currentRoom)
 	currentRoom = rooms[id]
@@ -23,3 +25,4 @@ func gotoRoom(id):
 	currentRoom.data["visited"] = true
 	GC.Game.show_desc(currentRoom.data[GC.lang])
 	emit_signal("change_room")
+	

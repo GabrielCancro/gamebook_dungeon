@@ -13,6 +13,7 @@ func _ready():
 func onClickAreaMethod(name):
 	if name=="CA_Cueva": GC.RoomManager.gotoRoom("r002")
 	if name=="CA_Muerto": GC.RoomManager.gotoRoom("r003")
-	if name=="CA_Herido": GC.RoomManager.gotoRoom("r004")
+	if name=="CA_Herido": 
+		if GC.Items.useItem("sword","delete"): GC.RoomManager.gotoRoom("r004")
 	if name=="CA_Item": GC.Items.takeItem($sword,$CA_Item)
 		
