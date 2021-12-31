@@ -38,7 +38,7 @@ func onItemClick(i):
 	if(i<items.size()):
 		item_selected = i
 		$Label.visible = true
-		$Label.text = "Elije donde usar tu " + items_data[ items[i] ][GC.lang]
+		$Label.text = "Elige donde usar tu " + items_data[ items[i] ][GC.lang]
 		$Selector.visible = true
 		$Selector.position.x = get_node("it"+str(i+1)).rect_position.x+110/2
 	else:
