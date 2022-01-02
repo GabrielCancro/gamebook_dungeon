@@ -1,12 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://font/font_title.tres" type="DynamicFont" id=1]
 [ext_resource path="res://panels/Inventory.gd" type="Script" id=2]
+[ext_resource path="res://font/button_main.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/ui/btn_main_style_1.tres" type="StyleBox" id=4]
+[ext_resource path="res://assets/ui/btn_main_style_1p.tres" type="StyleBox" id=5]
 
 [node name="Inventory" type="ColorRect"]
 margin_right = 768.0
 margin_bottom = 1366.0
-color = Color( 0.105882, 0.137255, 0.294118, 0.941176 )
+color = Color( 0, 0, 0, 0.941176 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -25,22 +28,42 @@ __meta__ = {
 }
 
 [node name="btn_hide" type="Button" parent="."]
-margin_left = 6.0
-margin_top = 969.0
-margin_right = 774.0
-margin_bottom = 1103.0
-custom_fonts/font = ExtResource( 1 )
+margin_left = 180.0
+margin_top = 1027.0
+margin_right = 605.0
+margin_bottom = 1136.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 5 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = ExtResource( 4 )
+custom_styles/normal = ExtResource( 4 )
 text = "Continuar"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="btn_quit" type="Button" parent="."]
-margin_left = 6.0
-margin_top = 1144.0
-margin_right = 774.0
-margin_bottom = 1278.0
-custom_fonts/font = ExtResource( 1 )
+margin_left = 180.0
+margin_top = 1142.0
+margin_right = 605.0
+margin_bottom = 1251.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 5 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = ExtResource( 4 )
+custom_styles/normal = ExtResource( 4 )
 text = "Abandonar"
 __meta__ = {
 "_edit_use_anchors_": false

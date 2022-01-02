@@ -2,8 +2,8 @@ extends Node2D
 
 var data = {
 	"id":"r002",
-	"name":"Cueva Salon",
-	"sp":"Un guardia herido bla bla",
+	"name":"Entrada a la cueva",
+	"sp":"La entrada húmeda y oscura de una típica cueva. Una tenue luz proviene de la sala siguiente.",
 #	"op1":{"sp":"Mejor no"},
 }
 

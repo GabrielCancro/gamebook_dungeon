@@ -1,18 +1,35 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://prefab/ClickArea.tscn" type="PackedScene" id=1]
-[ext_resource path="res://rooms/Room_example.jpg" type="Texture" id=2]
+[ext_resource path="res://rooms/Room_001.jpg" type="Texture" id=2]
 [ext_resource path="res://rooms/Room_004.gd" type="Script" id=3]
+[ext_resource path="res://assets/gem.png" type="Texture" id=4]
+[ext_resource path="res://assets/ui/arrow.png" type="Texture" id=5]
 
 [node name="Room_004" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 0.196078, 0.192157, 0.133333, 1 )
-position = Vector2( 380, 451 )
-scale = Vector2( 1.34056, 1.34056 )
+position = Vector2( 883, 511 )
+scale = Vector2( 1.96345, 1.96345 )
 texture = ExtResource( 2 )
 
 [node name="ClickArea1" parent="." instance=ExtResource( 1 )]
-position = Vector2( 612, 411 )
+position = Vector2( 555, 785 )
+scale = Vector2( 6.252, 4.239 )
+
+[node name="sword" type="Sprite" parent="."]
+position = Vector2( 410, 444 )
+rotation = 0.523598
+scale = Vector2( 1.35938, 1.85938 )
+texture = ExtResource( 4 )
+
+[node name="CA_Item" parent="." instance=ExtResource( 1 )]
+position = Vector2( 410, 442 )
+rotation = -3.40598e-08
 scale = Vector2( 7, 7 )
+
+[node name="Arrow" type="Sprite" parent="."]
+position = Vector2( 557, 790 )
+rotation = -0.294961
+texture = ExtResource( 5 )

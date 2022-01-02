@@ -24,5 +24,6 @@ func gotoRoom(id):
 	print(currentRoom.data)
 	currentRoom.data["visited"] = true
 	GC.Game.show_desc(currentRoom.data[GC.lang])
+	GC.Game.get_node("roomTitle").text = currentRoom.data.id+" - "+currentRoom.data.name
 	emit_signal("change_room")
 	

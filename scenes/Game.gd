@@ -10,12 +10,12 @@ func onClick(arg,opt=null):
 	if arg=="menu": $Inventory.show()
 	if arg=="op" and GC.RoomManager.currentRoom.has_method("onOption"): GC.RoomManager.currentRoom.onOption(opt)
 
-func show_desc(text):
+func show_desc(text,time=1):
 	$Desc.text = text
 	$Options.modulate.a = 0
 	$Options/Tween.stop_all()
 	$Desc/Tween.interpolate_property($Desc, "percent_visible",
-		0, 1, 1,Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+		0, 1, time,Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Desc/Tween.start()
 	yield($Desc/Tween,"tween_completed")
 	show_options()

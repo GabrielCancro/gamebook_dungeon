@@ -11,9 +11,9 @@
 [ext_resource path="res://assets/btn.jpg" type="Texture" id=9]
 [ext_resource path="res://assets/gem.png" type="Texture" id=10]
 [ext_resource path="res://scripts/Items.gd" type="Script" id=11]
-[ext_resource path="res://assets/ui/BotonCharacter.png" type="Texture" id=12]
+[ext_resource path="res://assets/ui/btn_menu_style.tres" type="StyleBox" id=12]
 [ext_resource path="res://assets/ui/Inventario.png" type="Texture" id=13]
-[ext_resource path="res://assets/ui/BotonMenu.png" type="Texture" id=14]
+[ext_resource path="res://assets/ui/btn_menu_style_p.tres" type="StyleBox" id=14]
 [ext_resource path="res://assets/ui/Garb.png" type="Texture" id=15]
 [ext_resource path="res://font/IMFePIsc28P_0.ttf" type="DynamicFontData" id=16]
 
@@ -38,7 +38,7 @@ script = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 768.0
-margin_bottom = 908.0
+margin_bottom = 926.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -48,7 +48,7 @@ __meta__ = {
 
 [node name="Items" type="Control" parent="."]
 margin_right = 768.0
-margin_bottom = 117.0
+margin_bottom = 140.0
 script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -57,14 +57,16 @@ __meta__ = {
 [node name="TweenTake" type="Tween" parent="Items"]
 
 [node name="Inventario" type="Sprite" parent="Items"]
-position = Vector2( 383, 67 )
+modulate = Color( 0.784314, 0.784314, 0.784314, 1 )
+position = Vector2( 322.145, 90.25 )
+scale = Vector2( 1.44286, 1.44286 )
 texture = ExtResource( 13 )
 
 [node name="it1" type="Button" parent="Items"]
-margin_left = 174.0
-margin_top = 11.0
-margin_right = 284.0
-margin_bottom = 121.0
+margin_left = 28.0
+margin_top = 17.0
+margin_right = 178.0
+margin_bottom = 167.0
 focus_mode = 0
 custom_fonts/font = ExtResource( 3 )
 custom_styles/hover = ExtResource( 8 )
@@ -80,10 +82,10 @@ __meta__ = {
 }
 
 [node name="it2" type="Button" parent="Items"]
-margin_left = 277.0
-margin_top = 11.0
-margin_right = 387.0
-margin_bottom = 121.0
+margin_left = 174.0
+margin_top = 16.0
+margin_right = 324.0
+margin_bottom = 166.0
 focus_mode = 0
 custom_fonts/font = ExtResource( 3 )
 custom_styles/hover = ExtResource( 8 )
@@ -98,10 +100,10 @@ __meta__ = {
 }
 
 [node name="it3" type="Button" parent="Items"]
-margin_left = 378.0
-margin_top = 12.0
-margin_right = 488.0
-margin_bottom = 122.0
+margin_left = 323.0
+margin_top = 17.0
+margin_right = 473.0
+margin_bottom = 167.0
 focus_mode = 0
 custom_fonts/font = ExtResource( 3 )
 custom_styles/hover = ExtResource( 8 )
@@ -116,10 +118,10 @@ __meta__ = {
 }
 
 [node name="it4" type="Button" parent="Items"]
-margin_left = 484.0
-margin_top = 11.0
-margin_right = 594.0
-margin_bottom = 121.0
+margin_left = 470.0
+margin_top = 14.0
+margin_right = 620.0
+margin_bottom = 164.0
 focus_mode = 0
 custom_fonts/font = ExtResource( 3 )
 custom_styles/hover = ExtResource( 8 )
@@ -171,9 +173,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="Items"]
 margin_left = 3.0
-margin_top = 114.0
+margin_top = 165.0
 margin_right = 764.0
-margin_bottom = 178.0
+margin_bottom = 229.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Elije donde utilizar este item.."
@@ -185,35 +187,27 @@ __meta__ = {
 
 [node name="Selector" type="Sprite" parent="Items"]
 modulate = Color( 0.992157, 1, 0.196078, 0.301961 )
-position = Vector2( 18, 61 )
-scale = Vector2( 1.95283, 1.95283 )
+position = Vector2( 103.125, 88.625 )
+scale = Vector2( 2.75, 2.35377 )
 texture = ExtResource( 9 )
 
 [node name="btn_menu" type="Button" parent="."]
-margin_left = 647.0
-margin_top = 13.0
-margin_right = 755.0
-margin_bottom = 123.0
+margin_left = 638.0
+margin_top = 36.0
+margin_right = 748.0
+margin_bottom = 146.0
 custom_fonts/font = ExtResource( 6 )
-custom_styles/hover = ExtResource( 8 )
-custom_styles/pressed = ExtResource( 8 )
-custom_styles/focus = ExtResource( 8 )
-custom_styles/disabled = ExtResource( 8 )
-custom_styles/normal = ExtResource( 8 )
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 14 )
+custom_styles/focus = ExtResource( 12 )
+custom_styles/disabled = ExtResource( 12 )
+custom_styles/normal = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BotonMenu" type="Sprite" parent="btn_menu"]
-position = Vector2( 51, 55 )
-texture = ExtResource( 14 )
-
-[node name="BotonCharacter" type="Sprite" parent="btn_menu"]
-position = Vector2( -576, 51 )
-texture = ExtResource( 12 )
-
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 384, 1135 )
+position = Vector2( 384, 1157 )
 scale = Vector2( 1.07, 1.07 )
 texture = ExtResource( 4 )
 
@@ -227,9 +221,9 @@ texture = ExtResource( 15 )
 
 [node name="Desc" type="Label" parent="."]
 margin_left = 104.0
-margin_top = 963.0
+margin_top = 985.0
 margin_right = 665.0
-margin_bottom = 1290.0
+margin_bottom = 1312.0
 custom_colors/font_color = Color( 0.380392, 0, 0, 1 )
 custom_fonts/font = ExtResource( 7 )
 text = "Una habitacion muy muy oscura, repleta de abundante oscuridad"
@@ -240,6 +234,20 @@ __meta__ = {
 }
 
 [node name="Tween" type="Tween" parent="Desc"]
+
+[node name="roomTitle" type="Label" parent="."]
+margin_left = 3.0
+margin_top = 1309.0
+margin_right = 764.0
+margin_bottom = 1372.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "r000 - nombre de room"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Options" type="CenterContainer" parent="."]
 margin_top = 1267.0
