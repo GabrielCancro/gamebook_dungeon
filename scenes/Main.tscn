@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://font/button_main.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scenes/Main.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://prefab/ClickArea.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/ui/btn_main_style_1.tres" type="StyleBox" id=6]
 [ext_resource path="res://assets/ui/btn_main_style_1p.tres" type="StyleBox" id=7]
+[ext_resource path="res://panels/Locks.tscn" type="PackedScene" id=8]
 
 [sub_resource type="DynamicFont" id=2]
 size = 95
@@ -73,6 +74,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="btn_locks" type="Button" parent="."]
+margin_left = 180.0
+margin_top = 736.0
+margin_right = 605.0
+margin_bottom = 845.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = ExtResource( 6 )
+custom_styles/disabled = ExtResource( 6 )
+custom_styles/normal = ExtResource( 6 )
+text = "Cofre Test"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Label" type="Label" parent="."]
 margin_left = 2.0
 margin_right = 763.0
@@ -98,3 +120,6 @@ texture = ExtResource( 4 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Eye"]
 reset_on_save = false
 anims/idle = SubResource( 1 )
+
+[node name="Locks" parent="." instance=ExtResource( 8 )]
+visible = false

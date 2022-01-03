@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/ui/btn_main_style_1.tres" type="StyleBox" id=1]
 [ext_resource path="res://assets/ui/btn_main_style_1p.tres" type="StyleBox" id=2]
 [ext_resource path="res://font/button_main.tres" type="DynamicFont" id=3]
 [ext_resource path="res://panels/Locks.gd" type="Script" id=4]
+[ext_resource path="res://assets/ui/TextoGrande.png" type="Texture" id=5]
+[ext_resource path="res://font/KELMSCOT.TTF" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 53
+font_data = ExtResource( 6 )
 
 [node name="Locks" type="Node2D"]
 script = ExtResource( 4 )
@@ -11,16 +17,16 @@ script = ExtResource( 4 )
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 768.0
 margin_bottom = 1366.0
-color = Color( 0.27451, 0, 0, 1 )
+color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="btn_quit" type="Button" parent="."]
+[node name="btn_back" type="Button" parent="."]
 margin_left = 180.0
-margin_top = 1230.0
+margin_top = 1105.0
 margin_right = 605.0
-margin_bottom = 1339.0
+margin_bottom = 1214.0
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -33,6 +39,134 @@ custom_styles/focus = ExtResource( 1 )
 custom_styles/disabled = ExtResource( 1 )
 custom_styles/normal = ExtResource( 1 )
 text = "Desistir"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="keys" type="Control" parent="."]
+margin_top = 110.0
+margin_right = 768.0
+margin_bottom = 696.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="t1" type="Node2D" parent="keys"]
+position = Vector2( 220, 250 )
+
+[node name="sprite" type="Sprite" parent="keys/t1"]
+modulate = Color( 0.737255, 0.160784, 0.160784, 1 )
+scale = Vector2( 0.063, 0.052 )
+texture = ExtResource( 5 )
+
+[node name="sprite2" type="Sprite" parent="keys/t1"]
+scale = Vector2( 0.0633284, 0.02 )
+texture = ExtResource( 5 )
+
+[node name="k1" type="Node2D" parent="keys"]
+position = Vector2( 250, 450 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="keys/k1"]
+position = Vector2( 0, -108 )
+scale = Vector2( 0.05, 0.4 )
+texture = ExtResource( 5 )
+
+[node name="Sprite2" type="Sprite" parent="keys/k1"]
+scale = Vector2( 0.08, 0.02 )
+texture = ExtResource( 5 )
+
+[node name="t2" type="Node2D" parent="keys"]
+position = Vector2( 320, 350 )
+
+[node name="sprite" type="Sprite" parent="keys/t2"]
+modulate = Color( 0.737255, 0.160784, 0.160784, 1 )
+scale = Vector2( 0.063, 0.052 )
+texture = ExtResource( 5 )
+
+[node name="sprite2" type="Sprite" parent="keys/t2"]
+scale = Vector2( 0.0633284, 0.02 )
+texture = ExtResource( 5 )
+
+[node name="k2" type="Node2D" parent="keys"]
+position = Vector2( 350, 450 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="keys/k2"]
+position = Vector2( 0, -108 )
+scale = Vector2( 0.05, 0.4 )
+texture = ExtResource( 5 )
+
+[node name="Sprite2" type="Sprite" parent="keys/k2"]
+scale = Vector2( 0.08, 0.02 )
+texture = ExtResource( 5 )
+
+[node name="t3" type="Node2D" parent="keys"]
+position = Vector2( 420, 270 )
+
+[node name="sprite" type="Sprite" parent="keys/t3"]
+modulate = Color( 0.737255, 0.160784, 0.160784, 1 )
+scale = Vector2( 0.063, 0.052 )
+texture = ExtResource( 5 )
+
+[node name="sprite2" type="Sprite" parent="keys/t3"]
+scale = Vector2( 0.0633284, 0.02 )
+texture = ExtResource( 5 )
+
+[node name="k3" type="Node2D" parent="keys"]
+position = Vector2( 450, 450 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="keys/k3"]
+position = Vector2( 0, -108 )
+scale = Vector2( 0.05, 0.4 )
+texture = ExtResource( 5 )
+
+[node name="Sprite2" type="Sprite" parent="keys/k3"]
+scale = Vector2( 0.08, 0.02 )
+texture = ExtResource( 5 )
+
+[node name="t4" type="Node2D" parent="keys"]
+position = Vector2( 520, 320 )
+
+[node name="sprite" type="Sprite" parent="keys/t4"]
+modulate = Color( 0.737255, 0.160784, 0.160784, 1 )
+scale = Vector2( 0.063, 0.052 )
+texture = ExtResource( 5 )
+
+[node name="sprite2" type="Sprite" parent="keys/t4"]
+scale = Vector2( 0.0633284, 0.02 )
+texture = ExtResource( 5 )
+
+[node name="k4" type="Node2D" parent="keys"]
+position = Vector2( 550, 450 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="keys/k4"]
+position = Vector2( 0, -108 )
+scale = Vector2( 0.05, 0.4 )
+texture = ExtResource( 5 )
+
+[node name="Sprite2" type="Sprite" parent="keys/k4"]
+scale = Vector2( 0.08, 0.02 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="."]
+margin_top = 920.0
+margin_right = 768.0
+margin_bottom = 1094.0
+custom_fonts/font = SubResource( 1 )
+text = "Ganzuas: 3"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
