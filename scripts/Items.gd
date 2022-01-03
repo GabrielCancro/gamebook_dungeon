@@ -3,7 +3,7 @@ extends Control
 var item_selected = -1
 var items = []
 var items_data = {
-	"sword": {"sp":"Espada", "icon":preload("res://assets/items/iconEspada.png")},
+	"sword": {"sp":"Espada", "icon":preload("res://assets/items/IconEspada.png")},
 }
 
 func _ready():
