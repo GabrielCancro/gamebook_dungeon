@@ -7,10 +7,12 @@
 [ext_resource path="res://assets/ui/Garb.png" type="Texture" id=5]
 [ext_resource path="res://assets/ui/TextoGrande.png" type="Texture" id=6]
 [ext_resource path="res://rooms/prologo.gd" type="Script" id=7]
-[ext_resource path="res://font/KELMSCOT.TTF" type="DynamicFontData" id=8]
+[ext_resource path="res://font/IMFePIsc28P_0.ttf" type="DynamicFontData" id=8]
 
 [sub_resource type="DynamicFont" id=1]
-size = 37
+size = 48
+extra_spacing_top = -12
+extra_spacing_bottom = -10
 font_data = ExtResource( 8 )
 
 [node name="Prologo" type="Node2D"]
@@ -26,21 +28,21 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 384, 625 )
-scale = Vector2( 1.0729, 1.0729 )
+position = Vector2( 384, 635.508 )
+scale = Vector2( 1.12224, 1.12224 )
 texture = ExtResource( 6 )
 
 [node name="Garb" type="Sprite" parent="."]
-position = Vector2( 384, 144 )
+position = Vector2( 384, 134 )
 texture = ExtResource( 5 )
 
 [node name="Label" type="Label" parent="."]
-margin_top = 152.0
+margin_top = 140.0
 margin_right = 767.0
-margin_bottom = 282.0
+margin_bottom = 270.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 3 )
-text = "Rescata al principe"
+text = "Rescata al príncipe"
 align = 1
 valign = 1
 __meta__ = {
@@ -49,13 +51,13 @@ __meta__ = {
 
 [node name="Desc" type="Label" parent="."]
 margin_left = 64.0
-margin_top = 280.0
+margin_top = 276.0
 margin_right = 677.0
-margin_bottom = 1172.0
+margin_bottom = 1196.0
 rect_pivot_offset = Vector2( 620, 634 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0.196078, 0.196078, 0.196078, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "Una habitacion muy muy oscura, repleta de abundante oscuridad"
+text = "Una habitación muy muy oscura, repleta de abundante oscuridad"
 align = 1
 autowrap = true
 __meta__ = {
@@ -66,9 +68,9 @@ __meta__ = {
 
 [node name="btn_next" type="Button" parent="."]
 margin_left = 329.0
-margin_top = 1200.0
+margin_top = 1219.0
 margin_right = 439.0
-margin_bottom = 1310.0
+margin_bottom = 1329.0
 custom_fonts/font = ExtResource( 2 )
 custom_styles/hover = ExtResource( 4 )
 custom_styles/pressed = ExtResource( 4 )

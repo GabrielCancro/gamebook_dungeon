@@ -10,7 +10,7 @@ func onClick(arg,opt=null):
 	if arg=="menu": $Inventory.show()
 	if arg=="op" and GC.RoomManager.currentRoom.has_method("onOption"): GC.RoomManager.currentRoom.onOption(opt)
 
-func show_desc(text,time=1):
+func show_desc(text,time=2):
 	$Desc.text = text
 	$Options.modulate.a = 0
 	$Options/Tween.stop_all()

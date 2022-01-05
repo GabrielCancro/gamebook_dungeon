@@ -8,6 +8,7 @@ var Inventory = null
 var RoomData = {}
 var screen = Vector2( ProjectSettings.get_setting("display/window/size/width"),  ProjectSettings.get_setting("display/window/size/height") )
 signal colorRectTransition_in_completed
+signal colorRectTransition_out_completed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,4 +32,5 @@ func colorRectTransition():
 		Color(0,0,0,1), Color(0,0,0,0), .2,Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tw.start()
 	yield(tw,"tween_completed")
+	emit_signal("colorRectTransition_out_completed")
 	cr.visible = false

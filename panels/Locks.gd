@@ -2,7 +2,7 @@ extends Node2D
 
 var state
 var key_index
-const max_keys = 4
+const max_keys = 5
 var key
 var trap
 var gan

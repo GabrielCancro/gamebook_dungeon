@@ -23,6 +23,8 @@ func gotoRoom(id):
 	add_child(currentRoom)
 	print(currentRoom.data)
 	currentRoom.data["visited"] = true
+	GC.Game.show_desc("")
+	yield(GC,"colorRectTransition_out_completed")
 	GC.Game.show_desc(currentRoom.data[GC.lang])
 	GC.Game.get_node("roomTitle").text = currentRoom.data.id+" - "+currentRoom.data.name
 	emit_signal("change_room")

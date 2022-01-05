@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/ui/btn_main_style_1p.tres" type="StyleBox" id=1]
+[ext_resource path="res://assets/ui/btn_main_style_1.tres" type="StyleBox" id=2]
+[ext_resource path="res://font/KELMSCOT.TTF" type="DynamicFontData" id=3]
+[ext_resource path="res://font/button_main.tres" type="DynamicFont" id=4]
+[ext_resource path="res://panels/Combat.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 53
+font_data = ExtResource( 3 )
+
+[node name="Combat" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 768.0
+margin_bottom = 1366.0
+color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btn_back" type="Button" parent="."]
+margin_left = 180.0
+margin_top = 1105.0
+margin_right = 605.0
+margin_bottom = 1214.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 1 )
+custom_styles/focus = ExtResource( 2 )
+custom_styles/disabled = ExtResource( 2 )
+custom_styles/normal = ExtResource( 2 )
+text = "Desistir"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_top = 920.0
+margin_right = 768.0
+margin_bottom = 1094.0
+custom_fonts/font = SubResource( 1 )
+text = "Ganzuas: 3"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2( 384, 200 )
+
+[node name="point" type="Node2D" parent="."]
+
+[node name="line" type="Line2D" parent="point"]
+
+[node name="base" type="Line2D" parent="point"]
+points = PoolVector2Array( 62, 166 )
+default_color = Color( 0.905882, 0.105882, 0, 1 )
+
+[node name="Tween" type="Tween" parent="point"]
