@@ -11,7 +11,7 @@ func _ready():
 	pass
 
 func onClickAreaMethod(name):
-	if name=="ClickArea1": GC.RoomManager.gotoRoom("r001")
+	if name=="BackArrow": GC.RoomManager.gotoRoom("r001")
 
 func onOption(opt):
 	print("OPT "+opt)

@@ -17,7 +17,7 @@ func _ready():
 	pass
 
 func onClickAreaMethod(name):
-	if name=="ClickArea1": GC.RoomManager.gotoRoom("r001")
+	if name=="BackArrow": GC.RoomManager.gotoRoom("r001")
 	if name=="ClickGuard": GC.Game.show_desc(dialog[GC.lang],3)
 
 func onOption(opt):

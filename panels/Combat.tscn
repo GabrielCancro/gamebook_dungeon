@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/ui/btn_main_style_1p.tres" type="StyleBox" id=1]
 [ext_resource path="res://assets/ui/btn_main_style_1.tres" type="StyleBox" id=2]
 [ext_resource path="res://font/KELMSCOT.TTF" type="DynamicFontData" id=3]
 [ext_resource path="res://font/button_main.tres" type="DynamicFont" id=4]
 [ext_resource path="res://panels/Combat.gd" type="Script" id=5]
+[ext_resource path="res://assets/ui/arrow.png" type="Texture" id=6]
+[ext_resource path="res://panels/Combat_defense.gd" type="Script" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 53
@@ -43,11 +45,11 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_top = 920.0
+margin_top = 1.0
 margin_right = 768.0
-margin_bottom = 1094.0
+margin_bottom = 175.0
 custom_fonts/font = SubResource( 1 )
-text = "Ganzuas: 3"
+text = "Combat"
 align = 1
 valign = 1
 __meta__ = {
@@ -66,3 +68,82 @@ points = PoolVector2Array( 62, 166 )
 default_color = Color( 0.905882, 0.105882, 0, 1 )
 
 [node name="Tween" type="Tween" parent="point"]
+
+[node name="defense" type="Node2D" parent="."]
+position = Vector2( 384, 900 )
+script = ExtResource( 7 )
+
+[node name="Result" type="Label" parent="defense"]
+margin_left = -384.0
+margin_top = 40.0
+margin_right = 384.0
+margin_bottom = 214.0
+custom_fonts/font = SubResource( 1 )
+text = "Defense"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="defense"]
+
+[node name="b1" type="Button" parent="defense"]
+margin_left = -381.0
+margin_top = -60.0
+margin_right = -181.0
+margin_bottom = 60.0
+rect_pivot_offset = Vector2( 100, 60 )
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 6 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="b2" type="Button" parent="defense"]
+margin_left = -194.0
+margin_top = -60.0
+margin_right = 6.0
+margin_bottom = 60.0
+rect_pivot_offset = Vector2( 100, 60 )
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 6 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="b3" type="Button" parent="defense"]
+margin_left = -6.0
+margin_top = -60.0
+margin_right = 194.0
+margin_bottom = 60.0
+rect_pivot_offset = Vector2( 100, 60 )
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 6 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="b4" type="Button" parent="defense"]
+margin_left = 181.0
+margin_top = -60.0
+margin_right = 381.0
+margin_bottom = 60.0
+rect_pivot_offset = Vector2( 100, 60 )
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 6 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
