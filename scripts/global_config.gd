@@ -6,6 +6,7 @@ var Items = null
 var RoomManager = null
 var Inventory = null
 var RoomData = {}
+var pj_atk = 8
 var screen = Vector2( ProjectSettings.get_setting("display/window/size/width"),  ProjectSettings.get_setting("display/window/size/height") )
 signal colorRectTransition_in_completed
 signal colorRectTransition_out_completed
