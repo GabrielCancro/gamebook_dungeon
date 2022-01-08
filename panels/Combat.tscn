@@ -11,14 +11,14 @@
 [ext_resource path="res://assets/combat/troll.png" type="Texture" id=9]
 [ext_resource path="res://panels/HPBar.tscn" type="PackedScene" id=10]
 
-[sub_resource type="DynamicFont" id=1]
-size = 53
-font_data = ExtResource( 3 )
-
 [sub_resource type="DynamicFont" id=2]
 size = 53
 outline_size = 6
 outline_color = Color( 0.501961, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 53
 font_data = ExtResource( 3 )
 
 [node name="Combat" type="Node2D"]
@@ -59,18 +59,6 @@ position = Vector2( 384, 70 )
 [node name="HPPlayer" parent="." instance=ExtResource( 10 )]
 position = Vector2( 384, 1024 )
 scale = Vector2( 1.2, 0.5 )
-
-[node name="Label" type="Label" parent="."]
-margin_left = 31.0
-margin_top = 652.0
-margin_right = 435.0
-margin_bottom = 730.0
-custom_fonts/font = SubResource( 1 )
-text = "Combat"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="enemy" type="Sprite" parent="."]
 position = Vector2( 471, 400 )
@@ -183,6 +171,18 @@ enabled_focus_mode = 0
 icon = ExtResource( 6 )
 flat = true
 expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 31.0
+margin_top = 652.0
+margin_right = 517.0
+margin_bottom = 730.0
+custom_fonts/font = SubResource( 1 )
+text = "Combat -----"
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

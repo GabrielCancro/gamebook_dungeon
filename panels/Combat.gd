@@ -39,8 +39,9 @@ func onEndAttack(hits):
 	$HPEnemy.damage(GC.pj_atk*hits)
 	yield($HPEnemy,"end_animation")
 	yield(get_tree().create_timer(1),"timeout")
+	if end_combat: return
 	$Label.text = "Defiendete"
-	yield(get_tree().create_timer(.5),"timeout")
+	yield(get_tree().create_timer(.5),"timeout")	
 	$defense.start_defense()
 
 func onEndDefense(hits):
@@ -48,8 +49,9 @@ func onEndDefense(hits):
 	$HPPlayer.damage(enemy_data.atk*hits*0.7)
 	yield($HPPlayer,"end_animation")
 	yield(get_tree().create_timer(1),"timeout")
+	if end_combat: return
 	$Label.text = "Tu atacas"
-	yield(get_tree().create_timer(.5),"timeout")
+	yield(get_tree().create_timer(.5),"timeout")	
 	$atack.start_atack()
 
 func onVictory():
