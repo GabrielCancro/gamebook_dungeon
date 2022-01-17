@@ -8,6 +8,8 @@ var rooms = {
 	"r002": preload("res://rooms/Room_002.tscn").instance(),
 	"r003": preload("res://rooms/Room_003.tscn").instance(),
 	"r004": preload("res://rooms/Room_004.tscn").instance(),
+	"r005": preload("res://rooms/Room_005.tscn").instance(),
+	"r006": preload("res://rooms/Room_006.tscn").instance(),
 }
 
 func _ready():

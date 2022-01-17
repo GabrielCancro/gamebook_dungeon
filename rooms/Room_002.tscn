@@ -1,16 +1,25 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://prefab/BackArrow.tscn" type="PackedScene" id=1]
+[ext_resource path="res://rooms/Room_002.jpg" type="Texture" id=2]
 [ext_resource path="res://rooms/Room_002.gd" type="Script" id=3]
-[ext_resource path="res://rooms/Room_001.jpg" type="Texture" id=4]
+[ext_resource path="res://prefab/ClickArea.tscn" type="PackedScene" id=4]
 
 [node name="Room_002" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 225, 1182 )
-scale = Vector2( 2.45642, 2.45642 )
-texture = ExtResource( 4 )
+position = Vector2( 359.5, 697.175 )
+scale = Vector2( 0.42, 0.42 )
+texture = ExtResource( 2 )
 
 [node name="BackArrow" parent="." instance=ExtResource( 1 )]
-position = Vector2( 417, 795 )
+position = Vector2( 417, 887 )
+
+[node name="CA_ZonaOscura" parent="." instance=ExtResource( 4 )]
+position = Vector2( 270, 704 )
+scale = Vector2( 8.246, 8.39 )
+
+[node name="CA_Comedor" parent="." instance=ExtResource( 4 )]
+position = Vector2( 686, 628 )
+scale = Vector2( 8.246, 10.101 )

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://prefab/BackArrow.tscn" type="PackedScene" id=1]
+[ext_resource path="res://rooms/Room_005.gd" type="Script" id=2]
+[ext_resource path="res://rooms/Room_002.jpg" type="Texture" id=3]
+
+[node name="Room_005" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 629, 516 )
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 3 )
+
+[node name="BackArrow" parent="." instance=ExtResource( 1 )]
+position = Vector2( 515, 849 )
+rotation = -0.466003
