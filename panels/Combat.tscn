@@ -137,7 +137,6 @@ default_color = Color( 0.905882, 0.105882, 0, 1 )
 [node name="Tween" type="Tween" parent="atack"]
 
 [node name="defense" type="Node2D" parent="."]
-visible = false
 position = Vector2( 384, 900 )
 script = ExtResource( 7 )
 
