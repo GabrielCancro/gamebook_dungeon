@@ -33,6 +33,13 @@ tracks/0/keys = {
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
 
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 768.0
+margin_bottom = 1900.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="btn_start" type="Button" parent="."]
 margin_left = 180.0
 margin_top = 1027.0
@@ -97,6 +104,10 @@ __meta__ = {
 }
 
 [node name="btn_combat" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
 margin_left = 180.0
 margin_top = 823.0
 margin_right = 605.0
@@ -139,7 +150,7 @@ position = Vector2( 398, 568 )
 scale = Vector2( 16, 8 )
 
 [node name="Eye" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0.392157 )
+modulate = Color( 0, 0, 0, 0.392157 )
 position = Vector2( 398, 568 )
 texture = ExtResource( 4 )
 
