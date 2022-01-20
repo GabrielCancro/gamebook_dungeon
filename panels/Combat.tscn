@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/ui/btn_main_style_1p.tres" type="StyleBox" id=1]
 [ext_resource path="res://assets/ui/btn_main_style_1.tres" type="StyleBox" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://panels/Combat_atack.gd" type="Script" id=8]
 [ext_resource path="res://assets/combat/troll.png" type="Texture" id=9]
 [ext_resource path="res://panels/HPBar.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/ui/puño.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=2]
 size = 53
@@ -33,10 +34,10 @@ __meta__ = {
 }
 
 [node name="btn_back" type="Button" parent="."]
-margin_left = 180.0
-margin_top = 1105.0
-margin_right = 605.0
-margin_bottom = 1214.0
+margin_left = 176.0
+margin_top = 1216.0
+margin_right = 601.0
+margin_bottom = 1325.0
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -57,8 +58,8 @@ __meta__ = {
 position = Vector2( 384, 70 )
 
 [node name="HPPlayer" parent="." instance=ExtResource( 10 )]
-position = Vector2( 384, 1024 )
-scale = Vector2( 1.2, 0.5 )
+position = Vector2( 384, 1097 )
+scale = Vector2( 0.591, 1 )
 
 [node name="enemy" type="Sprite" parent="."]
 position = Vector2( 471, 400 )
@@ -186,3 +187,12 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Puño" type="Sprite" parent="."]
+position = Vector2( 674, 1086 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 11 )
+
+[node name="Puño2" type="Sprite" parent="."]
+position = Vector2( 92, 1086 )
+texture = ExtResource( 11 )
