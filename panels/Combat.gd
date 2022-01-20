@@ -18,6 +18,8 @@ func _ready():
 func startMinigame():
 	visible = true
 	end_combat = false
+	$weapons/Hands.visible = (GC.pj_weapon=="hand")
+	$weapons/Sword.visible = (GC.pj_weapon=="sword")
 	$Label.text = "Preparate"
 	$btn_back.text = "Desistir"
 	$enemy.modulate = Color(1,1,1,1)
@@ -30,13 +32,14 @@ func startMinigame():
 func endMinigame():
 	visible = false
 	end_combat = true
+	queue_free()
 
 func onClick(arg):
 	if arg=="back": endMinigame()
 
 func onEndAttack(hits):
 	if end_combat: return
-	$HPEnemy.damage(GC.pj_atk*hits)
+	$HPEnemy.damage(GC.getPjDamage()*hits)
 	yield($HPEnemy,"end_animation")
 	yield(get_tree().create_timer(1),"timeout")
 	if end_combat: return
@@ -50,8 +53,8 @@ func onEndDefense(hits):
 	yield($HPPlayer,"end_animation")
 	yield(get_tree().create_timer(1),"timeout")
 	if end_combat: return
-	$Label.text = "Tu atacas"
-	yield(get_tree().create_timer(.5),"timeout")	
+	$Label.text = "Tu turno\nde golpear"
+	yield(get_tree().create_timer(.5),"timeout")
 	$atack.start_atack()
 
 func onVictory():

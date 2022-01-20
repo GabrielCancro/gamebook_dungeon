@@ -1,14 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://font/button_main.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scenes/Main.gd" type="Script" id=2]
 [ext_resource path="res://font/KELMSCOT.TTF" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/eye.png" type="Texture" id=4]
-[ext_resource path="res://prefab/ClickArea.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/ui/btn_main_style_1.tres" type="StyleBox" id=6]
 [ext_resource path="res://assets/ui/btn_main_style_1p.tres" type="StyleBox" id=7]
-[ext_resource path="res://panels/Locks.tscn" type="PackedScene" id=8]
-[ext_resource path="res://panels/Combat.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=2]
 size = 95
@@ -27,24 +24,63 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0.392157 ), Color( 1, 1, 1, 0.784314 ), Color( 1, 1, 1, 0.392157 ) ]
+"values": [ Color( 0, 0, 0, 0.392157 ), Color( 0, 0, 0, 0.784314 ), Color( 0, 0, 0, 0.392157 ) ]
 }
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
+margin_top = 1.0
 margin_right = 768.0
-margin_bottom = 1900.0
+margin_bottom = 1901.0
+color = Color( 0.72549, 0.72549, 0.72549, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="btn_start" type="Button" parent="."]
-margin_left = 180.0
-margin_top = 1027.0
-margin_right = 605.0
-margin_bottom = 1136.0
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 0.263
+margin_left = 66.0
+margin_top = 76.0
+margin_right = 685.0
+margin_bottom = 291.0
+custom_colors/font_color = Color( 0.121569, 0.121569, 0.121569, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "GAMEBOOK
+03/01/2022"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Eye" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.392157 )
+position = Vector2( 384, 450 )
+texture = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Eye"]
+reset_on_save = false
+anims/idle = SubResource( 1 )
+
+[node name="VBox" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 207.0
+margin_top = 614.0
+margin_right = 568.0
+margin_bottom = 1320.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btn_start" type="Button" parent="VBox"]
+margin_right = 350.0
+margin_bottom = 100.0
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -61,11 +97,70 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="btn_quit" type="Button" parent="."]
-margin_left = 180.0
-margin_top = 1142.0
-margin_right = 605.0
-margin_bottom = 1251.0
+[node name="btn_locks" type="Button" parent="VBox"]
+margin_top = 120.0
+margin_right = 350.0
+margin_bottom = 220.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = ExtResource( 6 )
+custom_styles/disabled = ExtResource( 6 )
+custom_styles/normal = ExtResource( 6 )
+text = "Cerraduras"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btn_combat" type="Button" parent="VBox"]
+margin_top = 240.0
+margin_right = 350.0
+margin_bottom = 340.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = ExtResource( 6 )
+custom_styles/disabled = ExtResource( 6 )
+custom_styles/normal = ExtResource( 6 )
+text = "Combat Hands"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btn_combat2" type="Button" parent="VBox"]
+margin_top = 360.0
+margin_right = 350.0
+margin_bottom = 460.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = ExtResource( 6 )
+custom_styles/disabled = ExtResource( 6 )
+custom_styles/normal = ExtResource( 6 )
+text = "Combat Sword"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btn_quit" type="Button" parent="VBox"]
+margin_top = 580.0
+margin_right = 350.0
+margin_bottom = 680.0
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -81,85 +176,3 @@ text = "Abandonar"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="btn_locks" type="Button" parent="."]
-margin_left = 180.0
-margin_top = 706.0
-margin_right = 605.0
-margin_bottom = 815.0
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 1 )
-custom_styles/hover = ExtResource( 7 )
-custom_styles/pressed = ExtResource( 7 )
-custom_styles/focus = ExtResource( 6 )
-custom_styles/disabled = ExtResource( 6 )
-custom_styles/normal = ExtResource( 6 )
-text = "Cofre Test"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="btn_combat" type="Button" parent="."]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = 180.0
-margin_top = 823.0
-margin_right = 605.0
-margin_bottom = 932.0
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 1 )
-custom_styles/hover = ExtResource( 7 )
-custom_styles/pressed = ExtResource( 7 )
-custom_styles/focus = ExtResource( 6 )
-custom_styles/disabled = ExtResource( 6 )
-custom_styles/normal = ExtResource( 6 )
-text = "Combat Test"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="."]
-anchor_right = 1.0
-anchor_bottom = 0.263
-margin_left = 66.0
-margin_top = 76.0
-margin_right = 685.0
-margin_bottom = 291.0
-custom_colors/font_color = Color( 0.823529, 0.823529, 0.823529, 1 )
-custom_fonts/font = SubResource( 2 )
-text = "GAMEBOOK
-03/01/2022"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ClickArea" parent="." instance=ExtResource( 5 )]
-position = Vector2( 398, 568 )
-scale = Vector2( 16, 8 )
-
-[node name="Eye" type="Sprite" parent="."]
-modulate = Color( 0, 0, 0, 0.392157 )
-position = Vector2( 398, 568 )
-texture = ExtResource( 4 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Eye"]
-reset_on_save = false
-anims/idle = SubResource( 1 )
-
-[node name="Locks" parent="." instance=ExtResource( 8 )]
-visible = false
-
-[node name="Combat" parent="." instance=ExtResource( 9 )]
-visible = false

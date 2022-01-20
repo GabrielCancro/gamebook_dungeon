@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/ui/btn_main_style_1p.tres" type="StyleBox" id=1]
 [ext_resource path="res://assets/ui/btn_main_style_1.tres" type="StyleBox" id=2]
@@ -11,15 +11,16 @@
 [ext_resource path="res://assets/combat/troll.png" type="Texture" id=9]
 [ext_resource path="res://panels/HPBar.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/ui/puño.png" type="Texture" id=11]
+[ext_resource path="res://assets/items/FullEspada.png" type="Texture" id=12]
+
+[sub_resource type="DynamicFont" id=1]
+size = 53
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 53
 outline_size = 6
 outline_color = Color( 0.501961, 0, 0, 1 )
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=1]
-size = 53
 font_data = ExtResource( 3 )
 
 [node name="Combat" type="Node2D"]
@@ -58,8 +59,35 @@ __meta__ = {
 position = Vector2( 384, 70 )
 
 [node name="HPPlayer" parent="." instance=ExtResource( 10 )]
-position = Vector2( 384, 1097 )
-scale = Vector2( 0.591, 1 )
+position = Vector2( 384, 972 )
+scale = Vector2( 1.25, 0.5 )
+
+[node name="weapons" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0.862745 )
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hands" type="Node2D" parent="weapons"]
+
+[node name="RHand" type="Sprite" parent="weapons/Hands"]
+position = Vector2( 731, 1139 )
+rotation = 2.0944
+scale = Vector2( 1, -1 )
+texture = ExtResource( 11 )
+
+[node name="LHand" type="Sprite" parent="weapons/Hands"]
+position = Vector2( 41, 1142 )
+rotation = 1.0472
+texture = ExtResource( 11 )
+
+[node name="Sword" type="Sprite" parent="weapons"]
+position = Vector2( 512, 1144 )
+rotation = -3.85194
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 12 )
 
 [node name="enemy" type="Sprite" parent="."]
 position = Vector2( 471, 400 )
@@ -68,13 +96,24 @@ texture = ExtResource( 9 )
 
 [node name="Tween" type="Tween" parent="enemy"]
 
+[node name="Label" type="Label" parent="."]
+margin_left = 24.0
+margin_top = 648.0
+margin_right = 392.0
+margin_bottom = 773.0
+custom_fonts/font = SubResource( 1 )
+text = "Tu Turno
+De Golpear"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="lb_atk" type="Label" parent="."]
-margin_left = 175.0
-margin_top = 125.0
-margin_right = 275.0
-margin_bottom = 225.0
+margin_top = 864.0
+margin_right = 768.0
+margin_bottom = 970.0
 custom_fonts/font = SubResource( 2 )
-text = "0"
+text = "Ataque ( 8 x 0 )"
 align = 1
 valign = 1
 __meta__ = {
@@ -98,16 +137,17 @@ default_color = Color( 0.905882, 0.105882, 0, 1 )
 [node name="Tween" type="Tween" parent="atack"]
 
 [node name="defense" type="Node2D" parent="."]
+visible = false
 position = Vector2( 384, 900 )
 script = ExtResource( 7 )
 
 [node name="lb" type="Label" parent="defense"]
-margin_left = -50.0
+margin_left = -400.0
 margin_top = -113.0
-margin_right = 50.0
+margin_right = 400.0
 margin_bottom = -35.0
 custom_fonts/font = SubResource( 1 )
-text = "0"
+text = "PERFECT"
 align = 1
 valign = 1
 __meta__ = {
@@ -175,24 +215,3 @@ expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Label" type="Label" parent="."]
-margin_left = 31.0
-margin_top = 652.0
-margin_right = 517.0
-margin_bottom = 730.0
-custom_fonts/font = SubResource( 1 )
-text = "Combat -----"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Puño" type="Sprite" parent="."]
-position = Vector2( 674, 1086 )
-scale = Vector2( -1, 1 )
-texture = ExtResource( 11 )
-
-[node name="Puño2" type="Sprite" parent="."]
-position = Vector2( 92, 1086 )
-texture = ExtResource( 11 )

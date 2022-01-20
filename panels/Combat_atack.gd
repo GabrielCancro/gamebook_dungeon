@@ -20,7 +20,7 @@ func _ready():
 func start_atack():
 	cnt = 3	
 	hits = 0
-	lb.text = "x"+str(hits)
+	updateHitLabel()
 	repos_circle()
 
 func stop_atack():
@@ -77,11 +77,14 @@ func stop_circles():
 
 func success():
 	hits += 1
-	lb.text = "x"+str(hits)
+	updateHitLabel()
 	$line.default_color = Color(0,1,0,1)
 	$base.default_color = Color(0,1,0,1)
 	module = 150/2
 	update_circle()
+
+func updateHitLabel():
+	lb.text = "Ataque ( "+str(GC.getPjDamage())+" x "+str(hits)+" )"
 
 func fail():
 	print("FAIL")

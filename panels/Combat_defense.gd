@@ -48,13 +48,15 @@ func onClick(btn,i):
 	if i == list.pop_front(): 
 		animate(btn)
 		$lb.text = "x"+str(list.size())
-		if list.size() == 0: stop_defense()
+		if list.size() == 0: 
+			$lb.text = "P E R F E C T"
+			stop_defense()
 	else: 
 		list.append(i)
 		stop_defense()
 
 func animate(btn):
 	btn.modulate = Color(1,0,0,1)
-	$Tween.interpolate_property(btn,"modulate",Color(1,.1,.1,1),Color(.2,.2,.2,.5),.7,Tween.TRANS_QUAD,Tween.EASE_IN)
+	$Tween.interpolate_property(btn,"modulate",Color(1,.1,.1,1),Color(.2,.2,.2,.5),.4,Tween.TRANS_LINEAR,Tween.EASE_IN)
 	$Tween.start()
 	yield($Tween,"tween_all_completed")

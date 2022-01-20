@@ -6,7 +6,11 @@ var Items = null
 var RoomManager = null
 var Inventory = null
 var RoomData = {}
-var pj_atk = 8
+var pj_weapon = "sword"
+var weapons = {
+	"hand": 8,
+	"sword": 18
+}
 var screen = Vector2( ProjectSettings.get_setting("display/window/size/width"),  ProjectSettings.get_setting("display/window/size/height") )
 signal colorRectTransition_in_completed
 signal colorRectTransition_out_completed
@@ -35,3 +39,14 @@ func colorRectTransition():
 	yield(tw,"tween_completed")
 	emit_signal("colorRectTransition_out_completed")
 	cr.visible = false
+
+func getPjDamage():
+	return weapons[pj_weapon]
+
+func startMinigame(minigameName):
+	var MG
+	if minigameName == "combat": MG = preload("res://Panels/Combat.tscn").instance()
+	if minigameName == "locks": MG = preload("res://Panels/Locks.tscn").instance()
+	get_node("/root").add_child(MG)
+	MG.startMinigame()
+	

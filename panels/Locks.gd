@@ -27,6 +27,7 @@ func startMinigame():
 func endMinigame():
 	set_process(false)
 	visible = false
+	queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
