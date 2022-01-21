@@ -66,6 +66,10 @@ func onKeySuccess():
 
 func onKeyBrocken():
 	print("BROKEN")
+	var ganzua = get_node("Control/G"+str(gan))
+	$Control/Tween.interpolate_property(ganzua,"modulate",Color(1,.7,.7,1),Color(1,1,1,0),.7,Tween.TRANS_LINEAR,Tween.EASE_OUT)
+	$Control/Tween.start()
+	
 	gan -= 1
 	if gan <= 0: 
 		$Label.text = "Sin Ganzuas!"

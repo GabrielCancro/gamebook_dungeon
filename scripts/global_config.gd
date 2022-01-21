@@ -45,8 +45,8 @@ func getPjDamage():
 
 func startMinigame(minigameName):
 	var MG
-	if minigameName == "combat": MG = preload("res://Panels/Combat.tscn").instance()
-	if minigameName == "locks": MG = preload("res://Panels/Locks.tscn").instance()
+	if minigameName == "combat": MG = preload("res://panels/Combat.tscn").instance()
+	if minigameName == "locks": MG = preload("res://panels/Locks.tscn").instance()
 	get_node("/root").add_child(MG)
 	MG.startMinigame()
 	
