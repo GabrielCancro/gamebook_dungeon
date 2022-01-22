@@ -5,7 +5,7 @@
 [ext_resource path="res://font/KELMSCOT.TTF" type="DynamicFontData" id=3]
 [ext_resource path="res://font/button_main.tres" type="DynamicFont" id=4]
 [ext_resource path="res://panels/Combat.gd" type="Script" id=5]
-[ext_resource path="res://assets/ui/arrow.png" type="Texture" id=6]
+[ext_resource path="res://assets/combat/Escudo.png" type="Texture" id=6]
 [ext_resource path="res://panels/Combat_defense.gd" type="Script" id=7]
 [ext_resource path="res://panels/Combat_atack.gd" type="Script" id=8]
 [ext_resource path="res://assets/combat/troll.png" type="Texture" id=9]
@@ -98,9 +98,9 @@ texture = ExtResource( 9 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = 24.0
-margin_top = 648.0
+margin_top = 609.0
 margin_right = 392.0
-margin_bottom = 773.0
+margin_bottom = 734.0
 custom_fonts/font = SubResource( 1 )
 text = "Tu Turno
 De Golpear"
@@ -142,9 +142,9 @@ script = ExtResource( 7 )
 
 [node name="lb" type="Label" parent="defense"]
 margin_left = -400.0
-margin_top = -113.0
+margin_top = -167.0
 margin_right = 400.0
-margin_bottom = -35.0
+margin_bottom = -89.0
 custom_fonts/font = SubResource( 1 )
 text = "PERFECT"
 align = 1
@@ -157,9 +157,10 @@ __meta__ = {
 
 [node name="b1" type="Button" parent="defense"]
 margin_left = -381.0
-margin_top = -60.0
+margin_top = -121.0
 margin_right = -181.0
-margin_bottom = 60.0
+margin_bottom = 99.0
+rect_scale = Vector2( 0.7, 0.7 )
 rect_pivot_offset = Vector2( 100, 60 )
 focus_mode = 0
 enabled_focus_mode = 0
@@ -172,9 +173,10 @@ __meta__ = {
 
 [node name="b2" type="Button" parent="defense"]
 margin_left = -194.0
-margin_top = -60.0
+margin_top = -121.0
 margin_right = 6.0
-margin_bottom = 60.0
+margin_bottom = 99.0
+rect_scale = Vector2( 0.7, 0.7 )
 rect_pivot_offset = Vector2( 100, 60 )
 focus_mode = 0
 enabled_focus_mode = 0
@@ -187,9 +189,10 @@ __meta__ = {
 
 [node name="b3" type="Button" parent="defense"]
 margin_left = -6.0
-margin_top = -60.0
+margin_top = -121.0
 margin_right = 194.0
-margin_bottom = 60.0
+margin_bottom = 99.0
+rect_scale = Vector2( 0.7, 0.7 )
 rect_pivot_offset = Vector2( 100, 60 )
 focus_mode = 0
 enabled_focus_mode = 0
@@ -202,9 +205,10 @@ __meta__ = {
 
 [node name="b4" type="Button" parent="defense"]
 margin_left = 181.0
-margin_top = -60.0
+margin_top = -121.0
 margin_right = 381.0
-margin_bottom = 60.0
+margin_bottom = 99.0
+rect_scale = Vector2( 0.7, 0.7 )
 rect_pivot_offset = Vector2( 100, 60 )
 focus_mode = 0
 enabled_focus_mode = 0
