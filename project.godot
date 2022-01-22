@@ -23,7 +23,6 @@ GC="*res://scripts/global_config.gd"
 
 window/size/width=768
 window/size/height=1366
-window/size/fullscreen=true
 window/size/test_width=384
 window/size/test_height=683
 window/handheld/orientation="portrait"

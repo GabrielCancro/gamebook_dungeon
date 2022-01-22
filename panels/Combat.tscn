@@ -10,7 +10,7 @@
 [ext_resource path="res://panels/Combat_atack.gd" type="Script" id=8]
 [ext_resource path="res://assets/combat/troll.png" type="Texture" id=9]
 [ext_resource path="res://panels/HPBar.tscn" type="PackedScene" id=10]
-[ext_resource path="res://assets/ui/puño.png" type="Texture" id=11]
+[ext_resource path="res://assets/ui/punio.png" type="Texture" id=11]
 [ext_resource path="res://assets/items/FullEspada.png" type="Texture" id=12]
 
 [sub_resource type="DynamicFont" id=1]
@@ -85,7 +85,7 @@ texture = ExtResource( 11 )
 
 [node name="Sword" type="Sprite" parent="weapons"]
 position = Vector2( 512, 1144 )
-rotation = -3.85194
+rotation = 2.43125
 scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 12 )
 
