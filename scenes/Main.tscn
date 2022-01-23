@@ -79,7 +79,6 @@ __meta__ = {
 }
 
 [node name="btn_start" type="Button" parent="VBox"]
-visible = false
 margin_right = 350.0
 margin_bottom = 100.0
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )

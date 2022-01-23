@@ -4,6 +4,7 @@ var item_selected = -1
 var items = []
 var items_data = {
 	"sword": {"sp":"Espada", "icon":preload("res://assets/items/IconEspada.png")},
+	"torch": {"sp":"Antorcha", "icon":preload("res://assets/items/IconAntorcha.png")},
 }
 
 func _ready():
@@ -53,7 +54,7 @@ func _input(event):
 func onItemUse(pos):
 	print("USE IN ",pos)
 	$Label.visible = false
-	$Selector.visible = false	
+	$Selector.visible = false
 	yield(get_tree().create_timer(.05), "timeout")
 	if item_selected == -1: return
 	GC.showFloatText("No sirve\nde nada aqui..", pos)

@@ -2,21 +2,21 @@
 
 [ext_resource path="res://prefab/ClickArea.tscn" type="PackedScene" id=1]
 [ext_resource path="res://rooms/Room_003.gd" type="Script" id=2]
-[ext_resource path="res://rooms/Room_001.jpg" type="Texture" id=3]
+[ext_resource path="res://rooms/Room_003.jpg" type="Texture" id=3]
 [ext_resource path="res://prefab/BackArrow.tscn" type="PackedScene" id=4]
 
 [node name="Room_003" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 196, 213 )
-scale = Vector2( 2.16024, 2.16024 )
+position = Vector2( 382, 614.2 )
+scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 3 )
 
 [node name="ClickGuard" parent="." instance=ExtResource( 1 )]
-position = Vector2( 640, 551 )
-scale = Vector2( 9.848, 18.724 )
+position = Vector2( 369, 361.2 )
+scale = Vector2( 15.166, 18.724 )
 
 [node name="BackArrow" parent="." instance=ExtResource( 4 )]
-position = Vector2( 135, 830 )
+position = Vector2( 129, 861 )
 rotation = 0.517309

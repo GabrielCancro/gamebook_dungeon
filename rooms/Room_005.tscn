@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://prefab/BackArrow.tscn" type="PackedScene" id=1]
 [ext_resource path="res://rooms/Room_005.gd" type="Script" id=2]
 [ext_resource path="res://rooms/Room_002.jpg" type="Texture" id=3]
+[ext_resource path="res://prefab/ClickArea.tscn" type="PackedScene" id=4]
 
 [node name="Room_005" type="Node2D"]
 script = ExtResource( 2 )
@@ -15,3 +16,7 @@ texture = ExtResource( 3 )
 [node name="BackArrow" parent="." instance=ExtResource( 1 )]
 position = Vector2( 515, 849 )
 rotation = -0.466003
+
+[node name="CA_ItemTorch" parent="." instance=ExtResource( 4 )]
+position = Vector2( 380, 551 )
+scale = Vector2( 25, 25 )
