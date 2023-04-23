@@ -93,9 +93,6 @@ custom_styles/focus = ExtResource( 6 )
 custom_styles/disabled = ExtResource( 6 )
 custom_styles/normal = ExtResource( 6 )
 text = "Comenzar"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="btn_locks" type="Button" parent="VBox"]
 margin_top = 120.0
@@ -156,6 +153,23 @@ text = "Combat Sword"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="btn_adventure" type="Button" parent="VBox"]
+margin_top = 472.0
+margin_right = 350.0
+margin_bottom = 572.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = ExtResource( 6 )
+custom_styles/disabled = ExtResource( 6 )
+custom_styles/normal = ExtResource( 6 )
+text = "AVENTURA"
 
 [node name="btn_quit" type="Button" parent="VBox"]
 margin_top = 580.0

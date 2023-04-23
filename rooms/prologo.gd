@@ -27,7 +27,7 @@ func _ready():
 	$ColorRect/Tween.start()
 	yield($ColorRect/Tween,"tween_all_completed")
 	
-	$ColorRect.visible = false	
+	$ColorRect.visible = false
 	$Desc/Tween.interpolate_property($Desc,"percent_visible",0,1,12,Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	$Desc/Tween.start()
 	yield(get_tree().create_timer(1), "timeout")

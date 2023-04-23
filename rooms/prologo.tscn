@@ -45,9 +45,6 @@ custom_fonts/font = ExtResource( 3 )
 text = "Rescata al príncipe"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Desc" type="Label" parent="."]
 margin_left = 64.0
@@ -60,9 +57,6 @@ custom_fonts/font = SubResource( 1 )
 text = "Una habitación muy muy oscura, repleta de abundante oscuridad"
 align = 1
 autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Tween" type="Tween" parent="Desc"]
 

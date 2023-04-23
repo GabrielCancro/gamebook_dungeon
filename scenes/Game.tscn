@@ -29,9 +29,6 @@ script = ExtResource( 1 )
 margin_right = 768.0
 margin_bottom = 1900.0
 mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="RoomManager" type="Node2D" parent="."]
 script = ExtResource( 2 )
@@ -40,9 +37,6 @@ script = ExtResource( 2 )
 margin_right = 768.0
 margin_bottom = 966.0
 color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Tween" type="Tween" parent="ColorRect"]
 

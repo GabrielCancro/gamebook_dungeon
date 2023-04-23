@@ -1,0 +1,205 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://font/IMFePIsc28P_0.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://font/font_title.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/ui/TextoGrande.png" type="Texture" id=3]
+[ext_resource path="res://assets/ui/Garb.png" type="Texture" id=4]
+[ext_resource path="res://assets/ui/TextoChico.png" type="Texture" id=5]
+[ext_resource path="res://scenes/Adventure.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+extra_spacing_top = -12
+extra_spacing_bottom = -10
+font_data = ExtResource( 1 )
+
+[node name="Adventure" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 384, 683 )
+script = ExtResource( 6 )
+
+[node name="Narrator" type="Control" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -384.0
+margin_top = 128.0
+margin_right = 384.0
+margin_bottom = 601.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Narrator"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+patch_margin_left = 326
+patch_margin_top = 492
+patch_margin_right = 333
+patch_margin_bottom = 510
+
+[node name="Desc" type="Label" parent="Narrator"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 52.0
+margin_top = 64.0
+margin_right = -65.0
+margin_bottom = -582.0
+rect_pivot_offset = Vector2( 620, 634 )
+custom_colors/font_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Hay dos guardias heridos. En el fondo se ve la entrada a la cueva."
+align = 1
+autowrap = true
+
+[node name="Tween" type="Tween" parent="Narrator/Desc"]
+
+[node name="Label" type="Label" parent="Narrator"]
+margin_left = -1304.0
+margin_top = 109.0
+margin_right = -537.0
+margin_bottom = 239.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Rescata al príncipe"
+align = 1
+valign = 1
+
+[node name="Garb" type="TextureRect" parent="Narrator"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -1333.5
+margin_top = 96.0
+margin_right = -1274.5
+margin_bottom = 155.0
+texture = ExtResource( 4 )
+
+[node name="Desitions" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -384.0
+margin_top = -365.0
+margin_right = 384.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Desitions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+patch_margin_top = 374
+patch_margin_bottom = 18
+
+[node name="Options" type="VBoxContainer" parent="Desitions/NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 36.0
+margin_top = 40.0
+margin_right = -34.0
+margin_bottom = 188.0
+rect_min_size = Vector2( 670, 500 )
+custom_constants/separation = 16
+
+[node name="Desc" type="Label" parent="Desitions/NinePatchRect/Options"]
+margin_right = 698.0
+margin_bottom = 123.0
+rect_pivot_offset = Vector2( 620, 634 )
+custom_colors/font_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Acercarme al Guardia y pedirle una explicacón de lo que sucedio ese dia tan terrible"
+autowrap = true
+
+[node name="bg" type="ColorRect" parent="Desitions/NinePatchRect/Options/Desc"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 384, 683 )
+mouse_filter = 2
+color = Color( 0.286275, 0.729412, 0.776471, 0.207843 )
+
+[node name="Desc2" type="Label" parent="Desitions/NinePatchRect/Options/Desc"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 620, 634 )
+custom_colors/font_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Acercarme al Guardia y pedirle una explicacón de lo que sucedio ese dia tan terrible"
+autowrap = true
+
+[node name="Desc2" type="Label" parent="Desitions/NinePatchRect/Options"]
+margin_top = 139.0
+margin_right = 698.0
+margin_bottom = 262.0
+rect_pivot_offset = Vector2( 620, 634 )
+custom_colors/font_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Acercarme al Guardia y pedirle una explicacón de lo que sucedio ese dia tan terrible"
+autowrap = true
+
+[node name="bg" type="ColorRect" parent="Desitions/NinePatchRect/Options/Desc2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 384, 683 )
+mouse_filter = 2
+color = Color( 0.286275, 0.729412, 0.776471, 0.207843 )
+
+[node name="Desc2" type="Label" parent="Desitions/NinePatchRect/Options/Desc2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 620, 634 )
+custom_colors/font_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Acercarme al Guardia y pedirle una explicacón de lo que sucedio ese dia tan terrible"
+autowrap = true
+
+[node name="Desc3" type="Label" parent="Desitions/NinePatchRect/Options"]
+margin_top = 278.0
+margin_right = 698.0
+margin_bottom = 401.0
+rect_pivot_offset = Vector2( 620, 634 )
+custom_colors/font_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Acercarme al Guardia y pedirle una explicacón de lo que sucedio ese dia tan terrible"
+autowrap = true
+
+[node name="bg" type="ColorRect" parent="Desitions/NinePatchRect/Options/Desc3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 384, 683 )
+mouse_filter = 2
+color = Color( 0.286275, 0.729412, 0.776471, 0.207843 )
+
+[node name="Desc2" type="Label" parent="Desitions/NinePatchRect/Options/Desc3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 620, 634 )
+custom_colors/font_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Acercarme al Guardia y pedirle una explicacón de lo que sucedio ese dia tan terrible"
+autowrap = true
+
+[node name="Desc4" type="Label" parent="Desitions/NinePatchRect/Options"]
+margin_top = 417.0
+margin_right = 698.0
+margin_bottom = 540.0
+rect_pivot_offset = Vector2( 620, 634 )
+custom_colors/font_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Acercarme al Guardia y pedirle una explicacón de lo que sucedio ese dia tan terrible"
+autowrap = true
+
+[node name="bg" type="ColorRect" parent="Desitions/NinePatchRect/Options/Desc4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 384, 683 )
+mouse_filter = 2
+color = Color( 0.286275, 0.729412, 0.776471, 0.207843 )
+
+[node name="Desc2" type="Label" parent="Desitions/NinePatchRect/Options/Desc4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 620, 634 )
+custom_colors/font_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Acercarme al Guardia y pedirle una explicacón de lo que sucedio ese dia tan terrible"
+autowrap = true
