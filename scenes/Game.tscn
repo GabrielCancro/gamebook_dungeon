@@ -89,9 +89,6 @@ custom_styles/disabled = ExtResource( 8 )
 custom_styles/normal = ExtResource( 8 )
 enabled_focus_mode = 0
 expand_icon = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="it3" type="Button" parent="Items"]
 margin_left = 323.0
@@ -161,9 +158,6 @@ custom_styles/disabled = ExtResource( 8 )
 custom_styles/normal = ExtResource( 8 )
 enabled_focus_mode = 0
 expand_icon = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label" type="Label" parent="Items"]
 margin_left = 3.0
@@ -196,9 +190,6 @@ custom_styles/pressed = ExtResource( 14 )
 custom_styles/focus = ExtResource( 12 )
 custom_styles/disabled = ExtResource( 12 )
 custom_styles/normal = ExtResource( 12 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 384, 1196 )

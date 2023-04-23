@@ -13,7 +13,7 @@ func onClick(arg):
 	if arg=="start": get_tree().change_scene("res://rooms/prologo.tscn")
 	if arg=="quit": get_tree().quit()
 	if arg=="locks": GC.startMinigame("locks")
-	if arg=="adventure": get_tree().change_scene("res://scenes/Adventure.tscn")	
+	if arg=="adventure": get_tree().change_scene("res://adventure_core/Adventure.tscn")	
 	if arg=="combat": 
 		GC.pj_weapon = "hand"
 		GC.startMinigame("combat")
