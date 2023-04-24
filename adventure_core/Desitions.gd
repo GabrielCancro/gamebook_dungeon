@@ -4,10 +4,9 @@ var is_open = false
 
 func _ready():
 	$btn_openclose.connect("button_down",self,"on_click_openclose")
-	visible = false
+	rect_position.y = 2000
+	$Options.rect_size.y = 0
 	yield(get_tree().create_timer(.1),"timeout")
-	close_options()
-	visible = true
 
 func open_options():
 	rect_size.y = $Options.rect_size.y + 200
