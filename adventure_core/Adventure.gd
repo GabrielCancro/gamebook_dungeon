@@ -8,6 +8,7 @@ var adv_root_data_node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GC.ADVENTURE = self
 	adv_root_data_node = Node.new()
 	adv_root_data_node.name = "adv_root_data_node"
 	adv_root_data_node.set_script(adv_root_script)
@@ -15,7 +16,7 @@ func _ready():
 	change_room("room_000")
 
 func change_room(id_room):
-	var room_data_node = get_node_or_null("room_data_node")
+	room_data_node = get_node_or_null("room_data_node")
 	if room_data_node: 
 		remove_child(room_data_node)
 		room_data_node.queue_free()
@@ -34,6 +35,7 @@ func set_room_data(desc,actions):
 	for node_id in actions:
 		var line = action_line_scene.instance()
 		line.set_node_data(actions[node_id])
+		line.connect("on_click",room_data_node,"on_click_node",[node_id])
 		$Desitions/Options.add_child(line)
 	yield($Narrator/Tween,"tween_completed")
 	$Desitions.close_options()

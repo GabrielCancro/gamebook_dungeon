@@ -1,15 +1,17 @@
 extends Label
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var data
+signal on_click
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$Button.connect("button_down",self,"onClick")
 
-func set_node_data(data):
+func set_node_data(_data):
+	data = _data
 	text = data.text
 	$Desc.text = text
+
+func onClick():
+	emit_signal("on_click",data)

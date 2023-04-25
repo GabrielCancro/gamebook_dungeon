@@ -8,7 +8,7 @@ Son guardias reales. Uno de ellos parece seguir con vida y te pide ayuda.
 
 var actions = {
 	"n1":{ "text":"Acercarse al guardia para ver que sucedio" },
-	"n2":{ "text":"Buscar cosas valiosas en los alrrededores" },
+	"n2":{ "text":"Buscar cosas valiosas en los alrrededores [BUSCAR:10]" },
 	"n3":{ "text":"Correr rápidamente para nunca volver" }
 }
 
@@ -17,7 +17,6 @@ func _ready():
 	print("LOAD ROOM 000")
 	get_parent().set_room_data(desc,actions)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func on_click_node(data,node_id):
+	print("CLICK NODE ",node_id,data)
+	if node_id=="n2": GC.DICES.show_dices("BUSCAR",10,+2)
