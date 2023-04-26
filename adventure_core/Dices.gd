@@ -7,15 +7,13 @@ var start_dices_y = 0
 var d1
 var d2
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	GC.DICES = self
 	randomize()
 	visible = false
 	$Timer.connect("timeout",self,"on_time_dices_update")
-	$Panel/Button.connect("button_down",self,"run_dices")
-	$Panel/btn_back.connect("button_down",self,"close_dices")
-#	show_dices("SIGILIO",10,+3)
+	for btn in $Panel/Buttons.get_children():
+		btn.connect("button_down",self,"on_btn_click",[btn.name])
 
 func on_time_dices_update():
 	d1 = randi()%6+1
@@ -27,15 +25,24 @@ func show_dices(ab_name,dif,ab_bon):
 	ability_name = ab_name
 	dificult = dif
 	ability_bonif = ab_bon
+	show_buttons("start")
 	$Panel/lb_ability.text = ability_name
 	$Panel/lb_dificult.text = str(dificult)
 	$Panel/lb_result.text = "[?]+[?]+"+str(ability_bonif)+" = ??"
-	visible = true	
+	visible = true
 	$Dice1.visible = false
 	$Dice2.visible = false
 	$Tween.interpolate_property(self,"modulate",Color(1,1,1,0),Color(1,1,1,1),.5,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 	$Tween.start()
 
+func on_btn_click(name):
+	show_buttons("none")
+	if name=="btn_roll": run_dices()
+	if name=="btn_back": close_dices()
+	if name=="btn_success": close_dices()
+	if name=="btn_fail": close_dices()
+	if name=="btn_reroll": run_dices()
+	
 func run_dices():
 	var duration = 1.2
 	$Timer.start()
@@ -58,6 +65,21 @@ func run_dices():
 	yield($Tween,"tween_all_completed")
 	$Timer.stop()
 	$Panel/lb_result.text = "["+str(d1)+"]+["+str(d2)+"]+"+str(ability_bonif)+" = "+str(d1+d2+ability_bonif)
+	yield(get_tree().create_timer(1),"timeout")
+	if d1+d1+ability_bonif >= dificult: show_buttons("success")
+	else: show_buttons("fail")
+
+func show_buttons(id):
+	for btn in $Panel/Buttons.get_children():
+		btn.visible = false
+	if id=="start":
+		$Panel/Buttons/btn_roll.visible = true
+		$Panel/Buttons/btn_back.visible = true
+	if id=="success":
+		$Panel/Buttons/btn_success.visible = true
+	if id=="fail":
+		$Panel/Buttons/btn_reroll.visible = true
+		$Panel/Buttons/btn_fail.visible = true
 
 func close_dices():
 	visible = false

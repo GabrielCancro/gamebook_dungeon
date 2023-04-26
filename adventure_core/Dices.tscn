@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://adventure_core/Dices.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/TextoChico.png" type="Texture" id=2]
@@ -6,14 +6,17 @@
 [ext_resource path="res://font/Sketch Gothic School.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://assets/gold_dices.png" type="Texture" id=5]
 
-[sub_resource type="DynamicFontData" id=1]
+[sub_resource type="DynamicFontData" id=13]
 font_path = "res://font/IMFePIsc28P_0.ttf"
 
 [sub_resource type="DynamicFont" id=2]
 size = 48
 outline_size = 2
 outline_color = Color( 0.698039, 0.698039, 0.698039, 1 )
-font_data = SubResource( 1 )
+font_data = SubResource( 13 )
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://font/IMFePIsc28P_0.ttf"
 
 [sub_resource type="DynamicFont" id=3]
 size = 59
@@ -170,19 +173,23 @@ text = "[?]+[?]+2 = ??"
 align = 1
 valign = 1
 
-[node name="Button" type="Button" parent="Panel"]
+[node name="Buttons" type="Control" parent="Panel"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="btn_roll" type="Button" parent="Panel/Buttons"]
 modulate = Color( 0.976471, 1, 0.392157, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 23.0
-margin_top = 219.5
-margin_right = 313.0
-margin_bottom = 324.5
+margin_left = 387.0
+margin_top = 387.5
+margin_right = 677.0
+margin_bottom = 492.5
 flat = true
 
-[node name="Label2" type="Label" parent="Panel/Button"]
+[node name="Label2" type="Label" parent="Panel/Buttons/btn_roll"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -192,25 +199,98 @@ text = "TIRA YA!"
 align = 1
 valign = 1
 
-[node name="btn_back" type="Button" parent="Panel"]
+[node name="btn_back" type="Button" parent="Panel/Buttons"]
 modulate = Color( 0.803922, 0.803922, 0.803922, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -297.0
-margin_top = 219.5
-margin_right = -7.0
-margin_bottom = 324.5
+margin_left = 67.0
+margin_top = 387.5
+margin_right = 357.0
+margin_bottom = 492.5
 flat = true
 
-[node name="Label2" type="Label" parent="Panel/btn_back"]
+[node name="Label2" type="Label" parent="Panel/Buttons/btn_back"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0.364706, 0.364706, 0.364706, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "MEJOR NO"
+align = 1
+valign = 1
+
+[node name="btn_reroll" type="Button" parent="Panel/Buttons"]
+visible = false
+modulate = Color( 0.976471, 1, 0.392157, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 387.0
+margin_top = 387.5
+margin_right = 677.0
+margin_bottom = 492.5
+flat = true
+
+[node name="Label2" type="Label" parent="Panel/Buttons/btn_reroll"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0.364706, 0.364706, 0.364706, 1 )
+custom_constants/line_spacing = -10
+custom_fonts/font = SubResource( 2 )
+text = "VOLVER A TIRAR (-1PA)"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="btn_fail" type="Button" parent="Panel/Buttons"]
+visible = false
+modulate = Color( 0.803922, 0.803922, 0.803922, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 67.0
+margin_top = 387.5
+margin_right = 357.0
+margin_bottom = 492.5
+flat = true
+
+[node name="Label2" type="Label" parent="Panel/Buttons/btn_fail"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0.364706, 0.364706, 0.364706, 1 )
+custom_constants/line_spacing = -10
+custom_fonts/font = SubResource( 2 )
+text = "ACEPTAR EL FALLO"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="btn_success" type="Button" parent="Panel/Buttons"]
+visible = false
+modulate = Color( 0.976471, 1, 0.392157, 1 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 21.0
+margin_top = 356.0
+margin_right = 707.0
+margin_bottom = 488.0
+flat = true
+
+[node name="Label2" type="Label" parent="Panel/Buttons/btn_success"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0.364706, 0.364706, 0.364706, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "ÉXITO!"
 align = 1
 valign = 1
 
