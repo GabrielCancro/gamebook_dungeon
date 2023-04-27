@@ -1,19 +1,23 @@
 extends Control
 
 var ability_name = "SIGILO"
-var ability_bonif = 2
-var dificult = 10
+var ability_bonif = 0
 var start_dices_y = 0
 var d1
 var d2
+var isRolled = false
+
+signal on_dice(value)
 
 func _ready():
 	GC.DICES = self
 	randomize()
 	visible = false
 	$Timer.connect("timeout",self,"on_time_dices_update")
-	for btn in $Panel/Buttons.get_children():
-		btn.connect("button_down",self,"on_btn_click",[btn.name])
+	$Buttons/btn_roll.connect("button_down",self,"onButtonRoll")
+	$Buttons/btn_back.connect("button_down",self,"onButtonClose")
+	$Buttons/btn_end.connect("button_down",self,"onButtonEnd")
+	$btn_add.connect("button_down",self,"onButtonAdd")
 
 func on_time_dices_update():
 	d1 = randi()%6+1
@@ -21,32 +25,48 @@ func on_time_dices_update():
 	d2 = randi()%6+1
 	$Dice2.frame = d2-1
 
-func show_dices(ab_name,dif,ab_bon):
+func show_dices(ab_name):
 	ability_name = ab_name
-	dificult = dif
-	ability_bonif = ab_bon
-	show_buttons("start")
-	$Panel/lb_ability.text = ability_name
-	$Panel/lb_dificult.text = str(dificult)
-	$Panel/lb_result.text = "[?]+[?]+"+str(ability_bonif)+" = ??"
+	ability_bonif = 0
+	$btn_add/Label2.text = str(GC.ACTION_POINTS)
+	$lb_ability.text = ability_name+" +"+str(ability_bonif)
 	visible = true
+	isRolled = false
 	$Dice1.visible = false
 	$Dice2.visible = false
+	$lb_result.visible = false
+	$Buttons/btn_roll.visible = true
+	$Buttons/btn_back.visible = true
+	$Buttons/btn_end.visible = false
 	$Tween.interpolate_property(self,"modulate",Color(1,1,1,0),Color(1,1,1,1),.5,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 	$Tween.start()
 
-func on_btn_click(name):
-	show_buttons("none")
-	if name=="btn_roll": run_dices()
-	if name=="btn_back": close_dices()
-	if name=="btn_success": close_dices()
-	if name=="btn_fail": close_dices()
-	if name=="btn_reroll": run_dices()
-	
+func onButtonRoll():
+	run_dices()
+
+func onButtonClose():
+	GC.ACTION_POINTS += ability_bonif
+	visible = false
+
+func onButtonEnd():
+	visible = false
+	emit_signal("on_dice",d1+d2+ability_bonif)
+
+func onButtonAdd():
+	if GC.ACTION_POINTS <= 0 || isRolled: return
+	GC.ACTION_POINTS -= 1
+	ability_bonif += 1
+	$btn_add/Label2.text = str(GC.ACTION_POINTS)
+	$lb_ability.text = ability_name+" +"+str(ability_bonif)
+	$Tween.interpolate_property($lb_ability,"rect_scale",Vector2(1.1,1.1),Vector2(1,1),.3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
+	$Tween.start()
+
 func run_dices():
+	isRolled = true
+	$Buttons/btn_roll.visible = false
+	$Buttons/btn_back.visible = false
 	var duration = 1.2
 	$Timer.start()
-	$Panel/lb_result.text = "[?]+[?]+"+str(ability_bonif)+" = ??"
 	var start_pos = Vector2(rect_size.x*.3,rect_size.y*1.2)
 	var end_pos = Vector2(rect_size.x*.4,rect_size.y*.7)
 	$Tween.interpolate_property($Dice1,"position",start_pos,end_pos,duration,Tween.TRANS_QUAD,Tween.EASE_OUT)
@@ -62,24 +82,11 @@ func run_dices():
 	$Tween.start()
 	$Dice1.visible = true
 	$Dice2.visible = true
-	yield($Tween,"tween_all_completed")
-	$Timer.stop()
-	$Panel/lb_result.text = "["+str(d1)+"]+["+str(d2)+"]+"+str(ability_bonif)+" = "+str(d1+d2+ability_bonif)
 	yield(get_tree().create_timer(1),"timeout")
-	if d1+d1+ability_bonif >= dificult: show_buttons("success")
-	else: show_buttons("fail")
-
-func show_buttons(id):
-	for btn in $Panel/Buttons.get_children():
-		btn.visible = false
-	if id=="start":
-		$Panel/Buttons/btn_roll.visible = true
-		$Panel/Buttons/btn_back.visible = true
-	if id=="success":
-		$Panel/Buttons/btn_success.visible = true
-	if id=="fail":
-		$Panel/Buttons/btn_reroll.visible = true
-		$Panel/Buttons/btn_fail.visible = true
-
-func close_dices():
-	visible = false
+	$Timer.stop()
+	yield(get_tree().create_timer(1),"timeout")
+	$lb_result.text = str(d1+d2+ability_bonif)
+	$lb_result.visible = true
+	$Tween.interpolate_property($lb_result,"modulate",Color(1,1,1,0),Color(1,1,1,1),.5,Tween.TRANS_LINEAR,Tween.EASE_OUT)
+	$Tween.start()
+	$Buttons/btn_end.visible = true

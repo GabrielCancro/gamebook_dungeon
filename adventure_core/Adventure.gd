@@ -26,8 +26,9 @@ func change_room(id_room):
 	add_child(room_data_node)
 
 func set_room_data(desc,actions):
+	#CALL FROM ROOM_000
 	$Narrator/Desc.text = desc
-	$Narrator/Tween.interpolate_property($Narrator/Desc,"percent_visible",0,1,desc.length()/40,Tween.TRANS_LINEAR, Tween.EASE_OUT)
+	$Narrator/Tween.interpolate_property($Narrator/Desc,"percent_visible",0,1,desc.length()/400,Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	$Narrator/Tween.start()	
 	for line in $Desitions/Options.get_children():
 		$Desitions/Options.remove_child(line)

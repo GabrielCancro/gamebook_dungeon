@@ -19,4 +19,12 @@ func _ready():
 
 func on_click_node(data,node_id):
 	print("CLICK NODE ",node_id,data)
-	if node_id=="n2": GC.DICES.show_dices("BUSCAR",10,+2)
+	if node_id=="n1": 
+		GC.POPUP.show_popup("UN POPUP RANDOM")
+	if node_id=="n2": 
+		GC.DICES.show_dices("BUSCAR")
+		var result = yield(GC.DICES,"on_dice")
+		print("ON DICE!!!!!!!!!!!")
+		GC.POPUP.show_popup("SACASTE UN "+str(result))
+		yield(GC.POPUP,"on_close")
+		print("CLOSE POPUP!!!!!!!!!!!")

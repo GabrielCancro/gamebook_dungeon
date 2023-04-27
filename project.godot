@@ -17,7 +17,7 @@ config/quit_on_go_back=false
 
 [autoload]
 
-GC="*res://scripts/global_config.gd"
+GC="*res://global_config.gd"
 
 [display]
 

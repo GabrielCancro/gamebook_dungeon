@@ -177,9 +177,7 @@ custom_styles/disabled = ExtResource( 9 )
 custom_styles/normal = ExtResource( 9 )
 
 [node name="Dices" parent="." instance=ExtResource( 14 )]
+visible = false
 
 [node name="PopupText" parent="." instance=ExtResource( 15 )]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = 0.0
-margin_bottom = 0.0
+visible = false
