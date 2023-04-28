@@ -4,7 +4,9 @@ var ADVENTURE
 var DICES
 var POPUP
 var ACTION_POINTS = 15
+var ADV_DATA = {}
+var CURRENT_ROOM = ""
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func get_current_room_data():
+	return ADV_DATA[CURRENT_ROOM]

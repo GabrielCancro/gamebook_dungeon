@@ -1,42 +1,34 @@
 extends Control
 
-var adv_root_script = preload("res://adventures/adv_test/adv_root_data.gd")
-var action_line_scene = preload("res://adventure_core/ActionLine.tscn")
-
 var room_data_node
 var adv_root_data_node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GC.ADVENTURE = self
-	adv_root_data_node = Node.new()
-	adv_root_data_node.name = "adv_root_data_node"
-	adv_root_data_node.set_script(adv_root_script)
-	add_child(adv_root_data_node)
 	change_room("room_000")
 
 func change_room(id_room):
+	$Fade.fadeIn()
+	yield($Fade,"end_fade")
+	$Narrator.clear_narrator()
 	room_data_node = get_node_or_null("room_data_node")
 	if room_data_node: 
 		remove_child(room_data_node)
 		room_data_node.queue_free()
 	room_data_node = Node.new()
 	room_data_node.name = "room_data_node"
-	room_data_node.set_script( adv_root_data_node.room_scripts[id_room] )
+	room_data_node.set_script( load("res://adventures/adv_test/"+id_room+".gd") )	
 	add_child(room_data_node)
-
-func set_room_data(desc,actions):
-	#CALL FROM ROOM_000
-	$Narrator/Desc.text = desc
-	$Narrator/Tween.interpolate_property($Narrator/Desc,"percent_visible",0,1,desc.length()/400,Tween.TRANS_LINEAR, Tween.EASE_OUT)
-	$Narrator/Tween.start()	
-	for line in $Desitions/Options.get_children():
-		$Desitions/Options.remove_child(line)
-		line.queue_free()
-	for node_id in actions:
-		var line = action_line_scene.instance()
-		line.set_node_data(actions[node_id])
-		line.connect("on_click",room_data_node,"on_click_node",[node_id])
-		$Desitions/Options.add_child(line)
-	yield($Narrator/Tween,"tween_completed")
-	$Desitions.close_options()
+	if (!GC.ADV_DATA.has(room_data_node.room_id)):
+		GC.ADV_DATA[room_data_node.room_id] = {"desc":room_data_node.desc, "actions":room_data_node.actions, "image":room_data_node.image}
+#		if(room_data_node.has("image")): GC.ADV_DATA[room_data_node.room_id]["image"] = room_data_node.image
+	GC.CURRENT_ROOM = room_data_node.room_id
+	
+	$Desitions.hide_options()
+	$Fade.fadeOut()
+	yield($Fade,"end_fade")
+	
+	$Narrator.start_narrator()
+	yield($Narrator,"on_finish")
+	$Desitions.show_options()

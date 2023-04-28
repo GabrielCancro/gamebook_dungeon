@@ -1,30 +1,26 @@
 extends Node
 
+var room_id = "room_000"
+var image = null
 var desc = """
-Caminas por el bosque cuando escuchas un grito.\n
-Corres en su dirección y te encuentras con dos guardias malheridos.\n
-Son guardias reales. Uno de ellos parece seguir con vida y te pide ayuda. 
+Caminas por el bosque cuando escuchas un grito.
+Corres en su dirección y te encuentras con un guardia herido. Es un guardia Real. 
+Aún sigue con vida y te pide ayuda.
+Escoltaban al príncipe a través del bosque cuando encontraron una cueva. 
+El príncipe quiso explorar pero sus guardias se lo negaron. 
+Y mientras hablaban, una criatura salió, los atacó y se llevó al príncipe. 
+Encuentra al príncipe y tendrás nuestra gratitud.
 """
-
 var actions = {
-	"n1":{ "text":"Acercarse al guardia para ver que sucedio" },
-	"n2":{ "text":"Buscar cosas valiosas en los alrrededores [BUSCAR:10]" },
-	"n3":{ "text":"Correr rápidamente para nunca volver" }
+	"n1":{ "text":"-No todos los días se presenta una situación para convertirse en una heroína, te dices mientras miras con atención el túnel que conduce a la cueva." },
 }
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print("LOAD ROOM 000")
-	get_parent().set_room_data(desc,actions)
+#	GC.set_current_room(room_id)
 
 func on_click_node(data,node_id):
 	print("CLICK NODE ",node_id,data)
 	if node_id=="n1": 
-		GC.POPUP.show_popup("UN POPUP RANDOM")
-	if node_id=="n2": 
-		GC.DICES.show_dices("BUSCAR")
-		var result = yield(GC.DICES,"on_dice")
-		print("ON DICE!!!!!!!!!!!")
-		GC.POPUP.show_popup("SACASTE UN "+str(result))
-		yield(GC.POPUP,"on_close")
-		print("CLOSE POPUP!!!!!!!!!!!")
+		GC.ADVENTURE.change_room("room_001")

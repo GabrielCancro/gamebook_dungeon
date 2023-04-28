@@ -1,26 +1,30 @@
 extends Control
 
-var is_open = false
+var action_line_scene = preload("res://adventure_core/ActionLine.tscn")
 
 func _ready():
-	$btn_openclose.connect("button_down",self,"on_click_openclose")	
-	$Options.rect_size.y = 0
-	rect_position.y = get_parent().rect_size.y + $Options.rect_size.y
-	yield(get_tree().create_timer(.1),"timeout")
+	pass
 
-func open_options():
-	rect_size.y = $Options.rect_size.y + 200
-	var open_pos = Vector2(rect_position.x, get_parent().rect_size.y - rect_size.y)
-	$Tween.interpolate_property(self,"rect_position",rect_position,open_pos,.5,Tween.TRANS_QUAD,Tween.EASE_IN)
+func show_options():
+	update_data()
+	visible = true
+	$Tween.interpolate_property(self,"modulate",Color(1,1,1,.5),Color(1,1,1,1),.3,Tween.TRANS_QUAD,Tween.EASE_IN)
 	$Tween.start()
-	is_open = true
 
-func close_options():
-	var close_pos = Vector2(rect_position.x, get_parent().rect_size.y - 70)
-	$Tween.interpolate_property(self,"rect_position",rect_position,close_pos,.5,Tween.TRANS_QUAD,Tween.EASE_IN)
-	$Tween.start()
-	is_open = false
+func hide_options():
+	visible = false
 
-func on_click_openclose():
-	if is_open: close_options()
-	else: open_options()
+func update_data():
+	var actions = GC.get_current_room_data().actions
+	for line in $Options.get_children():
+		$Options.remove_child(line)
+		line.queue_free()
+	for node_id in actions:
+		var line = action_line_scene.instance()
+		line.set_node_data(actions[node_id])
+		line.connect("on_click",GC.ADVENTURE.get_node("room_data_node"),"on_click_node",[node_id])
+		line.modulate = Color(1,1,1,0)
+		$Options.add_child(line)
+		$Tween.interpolate_property(line,"modulate",Color(1,1,1,0),Color(1,1,1,1),.5,Tween.TRANS_QUAD,Tween.EASE_IN)
+		$Tween.start()
+		yield(get_tree().create_timer(.4),"timeout")
