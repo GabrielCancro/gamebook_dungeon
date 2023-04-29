@@ -12,6 +12,7 @@ func set_node_data(_data):
 	data = _data
 	text = data.text
 	$Desc.text = text
+	rect_pivot_offset = rect_size/2
 
 func onClick():
 	emit_signal("on_click",data)

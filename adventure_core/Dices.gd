@@ -38,7 +38,7 @@ func show_dices(ab_name):
 	$Buttons/btn_roll.visible = true
 	$Buttons/btn_back.visible = true
 	$Buttons/btn_end.visible = false
-	$Tween.interpolate_property(self,"modulate",Color(1,1,1,0),Color(1,1,1,1),.5,Tween.TRANS_LINEAR,Tween.EASE_OUT)
+	$Tween.interpolate_property(self,"modulate",Color(1,1,1,.5),Color(1,1,1,1),.2,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 	$Tween.start()
 
 func onButtonRoll():

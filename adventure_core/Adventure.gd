@@ -8,7 +8,7 @@ func _ready():
 	GC.ADVENTURE = self
 	change_room("room_000")
 
-func change_room(id_room):
+func change_room(room_id):
 	$Fade.fadeIn()
 	yield($Fade,"end_fade")
 	$Narrator.clear_narrator()
@@ -18,12 +18,12 @@ func change_room(id_room):
 		room_data_node.queue_free()
 	room_data_node = Node.new()
 	room_data_node.name = "room_data_node"
-	room_data_node.set_script( load("res://adventures/adv_test/"+id_room+".gd") )	
+	room_data_node.set_script( load("res://adventures/adv_test/"+room_id+".gd") )
 	add_child(room_data_node)
-	if (!GC.ADV_DATA.has(room_data_node.room_id)):
-		GC.ADV_DATA[room_data_node.room_id] = {"desc":room_data_node.desc, "actions":room_data_node.actions, "image":room_data_node.image}
-#		if(room_data_node.has("image")): GC.ADV_DATA[room_data_node.room_id]["image"] = room_data_node.image
-	GC.CURRENT_ROOM = room_data_node.room_id
+	if (!GC.ADV_DATA.has(room_id)):
+		room_data_node.room_data['room_id'] = room_id
+		GC.ADV_DATA[room_id] = room_data_node.room_data
+	GC.CURRENT_ROOM = room_id
 	
 	$Desitions.hide_options()
 	$Fade.fadeOut()
@@ -32,3 +32,8 @@ func change_room(id_room):
 	$Narrator.start_narrator()
 	yield($Narrator,"on_finish")
 	$Desitions.show_options()
+
+func show_a_hidden_desition(node_id):
+	GC.get_current_room_data().actions[node_id].isHidden = false
+	GC.DESITIONS.update_data(false)
+	GC.DESITIONS.resalt_node(node_id)

@@ -9,13 +9,12 @@ func _ready():
 	visible = false
 	$NinePatchRect/Button.connect("button_down",self,"close_popup")
 
-
 func show_popup(txt,anim=true):
 	visible = true
 	$NinePatchRect/Label.text = txt
 	$NinePatchRect.rect_size.y = $NinePatchRect/Label.rect_size.y * 1.2
 	if anim:
-		$Tween.interpolate_property(self,"modulate",Color(1,1,1,.5),Color(1,1,1,1),.3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
+		$Tween.interpolate_property(self,"modulate",Color(1,1,1,.5),Color(1,1,1,1),.2,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 		$Tween.start()
 
 func close_popup():

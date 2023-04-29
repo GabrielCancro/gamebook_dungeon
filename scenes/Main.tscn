@@ -46,12 +46,9 @@ margin_bottom = 291.0
 custom_colors/font_color = Color( 0.121569, 0.121569, 0.121569, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "GAMEBOOK
-03/01/2022"
+27/04/2023"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Eye" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.392157 )

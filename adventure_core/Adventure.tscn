@@ -35,13 +35,35 @@ patch_margin_top = 197
 patch_margin_right = 333
 patch_margin_bottom = 206
 
-[node name="Narrator" type="Control" parent="."]
+[node name="Header" type="Control" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -384.0
-margin_top = 99.0
 margin_right = 384.0
-margin_bottom = 874.0
+margin_bottom = 206.0
+rect_pivot_offset = Vector2( -1545, 451 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Header"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -89.0
+margin_top = 75.0
+margin_right = 71.0
+margin_bottom = 261.0
+rect_scale = Vector2( 1, -1 )
+texture = ExtResource( 1 )
+patch_margin_top = 374
+patch_margin_bottom = 18
+
+[node name="Narrator" type="Control" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.602
+margin_left = -384.0
+margin_top = 71.0
+margin_right = 384.0
+margin_bottom = 0.667908
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_group_": true
@@ -98,44 +120,45 @@ text = "Rescata al príncipe"
 align = 1
 valign = 1
 
-[node name="Garb" type="TextureRect" parent="Narrator"]
-visible = false
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -1333.5
-margin_top = 96.0
-margin_right = -1274.5
-margin_bottom = 155.0
-texture = ExtResource( 6 )
-
-[node name="Header" type="Control" parent="."]
-visible = false
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -384.0
-margin_right = 384.0
-margin_bottom = 206.0
-rect_pivot_offset = Vector2( -1545, 451 )
-
-[node name="NinePatchRect" type="NinePatchRect" parent="Header"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -89.0
-margin_top = 75.0
-margin_right = 71.0
-margin_bottom = 261.0
-rect_scale = Vector2( 1, -1 )
-texture = ExtResource( 1 )
-patch_margin_top = 374
-patch_margin_bottom = 18
-
-[node name="Desitions" type="Control" parent="."]
+[node name="Button" type="Button" parent="Narrator"]
+modulate = Color( 1, 1, 1, 0.619608 )
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
+margin_left = -56.5
+margin_top = 187.0
+margin_right = 56.5
+margin_bottom = 296.0
+flat = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Garb" type="TextureRect" parent="Narrator/Button"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 6 )
+expand = true
+
+[node name="Line" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -336.5
+margin_top = 149.0
+margin_right = 336.5
+margin_bottom = 159.0
+color = Color( 0.203922, 0.203922, 0.203922, 1 )
+
+[node name="Desitions" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.623
+anchor_right = 0.5
+anchor_bottom = 1.0
 margin_left = -382.0
-margin_top = -589.0
+margin_top = -0.0180054
 margin_right = 389.0
 rect_pivot_offset = Vector2( 453, 0 )
 script = ExtResource( 7 )
