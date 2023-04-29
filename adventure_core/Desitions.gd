@@ -2,6 +2,9 @@ extends Control
 
 var action_line_scene = preload("res://adventure_core/ActionLine.tscn")
 
+signal on_finish_resalt
+signal on_finish_difuse
+
 func _ready():
 	GC.DESITIONS = self
 
@@ -37,7 +40,32 @@ func add_line(node_data):
 	return line
 
 func resalt_node(node_id):
+	GC.ADVENTURE.set_blocker(true)
 	for line in $Options.get_children():
 		if line.data.node_id == node_id:
 			$Tween.interpolate_property(line,"rect_scale",Vector2(1.2,1.2),Vector2(1,1),.7,Tween.TRANS_QUAD,Tween.EASE_OUT)
 			$Tween.start()
+	yield(get_tree().create_timer(1.2),"timeout")
+	emit_signal("on_finish_resalt")
+	GC.ADVENTURE.set_blocker(false)
+
+func difuse_node(node_id):
+	GC.ADVENTURE.set_blocker(true)
+	for line in $Options.get_children():
+		if line.data.node_id == node_id:
+			$Tween.interpolate_property(line,"modulate",Color(1,1,1,1),Color(1,1,1,0),.7,Tween.TRANS_QUAD,Tween.EASE_OUT)
+			$Tween.start()
+	yield(get_tree().create_timer(1),"timeout")
+	emit_signal("on_finish_difuse")
+	GC.ADVENTURE.set_blocker(false)
+	
+func show_a_hidden_desition(node_id):	
+	GC.get_current_room_data().actions[node_id].isHidden = false
+	update_data(false)
+	resalt_node(node_id)
+
+func hide_a_showed_desition(node_id):
+	difuse_node(node_id)
+	yield(self,"on_finish_difuse")
+	GC.get_current_room_data().actions[node_id]["isHidden"] = true
+	update_data(false)

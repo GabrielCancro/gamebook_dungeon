@@ -174,19 +174,30 @@ margin_left = -326.5
 margin_top = -250.5
 margin_right = 307.5
 margin_bottom = 200.5
-custom_constants/separation = 16
+custom_constants/separation = 35
 alignment = 1
 
 [node name="Desc" parent="Desitions/Options" instance=ExtResource( 13 )]
-margin_top = 164.0
+margin_top = 85.0
 margin_right = 634.0
-margin_bottom = 287.0
+margin_bottom = 208.0
+
+[node name="Desc2" parent="Desitions/Options" instance=ExtResource( 13 )]
+margin_top = 243.0
+margin_right = 634.0
+margin_bottom = 366.0
 
 [node name="Dices" parent="." instance=ExtResource( 14 )]
 visible = false
 
 [node name="PopupText" parent="." instance=ExtResource( 15 )]
 visible = false
+
+[node name="Blocker" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0 )
 
 [node name="Fade" parent="." instance=ExtResource( 9 )]
 visible = false

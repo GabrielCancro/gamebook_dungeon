@@ -62,6 +62,7 @@ func onButtonAdd():
 	$Tween.start()
 
 func run_dices():
+	if isRolled: return
 	isRolled = true
 	$Buttons/btn_roll.visible = false
 	$Buttons/btn_back.visible = false
@@ -87,6 +88,10 @@ func run_dices():
 	yield(get_tree().create_timer(1),"timeout")
 	$lb_result.text = str(d1+d2+ability_bonif)
 	$lb_result.visible = true
-	$Tween.interpolate_property($lb_result,"modulate",Color(1,1,1,0),Color(1,1,1,1),.5,Tween.TRANS_LINEAR,Tween.EASE_OUT)
+	$Tween.interpolate_property($lb_result,"modulate",Color(0,0,0,1),Color(1,1,1,1),.3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 	$Tween.start()
-	$Buttons/btn_end.visible = true
+#	$Buttons/btn_end.visible = true
+	
+	yield(get_tree().create_timer(2.2),"timeout")
+	onButtonEnd()
+	

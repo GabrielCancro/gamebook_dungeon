@@ -17,8 +17,10 @@ func start_narrator():
 	$Button.visible = true
 	if data.image: 
 		$VBox/Image.visible = true
+		$VBox/Image.modulate = Color(1,1,1,0)
 		$VBox/Image.texture = data.image
-	$Tween.interpolate_property($VBox/Desc,"percent_visible",0,1,data.desc.length()/70,Tween.TRANS_LINEAR, Tween.EASE_OUT)
+		$Tween.interpolate_property($VBox/Image,"modulate",Color(1,1,1,.3),Color(1,1,1,1),.3,Tween.TRANS_LINEAR, Tween.EASE_IN)
+	$Tween.interpolate_property($VBox/Desc,"percent_visible",0,1,data.desc.length()/30,Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	$Tween.start()
 	yield($Tween,"tween_all_completed")
 	$Button.visible = false

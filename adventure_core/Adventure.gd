@@ -6,6 +6,7 @@ var adv_root_data_node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GC.ADVENTURE = self
+	set_blocker(false)
 	change_room("room_000")
 
 func change_room(room_id):
@@ -33,7 +34,5 @@ func change_room(room_id):
 	yield($Narrator,"on_finish")
 	$Desitions.show_options()
 
-func show_a_hidden_desition(node_id):
-	GC.get_current_room_data().actions[node_id].isHidden = false
-	GC.DESITIONS.update_data(false)
-	GC.DESITIONS.resalt_node(node_id)
+func set_blocker(vis):
+	$Blocker.visible = vis
