@@ -53,7 +53,7 @@ func onButtonEnd():
 	emit_signal("on_dice",d1+d2+ability_bonif)
 
 func onButtonAdd():
-	if GC.ACTION_POINTS <= 0 || isRolled: return
+	if GC.ACTION_POINTS <= 0 || isRolled || ability_bonif>=5: return
 	GC.ACTION_POINTS -= 1
 	ability_bonif += 1
 	$btn_add/Label2.text = str(GC.ACTION_POINTS)
@@ -68,6 +68,7 @@ func run_dices():
 	$Buttons/btn_back.visible = false
 	var duration = 1.2
 	$Timer.start()
+	$Tween.remove_all()
 	var start_pos = Vector2(rect_size.x*.3,rect_size.y*1.2)
 	var end_pos = Vector2(rect_size.x*.4,rect_size.y*.7)
 	$Tween.interpolate_property($Dice1,"position",start_pos,end_pos,duration,Tween.TRANS_QUAD,Tween.EASE_OUT)
@@ -88,7 +89,8 @@ func run_dices():
 	yield(get_tree().create_timer(1),"timeout")
 	$lb_result.text = str(d1+d2+ability_bonif)
 	$lb_result.visible = true
-	$Tween.interpolate_property($lb_result,"modulate",Color(0,0,0,1),Color(1,1,1,1),.3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
+	$lb_result.modulate = Color(0,0,0,.2)
+	$Tween.interpolate_property($lb_result,"modulate",$lb_result.modulate,Color(1,1,1,1),.3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 	$Tween.start()
 #	$Buttons/btn_end.visible = true
 	

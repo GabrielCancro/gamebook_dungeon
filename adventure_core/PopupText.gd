@@ -44,5 +44,6 @@ func close_popup():
 	$Tween.interpolate_property(self,"modulate",Color(1,1,1,1),Color(1,1,1,0),.4,Tween.TRANS_LINEAR,Tween.EASE_IN)
 	$Tween.start()
 	yield($Tween,"tween_completed")
+	$Tween.remove_all()
 	visible = false
 	emit_signal("on_close")

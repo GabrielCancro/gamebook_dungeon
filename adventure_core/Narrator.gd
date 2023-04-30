@@ -13,14 +13,18 @@ func clear_narrator():
 	
 func start_narrator():
 	var data = GC.get_current_room_data()
+	$Tween.remove_all()
 	$VBox/Desc.text = data.desc
+	var time_read = data.desc.length()/30
+	if data.isShowed: time_read = 0.3
+	else: data.isShowed = true
 	$Button.visible = true
 	if data.image: 
 		$VBox/Image.visible = true
 		$VBox/Image.modulate = Color(1,1,1,0)
 		$VBox/Image.texture = data.image
 		$Tween.interpolate_property($VBox/Image,"modulate",Color(1,1,1,.3),Color(1,1,1,1),.3,Tween.TRANS_LINEAR, Tween.EASE_IN)
-	$Tween.interpolate_property($VBox/Desc,"percent_visible",0,1,data.desc.length()/30,Tween.TRANS_LINEAR, Tween.EASE_OUT)
+	$Tween.interpolate_property($VBox/Desc,"percent_visible",0,1,time_read,Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	$Tween.start()
 	yield($Tween,"tween_all_completed")
 	$Button.visible = false

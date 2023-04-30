@@ -4,8 +4,11 @@ var ADVENTURE
 var DICES
 var POPUP
 var DESITIONS
-var ACTION_POINTS = 15
-var ADV_DATA = {}
+var ACTION_POINTS = 10
+var ADV_DATA = {
+	"items":{},
+	"vars":{}
+}
 var CURRENT_ROOM = ""
 
 # Called when the node enters the scene tree for the first time.

@@ -1,6 +1,7 @@
 extends Node
 
 var room_data = {
+	"name": "Prologo",
 	"room_id": "room_000",
 	"image": null,
 	"desc": """

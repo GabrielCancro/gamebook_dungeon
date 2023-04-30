@@ -23,6 +23,7 @@ func change_room(room_id):
 	add_child(room_data_node)
 	if (!GC.ADV_DATA.has(room_id)):
 		room_data_node.room_data['room_id'] = room_id
+		room_data_node.room_data['isShowed'] = false
 		GC.ADV_DATA[room_id] = room_data_node.room_data
 	GC.CURRENT_ROOM = room_id
 	
