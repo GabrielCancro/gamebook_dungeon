@@ -7,7 +7,7 @@ var adv_root_data_node
 func _ready():
 	GC.ADVENTURE = self
 	set_blocker(false)
-	change_room("room_000")
+	change_room("room_004")
 
 func change_room(room_id):
 	$Fade.fadeIn()
@@ -26,6 +26,8 @@ func change_room(room_id):
 		room_data_node.room_data['isShowed'] = false
 		GC.ADV_DATA[room_id] = room_data_node.room_data
 	GC.CURRENT_ROOM = room_id
+	
+	if room_data_node.has_method("on_enter_room"): room_data_node.on_enter_room()
 	
 	$Desitions.hide_options()
 	$Fade.fadeOut()

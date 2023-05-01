@@ -18,3 +18,8 @@ func get_current_room_data():
 func add_item(id_item):
 	ADV_DATA["items"][id_item] = get_current_room_data().items[id_item]
 	print( "YOUR ITEMS", ADV_DATA.items.keys() )
+
+func set_gamevar(key,value=null):
+	if value==null: ADV_DATA["vars"].erase(key)
+	else: ADV_DATA["vars"][key] = value
+	print( "YOUR VARS", ADV_DATA.vars )

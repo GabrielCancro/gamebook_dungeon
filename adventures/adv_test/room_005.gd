@@ -3,19 +3,13 @@ extends Node
 var room_data = {
 	"name": "Comedor",
 	"image": null,
-	"desc": """Con cautela desciendes por el túnel, siguiendo la luz. 
-		Al llegar notas la fuente. Una pequeña y rústica fogata ilumina la sala. 
-		Sin ningún motivo de decoración, un millar de huesos de todas las especies del bosque se esparcen por el lugar. 
-		La sala parece un comedor y conduce a otras dos habitaciones, pero parece peligroso andar sin precaución.
+	"desc": """Buscas algo que te indique a que sala entrar, pero solo logras imaginarte cosas horrendas.
+	Por donde continuaré avanzando?
 	""",
 	"actions": {
-		"n1":{ "text":"Tal vez me sirva algo de luz Revisar la fogata" },
-		"n2":{ "text":"No se que habrá en las otras salas pero podría ser peligroso. Presentimiento." },
-		"n3":{ "text":"Podré encontrar algo en esa pila de huesos? Buscar." },
-		"n4":{ "text":"Continuar el camino a la siguiente sala", "isHidden":true },
-		"n5":{ "text":"Continuar a la siguiente sala, de aquí provienen los ladridos, debo ir con cuidado", "isHidden":true },
-		"n6":{ "text":"Tal vez sería mejor bajar por el túnel a la otra sala", "isHidden":true },
-		"n7":{ "text":"Bajar por el túnel a la otra sala, los ronquidos provenían de aquí, seré silencioso", "isHidden":true },
+		"n1":{ "text":"Avanzar por la primera sala" },
+		"n2":{ "text":"Avanzar por la segunda sala" },
+		"n3":{ "text":"No estoy seguro, aún no avanzaré" },
 	},
 	"pops":{
 		"p1":"Un pequeño fuego que alumbra el lugar.\n\n +Nuevo item: ANTORCHA",
@@ -37,33 +31,31 @@ func on_click_node(node_data,node_id):
 	if node_id=="n1": 
 		yield( GC.POPUP.show_popup(room_data.pops.p1), "on_close")
 		GC.add_item("torch") 
-		yield( GC.DESITIONS.hide_a_showed_desition("n1"), "on_finish_difuse")
 	elif node_id=="n2": 
-		GC.DESITIONS.hide_a_showed_desition("n2")
 		GC.DICES.show_dices("SETIDOS")
 		var dices = yield(GC.DICES,"on_dice")
 		var res = GC.POPUP.set_dice_result(dices,{ "0":"F", "5":"EP", "8":"EA" } )
-#		GC.set_gamevar("heardDices",res)
 		if dices<5:
 			yield(GC.POPUP.show_popup(room_data.pops.sentido1), "on_close")
-			yield( GC.DESITIONS.show_a_hidden_desition("n4"), "on_finish_resalt" )
-			yield( GC.DESITIONS.show_a_hidden_desition("n6"), "on_finish_resalt" )
-		elif dices>=5 && dices<8:
+		if dices>=5:
 			yield(GC.POPUP.show_popup(room_data.pops.sentido2), "on_close")
-			yield( GC.DESITIONS.show_a_hidden_desition("n5"), "on_finish_resalt" )
-			yield( GC.DESITIONS.show_a_hidden_desition("n6"), "on_finish_resalt" )
-		elif dices>=8:
-			yield(GC.POPUP.show_popup(room_data.pops.sentido2), "on_close")
-			yield( GC.DESITIONS.show_a_hidden_desition("n5"), "on_finish_resalt" )
+			GC.set_gamevar("heardBarking",true)
+		if dices>=8:
 			yield(GC.POPUP.show_popup(room_data.pops.sentido3), "on_close")
-			yield( GC.DESITIONS.show_a_hidden_desition("n7"), "on_finish_resalt" )
+			GC.set_gamevar("heardSnoring",true)
+			yield( GC.DESITIONS.hide_a_showed_desition("n2"), "on_finish_difuse")
 	elif node_id=="n3": 
 		GC.DICES.show_dices("BUSCAR")
 		var dices = yield(GC.DICES,"on_dice")
-		var res = GC.POPUP.set_dice_result(dices,{ "0":"F", "5":"EA" } )
+		var res = GC.POPUP.set_dice_result(dices,{ "0":"F", "5":"E" } )
 		if dices<5:
 			yield(GC.POPUP.show_popup(room_data.pops.buscar1), "on_close")
 		if dices>=5:
 			yield(GC.POPUP.show_popup(room_data.pops.buscar2), "on_close")
 			GC.add_item("torch")
 			yield( GC.DESITIONS.hide_a_showed_desition("n3"), "on_finish_difuse")
+	elif node_id=="n4":
+		GC.ADVENTURE.change_room('room_005')
+
+func on_enter_room():
+	print("ENTER ROOM ",GC.get_current_room_data())

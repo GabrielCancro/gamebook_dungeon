@@ -28,14 +28,14 @@ func set_dice_result(val,result_data = {"0":"F"}):
 	return result
 	
 func show_popup(txt):
-	self.modulate = Color(1,1,1,0)
+	self.modulate = Color(1,1,1,1)
 	visible = true
 	$NinePatchRect/Button.disabled = false
 	$lb_result.visible = next_show_dice_result
 	$NinePatchRect/Label.text = txt
 	$NinePatchRect.rect_size.y = $NinePatchRect/Label.rect_size.y * 1.2
-	$Tween.interpolate_property(self,"modulate",Color(1,1,1,.5),Color(1,1,1,1),.2,Tween.TRANS_LINEAR,Tween.EASE_OUT)
-	$Tween.start()
+	#$Tween.interpolate_property(self,"modulate",Color(1,1,1,.5),Color(1,1,1,1),.2,Tween.TRANS_LINEAR,Tween.EASE_OUT)
+	#$Tween.start()
 	return self
 
 func close_popup():

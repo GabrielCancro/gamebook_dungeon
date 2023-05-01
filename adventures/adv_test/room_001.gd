@@ -4,8 +4,7 @@ var room_data = {
 	"name": "El Bosque",
 	"room_id": "room_001",
 	"image": preload("res://adventures/adv_test/imgs/room_001 el bosque.jpg"),
-	"desc": """
-		Caminas por el bosque cuando escuchas un grito.
+	"desc": """Caminas por el bosque cuando escuchas un grito.
 		Corres en su dirección y te encuentras con un guardia herido.
 		Es un guardia Real. Aún sigue con vida y te pide ayuda.
 	""",
@@ -43,12 +42,10 @@ func on_click_node(node_data,node_id):
 			yield(GC.POPUP.show_popup(room_data.pops.r1), "on_close")
 		if dices>=3:
 			yield(GC.POPUP.show_popup(room_data.pops.r2), "on_close")
-			GC.DESITIONS.show_a_hidden_desition("n3")
-			yield(GC.DESITIONS,"on_finish_resalt")
+			yield( GC.DESITIONS.show_a_hidden_desition("n3"), "on_finish_resalt" )
 		if dices>=5:
 			yield(GC.POPUP.show_popup(room_data.pops.r3), "on_close")
-			GC.DESITIONS.show_a_hidden_desition("n4")
-			yield(GC.DESITIONS,"on_finish_resalt")
+			yield( GC.DESITIONS.show_a_hidden_desition("n4"), "on_finish_resalt" )
 		if dices>=7:
 			yield(GC.POPUP.show_popup(room_data.pops.r4), "on_close")
 			GC.add_item("sword") 
