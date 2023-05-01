@@ -4,6 +4,7 @@ signal on_finish()
 
 func _ready():
 	$Button.connect("button_down",self,"on_button_skip")
+	$Button/AnimationPlayer.play("idle")
 
 func clear_narrator():
 	$VBox/Image.visible = false

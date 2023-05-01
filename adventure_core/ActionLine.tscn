@@ -15,6 +15,7 @@ anchor_bottom = 0.09
 margin_right = 0.367981
 margin_bottom = 0.0599976
 rect_min_size = Vector2( 0, 60 )
+rect_pivot_offset = Vector2( 355, 62 )
 custom_colors/font_color = Color( 0.196078, 0.196078, 0.196078, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Acercarme al Guardia y pedirle una explicacón de lo que sucedio ese dia tan terrible"
