@@ -16,7 +16,6 @@ func _ready():
 	$Timer.connect("timeout",self,"on_time_dices_update")
 	$Buttons/btn_roll.connect("button_down",self,"onButtonRoll")
 	$Buttons/btn_back.connect("button_down",self,"onButtonClose")
-	$Buttons/btn_end.connect("button_down",self,"onButtonEnd")
 	$btn_add.connect("button_down",self,"onButtonAdd")
 
 func on_time_dices_update():
@@ -37,7 +36,6 @@ func show_dices(ab_name):
 	$lb_result.visible = false
 	$Buttons/btn_roll.visible = true
 	$Buttons/btn_back.visible = true
-	$Buttons/btn_end.visible = false
 	$Tween.interpolate_property(self,"modulate",Color(1,1,1,.5),Color(1,1,1,1),.2,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 	$Tween.start()
 
@@ -47,10 +45,6 @@ func onButtonRoll():
 func onButtonClose():
 	GC.ACTION_POINTS += ability_bonif
 	visible = false
-
-func onButtonEnd():
-	visible = false
-	emit_signal("on_dice",d1+d2+ability_bonif)
 
 func onButtonAdd():
 	if GC.ACTION_POINTS <= 0 || isRolled || ability_bonif>=5: return
@@ -92,8 +86,7 @@ func run_dices():
 	$lb_result.modulate = Color(0,0,0,.2)
 	$Tween.interpolate_property($lb_result,"modulate",$lb_result.modulate,Color(1,1,1,1),.3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 	$Tween.start()
-#	$Buttons/btn_end.visible = true
 	
 	yield(get_tree().create_timer(2.2),"timeout")
-	onButtonEnd()
-	
+	visible = false
+	emit_signal("on_dice",d1+d2+ability_bonif)

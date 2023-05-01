@@ -93,6 +93,7 @@ margin_left = -145.0
 margin_top = -1.0
 margin_right = 145.0
 margin_bottom = 104.0
+focus_mode = 0
 flat = true
 
 [node name="Label2" type="Label" parent="NinePatchRect/Button"]

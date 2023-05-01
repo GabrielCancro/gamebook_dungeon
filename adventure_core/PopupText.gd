@@ -27,21 +27,20 @@ func set_dice_result(val,result_data = {"0":"F"}):
 	$lb_result/lb_result_text.text = result_deco[result]
 	return result
 	
-func show_popup(txt,anim=true):
+func show_popup(txt):
+	self.modulate = Color(1,1,1,0)
 	visible = true
-	self.modulate = Color(1,1,1,1)
 	$NinePatchRect/Button.disabled = false
 	$lb_result.visible = next_show_dice_result
 	$NinePatchRect/Label.text = txt
 	$NinePatchRect.rect_size.y = $NinePatchRect/Label.rect_size.y * 1.2
-	if anim:
-		$Tween.interpolate_property(self,"modulate",Color(1,1,1,.5),Color(1,1,1,1),.2,Tween.TRANS_LINEAR,Tween.EASE_OUT)
-		$Tween.start()
+	$Tween.interpolate_property(self,"modulate",Color(1,1,1,.5),Color(1,1,1,1),.2,Tween.TRANS_LINEAR,Tween.EASE_OUT)
+	$Tween.start()
 	return self
 
 func close_popup():
 	$NinePatchRect/Button.disabled = true
-	$Tween.interpolate_property(self,"modulate",Color(1,1,1,1),Color(1,1,1,0),.4,Tween.TRANS_LINEAR,Tween.EASE_IN)
+	$Tween.interpolate_property(self,"modulate",Color(1,1,1,1),Color(1,1,1,.5),.2,Tween.TRANS_LINEAR,Tween.EASE_IN)
 	$Tween.start()
 	yield($Tween,"tween_completed")
 	$Tween.remove_all()

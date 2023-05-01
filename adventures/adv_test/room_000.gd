@@ -19,6 +19,8 @@ var room_data = {
 	}
 }
 
-func on_click_node(data,node_id):
+func on_click_node(node_data,node_id):
+	print("CLICK IN",node_data)
+	var room_data = GC.get_current_room_data();
 	if node_id=="n1": 
 		GC.ADVENTURE.change_room("room_001")
