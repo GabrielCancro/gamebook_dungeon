@@ -18,4 +18,5 @@ func set_node_data(_data):
 	$rerollIcon.visible = data.has("isReroll") && data.isReroll
 
 func onClick():
+	GC.CURRENT_NODE = data
 	emit_signal("on_click",data)

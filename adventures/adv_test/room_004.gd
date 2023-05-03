@@ -10,7 +10,7 @@ var room_data = {
 	""",
 	"actions": {
 		"n1":{ "text":"Tal vez me sirva algo de luz Revisar la fogata" },
-		"n2":{ "text":"No se que habrá en las otras salas pero podría ser peligroso. Presentimiento.", "isDice":true },
+		"n2":{ "text":"No se que habrá en las otras salas pero podría ser peligroso. Presentimiento.", "isDice":true, "isReroll":true },
 		"n3":{ "text":"Podré encontrar algo en esa pila de huesos? Buscar.", "isDice":true },
 		"n4":{ "text":"Continuar el camino a la siguiente sala", "isHidden":true },
 		"n5":{ "text":"Continuar a la siguiente sala, de aquí provienen los ladridos, debo ir con cuidado", "isHidden":true, "isDice":true },
@@ -38,11 +38,10 @@ func on_click_node(node_data,node_id):
 		yield( GC.POPUP.show_popup(room_data.pops.p1), "on_close")
 		GC.add_item("torch") 
 		yield( GC.DESITIONS.hide_a_showed_desition("n1"), "on_finish_difuse")
-	elif node_id=="n2": 
-		GC.DESITIONS.hide_a_showed_desition("n2")
+	elif node_id=="n2":
 		GC.DICES.show_dices("SENTIDOS")
 		var dices = yield(GC.DICES,"on_dice")
-		var res = GC.POPUP.set_dice_result(dices,{ "0":"F", "5":"EP", "8":"EA" }, node_data )
+		var res = GC.POPUP.set_dice_result(dices,{ "0":"F", "5":"EP", "8":"EA" } )
 #		GC.set_gamevar("heardDices",res)
 		if dices<5:
 			yield(GC.POPUP.show_popup(room_data.pops.sentido1), "on_close")
@@ -60,7 +59,7 @@ func on_click_node(node_data,node_id):
 	elif node_id=="n3": 
 		GC.DICES.show_dices("BUSCAR")
 		var dices = yield(GC.DICES,"on_dice")
-		var res = GC.POPUP.set_dice_result(dices,{ "0":"F", "5":"EA" }, node_data )
+		var res = GC.POPUP.set_dice_result(dices,{ "0":"F", "5":"EA" } )
 		if dices<5:
 			yield(GC.POPUP.show_popup(room_data.pops.buscar1), "on_close")
 		if dices>=5:

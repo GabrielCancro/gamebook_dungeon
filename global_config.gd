@@ -11,6 +11,7 @@ var ADV_DATA = {
 	"rerolls":0
 }
 var CURRENT_ROOM = ""
+var CURRENT_NODE
 
 # Called when the node enters the scene tree for the first time.
 func get_current_room_data():

@@ -37,7 +37,7 @@ func on_click_node(node_data,node_id):
 	elif node_id=="n2": 
 		GC.DICES.show_dices("BUSCAR")
 		var dices = yield(GC.DICES,"on_dice")
-		var res = GC.POPUP.set_dice_result(dices,{ "0":"F", "3":"EP", "5":"E", "7":"EA" }, node_data )
+		var res = GC.POPUP.set_dice_result(dices,{ "0":"F", "3":"EP", "5":"E", "7":"EA" } )
 		if dices<3:
 			yield(GC.POPUP.show_popup(room_data.pops.r1), "on_close")
 		if dices>=3:

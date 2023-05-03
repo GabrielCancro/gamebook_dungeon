@@ -40,6 +40,12 @@ func show_dices(ab_name):
 	$Tween.start()
 
 func onButtonRoll():
+	if(GC.CURRENT_NODE): 
+		if !GC.CURRENT_NODE.has("isReroll") || !GC.CURRENT_NODE["isReroll"]: 
+			GC.CURRENT_NODE["isReroll"] = true
+		else:
+			GC.DESITIONS.hide_a_showed_desition(GC.CURRENT_NODE.node_id)
+	GC.DESITIONS.update_data(false)
 	run_dices()
 
 func onButtonClose():
