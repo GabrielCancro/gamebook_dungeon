@@ -20,6 +20,7 @@ func hide_options():
 func update_data(anim=true):
 	var actions = GC.get_current_room_data().actions
 	for line in $Options.get_children():
+		if line.name == "Line": continue
 		$Options.remove_child(line)
 		line.queue_free()
 	for node_id in actions:
@@ -42,6 +43,7 @@ func add_line(node_data):
 func resalt_node(node_id):
 	GC.ADVENTURE.set_blocker(true)
 	for line in $Options.get_children():
+		if line.name == "Line": continue
 		if line.data.node_id == node_id:
 			$Tween.interpolate_property(line,"rect_scale",Vector2(1.2,1.2),Vector2(1,1),.7,Tween.TRANS_QUAD,Tween.EASE_OUT)
 			$Tween.start()
@@ -52,6 +54,7 @@ func resalt_node(node_id):
 func difuse_node(node_id):
 	GC.ADVENTURE.set_blocker(true)
 	for line in $Options.get_children():
+		if line.name == "Line": continue
 		if line.data.node_id == node_id:
 			$Tween.interpolate_property(line,"modulate",Color(1,1,1,1),Color(1,1,1,0),.7,Tween.TRANS_QUAD,Tween.EASE_OUT)
 			$Tween.start()

@@ -10,7 +10,7 @@ var room_data = {
 	""",
 	"actions": {
 		"n1":{ "text":"Habla con el guardia" },
-		"n2":{ "text":"Parece la escena de un crimen, no te será difícil encontrar pistas (revisar la zona)" },
+		"n2":{ "text":"Parece la escena de un crimen, no te será difícil encontrar pistas (revisar la zona)", "isDice":true },
 		"n3":{ "text":"Entra en la cueva", "isHidden":true },
 		"n4":{ "text":"Acercate al guardia muerto", "isHidden":true }
 	},
@@ -37,7 +37,7 @@ func on_click_node(node_data,node_id):
 	elif node_id=="n2": 
 		GC.DICES.show_dices("BUSCAR")
 		var dices = yield(GC.DICES,"on_dice")
-		var res = GC.POPUP.set_dice_result(dices,{ "0":"F", "3":"EP", "5":"E", "7":"EA" } )
+		var res = GC.POPUP.set_dice_result(dices,{ "0":"F", "3":"EP", "5":"E", "7":"EA" }, node_data )
 		if dices<3:
 			yield(GC.POPUP.show_popup(room_data.pops.r1), "on_close")
 		if dices>=3:

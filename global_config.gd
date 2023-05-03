@@ -7,7 +7,8 @@ var DESITIONS
 var ACTION_POINTS = 10
 var ADV_DATA = {
 	"items":{},
-	"vars":{}
+	"vars":{},
+	"rerolls":0
 }
 var CURRENT_ROOM = ""
 

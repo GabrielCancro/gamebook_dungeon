@@ -16,7 +16,7 @@ func _ready():
 	visible = false
 	$NinePatchRect/Button.connect("button_down",self,"close_popup")
 
-func set_dice_result(val,result_data = {"0":"F"}):
+func set_dice_result(val,result_data = {"0":"F"}, node_data = null):
 	if val==null: 
 		next_show_dice_result = false
 		return
@@ -25,6 +25,13 @@ func set_dice_result(val,result_data = {"0":"F"}):
 	next_show_dice_result = true
 	$lb_result.text = str(val)
 	$lb_result/lb_result_text.text = result_deco[result]
+	
+	if(node_data): 
+		if node_data.has("isReroll") && node_data["isReroll"]: 
+			GC.ADV_DATA.rerolls += 1
+			print("-----GC.ADV_DATA.rerolls ",GC.ADV_DATA.rerolls)
+		node_data["isReroll"] = true
+		
 	return result
 	
 func show_popup(txt):

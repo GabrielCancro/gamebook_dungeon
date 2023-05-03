@@ -10,7 +10,7 @@ var room_data = {
 		Al fondo, sin embargo, puede verse un pasillo del cual proviene una tenue luz.
 	""",
 	"actions": {
-		"n1":{ "text":"Podría haber algo por aquí? Hay poca luz, será difícil con esta oscuridad" },
+		"n1":{ "text":"Podría haber algo por aquí? Hay poca luz, será difícil con esta oscuridad", "isDice":true },
 		"n2":{ "text":"Algo de iluminación te conduce hacia otra sala, avanzar hacia allí" },
 	},
 	"pops":{
@@ -30,7 +30,7 @@ func on_click_node(node_data,node_id):
 	if node_id=="n1": 
 		GC.DICES.show_dices("BUSCAR")
 		var dices = yield(GC.DICES,"on_dice")
-		var res = GC.POPUP.set_dice_result(dices,{ "0":"F", "8":"EP", "10":"EA" } )
+		var res = GC.POPUP.set_dice_result(dices,{ "0":"F", "8":"EP", "10":"EA" }, node_data )
 		if dices<8:
 			yield( GC.POPUP.show_popup(room_data.pops.r1), "on_close")
 		if dices>=8:
