@@ -102,15 +102,20 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="Label_inv" type="Label" parent="NinePatchRect"]
+[node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -343.5
-margin_top = -239.0
-margin_right = 343.5
-margin_bottom = 47.0
+margin_left = -351.0
+margin_top = -262.0
+margin_right = 368.0
+margin_bottom = 310.0
+
+[node name="Label_inv" type="Label" parent="NinePatchRect/ScrollContainer"]
+margin_right = 650.0
+margin_bottom = 286.0
+rect_min_size = Vector2( 650, 0 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/line_spacing = -16
 custom_fonts/font = SubResource( 2 )

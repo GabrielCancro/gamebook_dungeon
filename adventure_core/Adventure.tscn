@@ -196,13 +196,13 @@ margin_top = 721.0
 margin_right = 650.0
 margin_bottom = 844.0
 
+[node name="MenuInv" parent="." instance=ExtResource( 1 )]
+
 [node name="Dices" parent="." instance=ExtResource( 14 )]
 visible = false
 
 [node name="PopupText" parent="." instance=ExtResource( 15 )]
 visible = false
-
-[node name="MenuInv" parent="." instance=ExtResource( 1 )]
 
 [node name="Blocker" type="ColorRect" parent="."]
 visible = false

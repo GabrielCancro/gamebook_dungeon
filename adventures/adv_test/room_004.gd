@@ -64,5 +64,5 @@ func on_click_node(node_data,node_id):
 			yield(GC.POPUP.show_popup(room_data.pops.buscar1), "on_close")
 		if dices>=5:
 			yield(GC.POPUP.show_popup(room_data.pops.buscar2), "on_close")
-			GC.add_item("torch")
+			GC.add_item("meat")
 			yield( GC.DESITIONS.hide_a_showed_desition("n3"), "on_finish_difuse")

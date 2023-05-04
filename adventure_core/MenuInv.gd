@@ -18,11 +18,11 @@ func show_menu():
 	set_inv_label()
 
 func set_inv_label():
-	$NinePatchRect/Label_inv.text = "INVENTARIO:\n"
-	if(GC.ADV_DATA.items.keys().size()<=0): $NinePatchRect/Label_inv.text = "INVENTARIO (vacío)"
+	$NinePatchRect/ScrollContainer/Label_inv.text = "INVENTARIO:\n"
+	if(GC.ADV_DATA.items.keys().size()<=0): $NinePatchRect/ScrollContainer/Label_inv.text = "INVENTARIO (vacío)"
 	for obj_id in GC.ADV_DATA.items:
 		var obj = GC.ADV_DATA.items[obj_id]
-		$NinePatchRect/Label_inv.text += "- " + obj.name + ":" + obj.desc+ "\n"
+		$NinePatchRect/ScrollContainer/Label_inv.text += "- " + obj.name + ":" + obj.desc+ "\n"
 
 func hide_menu():
 	$Tween.interpolate_property($ColorRect,"modulate",$ColorRect.modulate,Color(1,1,1,0),.3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
