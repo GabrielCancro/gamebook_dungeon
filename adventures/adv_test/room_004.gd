@@ -10,12 +10,12 @@ var room_data = {
 	""",
 	"actions": {
 		"n1":{ "text":"Tal vez me sirva algo de luz Revisar la fogata" },
-		"n2":{ "text":"No se que habrá en las otras salas pero podría ser peligroso. Presentimiento.", "isDice":true, "isReroll":true },
-		"n3":{ "text":"Podré encontrar algo en esa pila de huesos? Buscar.", "isDice":true },
+		"n2":{ "text":"No se que habrá en las otras salas pero podría ser peligroso. Presentimiento.", "isDice": 3 },
+		"n3":{ "text":"Podré encontrar algo en esa pila de huesos? Buscar.", "isDice":1 },
 		"n4":{ "text":"Continuar el camino a la siguiente sala", "isHidden":true },
-		"n5":{ "text":"Continuar a la siguiente sala, de aquí provienen los ladridos, debo ir con cuidado", "isHidden":true, "isDice":true },
+		"n5":{ "text":"Continuar a la siguiente sala, de aquí provienen los ladridos, debo ir con cuidado", "isHidden":true, "isDice":3 },
 		"n6":{ "text":"Tal vez sería mejor bajar por el túnel a la otra sala", "isHidden":true },
-		"n7":{ "text":"Bajar por el túnel a la otra sala, los ronquidos provenían de aquí, seré silencioso", "isHidden":true, "isDice":true },
+		"n7":{ "text":"Bajar por el túnel a la otra sala, los ronquidos provenían de aquí, seré silencioso", "isHidden":true, "isDice":3 },
 	},
 	"pops":{
 		"p1":"Un pequeño fuego que alumbra el lugar.\n\n +Nuevo item: ANTORCHA",

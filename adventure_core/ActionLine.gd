@@ -14,8 +14,11 @@ func set_node_data(_data):
 	text = data.text
 	$Desc.text = text
 	rect_pivot_offset = rect_size/2
-	$diceIcon.visible = data.has("isDice") && data.isDice
-	$rerollIcon.visible = data.has("isReroll") && data.isReroll
+	
+	$diceIcon.visible = false
+	if data.has("isDice") && data.isDice>0:
+		$diceIcon.visible = true
+		$diceIcon.texture = load("res://assets/ui/dices_icon_"+str(data.isDice)+".png")
 
 func onClick():
 	GC.CURRENT_NODE = data

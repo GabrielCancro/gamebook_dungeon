@@ -10,7 +10,7 @@ var room_data = {
 		Al fondo, sin embargo, puede verse un pasillo del cual proviene una tenue luz.
 	""",
 	"actions": {
-		"n1":{ "text":"Podría haber algo por aquí? Hay poca luz, será difícil con esta oscuridad", "isDice":true },
+		"n1":{ "text":"Podría haber algo por aquí? Hay poca luz, será difícil con esta oscuridad", "isDice": 1 },
 		"n2":{ "text":"Algo de iluminación te conduce hacia otra sala, avanzar hacia allí" },
 	},
 	"pops":{

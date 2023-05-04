@@ -16,7 +16,7 @@ var room_data = {
 	"pops":{
 		"p1":"Los ojos del guardia brillan llenos de ilusión. Sientes una suave brisa en tu rostro y la valentia llena tu corazón.\n\n(+5 CONCENTRACIÓN)",
 		"p2":"Te lo piensas por un rato mirando al cielo, y ves un hermoso pájaro sobrevolando la escena, podría ser una señal, aunque seguro solo es un pájaro.",
-		"p3":"Realmente harías eso? Mejor vuelve y haz lo que un heroe debe hacer!"		
+		"p3":"Realmente harías eso? Mejor vuelve y haz lo que un heroe debe hacer!"
 	}
 }
 

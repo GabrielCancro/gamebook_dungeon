@@ -3,6 +3,7 @@ extends Control
 var ability_name = "SIGILO"
 var ability_bonif = 0
 var start_dices_y = 0
+var dice_cost = 0
 var d1
 var d2
 var isRolled = false
@@ -17,6 +18,7 @@ func _ready():
 	$Buttons/btn_roll.connect("button_down",self,"onButtonRoll")
 	$Buttons/btn_back.connect("button_down",self,"onButtonClose")
 	$btn_add.connect("button_down",self,"onButtonAdd")
+	$DiceCost/btn_cost.connect("button_down",self,"onButtonCost")
 
 func on_time_dices_update():
 	d1 = randi()%6+1
@@ -25,8 +27,11 @@ func on_time_dices_update():
 	$Dice2.frame = d2-1
 
 func show_dices(ab_name):
+	$DiceCost.visible = (GC.CURRENT_NODE && GC.CURRENT_NODE.isDice == 2)
 	ability_name = ab_name
 	ability_bonif = 0
+	dice_cost = 0
+	
 	$btn_add/Label2.text = str(GC.ACTION_POINTS)
 	$lb_ability.text = ability_name+" +"+str(ability_bonif)
 	visible = true
@@ -40,16 +45,10 @@ func show_dices(ab_name):
 	$Tween.start()
 
 func onButtonRoll():
-	if(GC.CURRENT_NODE): 
-		if !GC.CURRENT_NODE.has("isReroll") || !GC.CURRENT_NODE["isReroll"]: 
-			GC.CURRENT_NODE["isReroll"] = true
-		else:
-			GC.DESITIONS.hide_a_showed_desition(GC.CURRENT_NODE.node_id)
-	GC.DESITIONS.update_data(false)
 	run_dices()
 
 func onButtonClose():
-	GC.ACTION_POINTS += ability_bonif
+	GC.ACTION_POINTS += ability_bonif + dice_cost
 	visible = false
 
 func onButtonAdd():
@@ -59,11 +58,25 @@ func onButtonAdd():
 	$btn_add/Label2.text = str(GC.ACTION_POINTS)
 	$lb_ability.text = ability_name+" +"+str(ability_bonif)
 	$Tween.interpolate_property($lb_ability,"rect_scale",Vector2(1.1,1.1),Vector2(1,1),.3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
+	$Tween.interpolate_property($btn_add,"rect_scale",Vector2(1.1,1.1),Vector2(1,1),.3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 	$Tween.start()
+
+func onButtonCost():
+	$DiceCost.visible = false
+	if(GC.ACTION_POINTS>=2):
+		dice_cost = 2
+		GC.ACTION_POINTS -= 2
+		$btn_add/Label2.text = str(GC.ACTION_POINTS)
+		$Tween.interpolate_property($btn_add,"rect_scale",Vector2(1.1,1.1),Vector2(1,1),.3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
+		$Tween.start()
+	else: 
+		visible = false
+		GC.POPUP.show_popup("No tienes suficiente PUNTOS DE CONCENTRACIÓN para realizar esta tirada!")
 
 func run_dices():
 	if isRolled: return
 	isRolled = true
+	check_dices_type()
 	$Buttons/btn_roll.visible = false
 	$Buttons/btn_back.visible = false
 	var duration = 1.2
@@ -96,3 +109,11 @@ func run_dices():
 	yield(get_tree().create_timer(2.2),"timeout")
 	visible = false
 	emit_signal("on_dice",d1+d2+ability_bonif)
+
+func check_dices_type():
+	if(GC.CURRENT_NODE): 
+		if GC.CURRENT_NODE.isDice == 1: 
+			GC.CURRENT_NODE.isDice = 2
+		elif GC.CURRENT_NODE.isDice == 3: 
+			GC.DESITIONS.hide_a_showed_desition(GC.CURRENT_NODE.node_id)
+		GC.DESITIONS.update_data(false)

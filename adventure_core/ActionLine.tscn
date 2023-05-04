@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://font/IMFePIsc28P_0.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://adventure_core/ActionLine.gd" type="Script" id=2]
 [ext_resource path="res://assets/ui/dices2_icon.png" type="Texture" id=3]
-[ext_resource path="res://assets/ui/dices3_icon.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -59,7 +58,6 @@ focus_mode = 0
 flat = true
 
 [node name="diceIcon" type="TextureRect" parent="."]
-visible = false
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -69,17 +67,4 @@ margin_top = -79.0
 margin_right = 52.0
 margin_bottom = 22.0
 texture = ExtResource( 3 )
-expand = true
-
-[node name="rerollIcon" type="TextureRect" parent="."]
-visible = false
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -53.0
-margin_top = -84.0
-margin_right = 48.0
-margin_bottom = 17.0
-texture = ExtResource( 4 )
 expand = true

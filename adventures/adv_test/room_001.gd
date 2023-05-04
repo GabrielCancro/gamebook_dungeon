@@ -10,7 +10,7 @@ var room_data = {
 	""",
 	"actions": {
 		"n1":{ "text":"Habla con el guardia" },
-		"n2":{ "text":"Parece la escena de un crimen, no te será difícil encontrar pistas (revisar la zona)", "isDice":true },
+		"n2":{ "text":"Parece la escena de un crimen, no te será difícil encontrar pistas (revisar la zona)", "isDice": 1 },
 		"n3":{ "text":"Entra en la cueva", "isHidden":true },
 		"n4":{ "text":"Acercate al guardia muerto", "isHidden":true }
 	},
