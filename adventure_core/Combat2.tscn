@@ -1,0 +1,123 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/ui/TextoGrande.png" type="Texture" id=1]
+[ext_resource path="res://font/IMFePIsc28P_0.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+extra_spacing_top = -12
+extra_spacing_bottom = -10
+font_data = ExtResource( 2 )
+
+[node name="Combat" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -166, 860 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 21.0
+texture = ExtResource( 1 )
+patch_margin_left = 326
+patch_margin_top = 197
+patch_margin_right = 333
+patch_margin_bottom = 206
+
+[node name="Desc4" type="Label" parent="NinePatchRect"]
+margin_left = 53.0
+margin_top = 146.0
+margin_right = 703.0
+margin_bottom = 227.0
+rect_pivot_offset = Vector2( 355, 62 )
+custom_colors/font_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Fallas tu ataque, y en la errata la hiena aprovecha para morder tu antebrazo. (1 herida)"
+valign = 1
+autowrap = true
+
+[node name="Options" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -334.0
+margin_top = -934.0
+margin_right = 316.0
+margin_bottom = -90.0
+rect_min_size = Vector2( 650, 0 )
+custom_constants/separation = 35
+alignment = 2
+
+[node name="Line" type="ColorRect" parent="Options"]
+margin_top = 101.0
+margin_right = 650.0
+margin_bottom = 106.0
+rect_min_size = Vector2( 0, 5 )
+color = Color( 0, 0, 0, 0.392157 )
+
+[node name="Desc4" type="Label" parent="Options"]
+margin_top = 141.0
+margin_right = 650.0
+margin_bottom = 222.0
+rect_pivot_offset = Vector2( 355, 62 )
+custom_colors/font_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Ataca con todas tu fuerzas en un golpe directo (+2 atk)"
+valign = 1
+autowrap = true
+
+[node name="Desc5" type="Label" parent="Options"]
+margin_top = 257.0
+margin_right = 650.0
+margin_bottom = 338.0
+rect_pivot_offset = Vector2( 355, 62 )
+custom_colors/font_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Atacar cuidadosamente sin exponerme demasiado (+2 def)"
+valign = 1
+autowrap = true
+
+[node name="Desc6" type="Label" parent="Options"]
+margin_top = 373.0
+margin_right = 650.0
+margin_bottom = 454.0
+rect_pivot_offset = Vector2( 355, 62 )
+custom_colors/font_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Mantener la guardia para evadir el proximo ataque (+5 def)"
+valign = 1
+autowrap = true
+
+[node name="Desc7" type="Label" parent="Options"]
+margin_top = 489.0
+margin_right = 650.0
+margin_bottom = 570.0
+rect_pivot_offset = Vector2( 355, 62 )
+custom_colors/font_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Intentar huir de la batalla (dificil)"
+valign = 1
+autowrap = true
+
+[node name="Desc8" type="Label" parent="Options"]
+margin_top = 605.0
+margin_right = 650.0
+margin_bottom = 728.0
+rect_pivot_offset = Vector2( 355, 62 )
+custom_colors/font_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Buscar una mejor posicion para luchar en vez de atacar (+2 def +2 atk)"
+valign = 1
+autowrap = true
+
+[node name="Desc9" type="Label" parent="Options"]
+margin_top = 763.0
+margin_right = 650.0
+margin_bottom = 844.0
+rect_pivot_offset = Vector2( 355, 62 )
+custom_colors/font_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Gritar para tratar de intimidar al oponente (dif media)"
+valign = 1
+autowrap = true
