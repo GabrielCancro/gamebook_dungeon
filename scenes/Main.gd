@@ -6,7 +6,8 @@ func _ready():
 	$Eye/AnimationPlayer.play("idle")
 
 func onClick(btn):
-	if btn=="btn_start": get_tree().change_scene("res://adventure_core/Adventure.tscn")	
+	if btn=="btn_start": get_tree().change_scene("res://adventure_core/Adventure.tscn")
+	if btn=="btn_combat": get_tree().change_scene("res://adventure_core/Combat.tscn")
 	if btn=="btn_quit": get_tree().quit()
 #	if arg=="locks": GC.startMinigame("locks")
 #	if arg=="adventure": 

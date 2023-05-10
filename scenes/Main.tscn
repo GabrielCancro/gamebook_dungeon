@@ -89,9 +89,9 @@ margin_bottom = 634.0
 alignment = 1
 
 [node name="btn_start" type="Button" parent="VBox"]
-margin_top = 248.0
+margin_top = 186.0
 margin_right = 450.0
-margin_bottom = 368.0
+margin_bottom = 306.0
 rect_min_size = Vector2( 450, 120 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
@@ -128,10 +128,9 @@ __meta__ = {
 }
 
 [node name="btn_combat" type="Button" parent="VBox"]
-visible = false
-margin_top = 124.0
+margin_top = 310.0
 margin_right = 450.0
-margin_bottom = 244.0
+margin_bottom = 430.0
 rect_min_size = Vector2( 450, 120 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
@@ -144,7 +143,7 @@ custom_styles/pressed = ExtResource( 7 )
 custom_styles/focus = ExtResource( 6 )
 custom_styles/disabled = ExtResource( 6 )
 custom_styles/normal = ExtResource( 6 )
-text = "Combat Hands"
+text = "Combat"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -191,9 +190,9 @@ custom_styles/normal = ExtResource( 6 )
 text = "Comenzar"
 
 [node name="btn_quit" type="Button" parent="VBox"]
-margin_top = 372.0
+margin_top = 434.0
 margin_right = 450.0
-margin_bottom = 492.0
+margin_bottom = 554.0
 rect_min_size = Vector2( 450, 120 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
