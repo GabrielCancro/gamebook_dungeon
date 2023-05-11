@@ -19,10 +19,7 @@ var room_data = {
 		"buscar1":"Hay cientos de huesos, no creo que sirvan para mucho",
 		"buscar2":"Entre tantos huesos roídos encuentras un trozo de carne en dudoso estado.\n\n +Nuevo item: CARNE",
 	},
-	"items": {
-		"torch": {"name":"Antorcha", "img":null, "desc": "Un trozo de madera de la fogata te sirve como antorcha."},
-		"meat": {"name":"Carne", "img":null, "desc": "Carne en dudoso estado, va, dudoso.. esta podrida."},
-	}
+
 }
 
 func on_click_node(node_data,node_id):

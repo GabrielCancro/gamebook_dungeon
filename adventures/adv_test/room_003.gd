@@ -18,10 +18,7 @@ var room_data = {
 		"r2":"Entre rocas y maleza, algo que brilla llama tu atención.\n\n +Nuevo item: GANZÚA",
 		"r3":"Tras hurgar con extrema pericia, encuentras un papel con marcas interesantes.\n\n +Nuevo item: TROZO DE MAPA"
 	},
-	"items": {
-		"lockpick": {"name":"Ganzúa", "img":null, "desc": "Una precaria y corroida ganzúa metalica, podría servir para alguna cerradura estropeada."},
-		"map1": {"name":"Trozo de mapa", "img":null, "desc": "Es un trozo de lo que parece el mapa de algún lugar o tesoro, solo tenemos la mitad de él."}
-	}
+
 }
 
 func on_click_node(node_data,node_id):

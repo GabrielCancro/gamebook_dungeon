@@ -7,7 +7,8 @@ var adv_root_data_node
 func _ready():
 	GC.ADVENTURE = self
 	set_blocker(false)
-	change_room("room_000")
+	if !GC.CURRENT_ROOM: GC.CURRENT_ROOM = "room_000"
+	change_room(GC.CURRENT_ROOM)
 
 func change_room(room_id):
 	$Fade.fadeIn()

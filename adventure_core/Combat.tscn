@@ -88,6 +88,11 @@ anchor_bottom = 1.0
 rect_pivot_offset = Vector2( -166, 860 )
 script = ExtResource( 9 )
 
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.137255, 0.0156863, 0.0156863, 1 )
+
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -116,7 +121,6 @@ margin_left = -339.0
 margin_top = -127.0
 margin_right = 348.0
 margin_bottom = -74.0
-value = 70.0
 texture_under = ExtResource( 6 )
 texture_progress = ExtResource( 5 )
 nine_patch_stretch = true
@@ -289,7 +293,6 @@ margin_left = -339.5
 margin_top = 64.0
 margin_right = 347.5
 margin_bottom = 117.0
-value = 70.0
 texture_under = ExtResource( 6 )
 texture_progress = ExtResource( 5 )
 nine_patch_stretch = true

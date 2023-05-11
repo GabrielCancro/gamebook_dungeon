@@ -24,9 +24,7 @@ var room_data = {
 			En cierta forma te recuerda a ti. Sea lo que sea que lo mató, espero no tener que enfrentarlo.
 		"""
 	},
-	"items": {
-		"sword": {"name":"Espada", "img":null, "desc": "Una hermosa espada real, espero no tener que utilizarla"}
-	}
+
 }
 
 func on_click_node(node_data,node_id):

@@ -23,9 +23,20 @@ func _ready():
 	$Middle/Dice1.modulate.a = 0
 	$Middle/Dice2.modulate.a = 0
 	$Middle/Label.modulate.a = 0
+	
 	set_turn_line("PLAYER")
 	set_stats()
 	show_actions()
+	print(GC.CURRENT_COMBAT_DATA)
+	
+	$Player/Options.visible = false
+	$Tween.interpolate_property($Player/HP_PLAYER,"value",0,100,1,Tween.TRANS_LINEAR,Tween.EASE_OUT,.5)
+	$Tween.interpolate_property($Enemy/HP_ENEM,"value",0,100,1,Tween.TRANS_LINEAR,Tween.EASE_OUT,.5)
+	$Tween.start()
+	yield($Tween,"tween_all_completed")
+	$Player/Options.visible = true
+
+	
 
 func set_stats():
 	$Enemy/Atk/Label.text = "+"+str(en_bo)
@@ -105,7 +116,7 @@ func run_dices(mode):
 	emit_signal("end_run_dices")
 
 func apply_result(mode):
-	var damage = 15
+	var damage = 25
 	var def_node = $Enemy/Def
 	var hp_node = $Enemy/HP_ENEM
 	var CA = en_ca
@@ -126,7 +137,12 @@ func apply_result(mode):
 	$Tween.interpolate_property($Middle/Label,"modulate",Color(1,1,1,1),Color(1,1,1,0),.4,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 	$Tween.start()
 	yield(get_tree().create_timer(.8),"timeout")
-	emit_signal("end_apply_result")
+	
+	if hp_node.value <= 0:
+		if mode=="PLAYER": GC.CURRENT_ROOM = GC.CURRENT_COMBAT_DATA.lose_room
+		elif mode=="ENEMY": GC.CURRENT_ROOM = GC.CURRENT_COMBAT_DATA.win_room
+		get_tree().change_scene("res://adventure_core/Adventure.tscn")
+	else: emit_signal("end_apply_result")
 
 func set_turn_line(mode):
 	$TurnLine/AnimationPlayer.play("flash")
