@@ -25,13 +25,8 @@ var all_items = {
 	"meat": {"name":"Carne", "img":null, "desc": "Carne en dudoso estado, va, dudoso.. esta podrida."}
 }
 
-var all_combats = {
-	"c1": {}
-}
-
 func _ready():
 	GC.ALL_ITEMS = all_items
-	GC.ALL_COMBATS = all_combats
 
 func on_click_node(node_data,node_id):
 	print("CLICK IN",node_data)

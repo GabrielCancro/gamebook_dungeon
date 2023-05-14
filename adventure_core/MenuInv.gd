@@ -6,6 +6,7 @@ var start_rect_position = null
 func _ready():
 	$btn_menu.connect("button_down",self,"show_menu")
 	$NinePatchRect/btn_continue.connect("button_down",self,"hide_menu")
+	$NinePatchRect/btn_quit.connect("button_down",self,"goto_menu")
 
 func show_menu():
 	if !start_rect_position: start_rect_position = $NinePatchRect.rect_position
@@ -30,3 +31,6 @@ func hide_menu():
 	$Tween.start()
 	yield($Tween,"tween_all_completed")
 	$ColorRect.visible = false
+
+func goto_menu():
+	get_tree().change_scene("res://scenes/Main.tscn")

@@ -7,7 +7,7 @@ func _ready():
 
 func onClick(btn):
 	if btn=="btn_start": get_tree().change_scene("res://adventure_core/Adventure.tscn")
-	if btn=="btn_combat": GC.start_combat("test")
+	if btn=="btn_combat": GC.start_combat("combat_001")
 	if btn=="btn_quit": get_tree().quit()
 #	if arg=="locks": GC.startMinigame("locks")
 #	if arg=="adventure": 

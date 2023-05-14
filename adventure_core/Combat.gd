@@ -1,5 +1,7 @@
 extends Control
 
+var action_line_scene = preload("res://adventure_core/ActionLine.tscn")
+
 var isRolled = false
 var d1 = 0
 var d2 = 0
@@ -11,53 +13,78 @@ var final_dice = 0
 
 signal end_run_dices
 signal end_apply_result
-
-var actions = {
-	"n1":{ "text":"Propinar un golpe directo", "isDice": 1 },
-	"n2":{ "text":"Posicionarse para sacar ventaja" },
-	"n3":{ "text":"Intentar un super ataque destructor", "isDice": 1 },
-}
+signal end_add_stat
 
 func _ready():
 	$Timer.connect("timeout",self,"on_time_dices_update")
 	$Middle/Dice1.modulate.a = 0
 	$Middle/Dice2.modulate.a = 0
 	$Middle/Label.modulate.a = 0
+	$TurnLabel.modulate.a = 0
+	$TurnLabel.visible = true
+	$Player/DamageLabel.visible = false
+	$Enemy/DamageLabel.visible = false
 	
+	$CS.set_script( load("res://adventures/adv_test/"+GC.CURRENT_COMBAT_ID+".gd") )
+	$CS.init_combat_data()
+
+func on_finish_script_load():
 	set_turn_line("PLAYER")
 	set_stats()
-	show_actions()
-	print(GC.CURRENT_COMBAT_DATA)
-	
 	$Player/Options.visible = false
 	$Tween.interpolate_property($Player/HP_PLAYER,"value",0,100,1,Tween.TRANS_LINEAR,Tween.EASE_OUT,.5)
 	$Tween.interpolate_property($Enemy/HP_ENEM,"value",0,100,1,Tween.TRANS_LINEAR,Tween.EASE_OUT,.5)
 	$Tween.start()
 	yield($Tween,"tween_all_completed")
-	$Player/Options.visible = true
-
+	show_actions()
 	
-
 func set_stats():
 	$Enemy/Atk/Label.text = "+"+str(en_bo)
 	$Enemy/Def/Label.text = str(en_ca)
 	$Player/Atk/Label.text = "+"+str(pj_bo)
 	$Player/Def/Label.text = str(pj_ca)
 
-func show_actions():
-	for desc in $Player/Options.get_children():
-		desc.set_node_data(actions["n"+str(desc.get_index()+1) ])
-		desc.visible = true
-		desc.connect("on_click",self,"run_turn")
-
-func run_turn(arg):
-	run_dices("PLAYER")
-	yield(self,"end_run_dices")
-	apply_result("ENEMY")
-	yield(self,"end_apply_result")
+func show_turn_label(mode):
+	if mode=="PLAYER": $TurnLabel/Label.text = "Tu Turno"
+	if mode=="ENEMY": $TurnLabel/Label.text = "Turno Del Enemigo"
+	if mode=="WIN": $TurnLabel/Label.text = "Has Ganado"
+	if mode=="LOSE": $TurnLabel/Label.text = "Moriste..."
+	$Tween.interpolate_property($TurnLabel,"modulate",Color(1,1,1,.8),Color(1,1,1,1),.2,Tween.TRANS_LINEAR,Tween.EASE_OUT)
+	$Tween.start()
+	yield(get_tree().create_timer(.6),"timeout")
+	$Tween.interpolate_property($TurnLabel,"modulate",Color(1,1,1,1),Color(1,1,1,0),.3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
+	yield(get_tree().create_timer(.4),"timeout")
+	$Tween.start()
 	
-	yield(get_tree().create_timer(.4),"timeout")	
+func show_actions():
+	show_turn_label("PLAYER")
+	yield(get_tree().create_timer(1.2),"timeout")
+	$Player/Options.visible = true
+	randomize()
+	var exclude_nodes = []
+	for line in $Player/Options.get_children(): 
+		$Player/Options.remove_child(line)
+		line.queue_free()
+	for i in range(3):
+		var node_id = null
+		var selected = 0
+		while node_id==null:
+			node_id = $CS.actions.keys()[ randi()%$CS.actions.keys().size() ]
+			if !exclude_nodes.has(node_id) && $CS.actions[node_id].has("isHidden") && $CS.actions[node_id].isHidden: exclude_nodes.append(node_id)
+			if exclude_nodes.has(node_id): node_id = null
+			if exclude_nodes.size()>=$CS.actions.size(): break
+		
+		if node_id:
+			exclude_nodes.append(node_id)
+			var line = action_line_scene.instance()
+			line.set_node_data($CS.actions[ node_id ])
+			line.connect("on_click",$CS,"on_click_node",[node_id])
+			$Player/Options.add_child(line)
+
+func end_player_turn():
+	show_turn_label("ENEMY")
 	set_turn_line("ENEMY")
+	yield(get_tree().create_timer(1.2),"timeout")
 	yield(get_tree().create_timer(.4),"timeout")
 	run_dices("ENEMY")
 	yield(self,"end_run_dices")
@@ -67,7 +94,7 @@ func run_turn(arg):
 	yield(get_tree().create_timer(.4),"timeout")
 	set_turn_line("PLAYER")
 	yield(get_tree().create_timer(.4),"timeout")
-	$Player/Options.visible = true
+	show_actions()
 
 func on_time_dices_update():
 	d1 = randi()%6+1
@@ -116,22 +143,27 @@ func run_dices(mode):
 	emit_signal("end_run_dices")
 
 func apply_result(mode):
-	var damage = 25
 	var def_node = $Enemy/Def
 	var hp_node = $Enemy/HP_ENEM
+	var dmg_label = $Enemy/DamageLabel
 	var CA = en_ca
 	if mode == "PLAYER": 
 		def_node = $Player/Def
 		hp_node = $Player/HP_PLAYER
+		dmg_label = $Player/DamageLabel
 		CA = pj_ca
 	$Tween.interpolate_property(def_node,"rect_scale",Vector2(1.5,1.5),Vector2(1,1),.5,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 	$Tween.start()
 	yield(get_tree().create_timer(.7),"timeout")
 	if final_dice>=CA:
+		var damage = 20 + max(0,final_dice-CA) * 3
+		dmg_label.text = "-"+str(damage)
+		dmg_label.visible = true
 		if mode == "ENEMY": $Tween.interpolate_property($Enemy/Image,"modulate",Color(1,.2,.2,1),Color(1,1,1,1),.3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 		$Tween.interpolate_property(hp_node,"value",hp_node.value,hp_node.value-damage,.3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 		$Tween.start()
 		yield(get_tree().create_timer(.8),"timeout")
+		dmg_label.visible = false
 	$Tween.interpolate_property($Middle/Dice1,"modulate",Color(1,1,1,1),Color(1,1,1,0),.4,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 	$Tween.interpolate_property($Middle/Dice2,"modulate",Color(1,1,1,1),Color(1,1,1,0),.4,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 	$Tween.interpolate_property($Middle/Label,"modulate",Color(1,1,1,1),Color(1,1,1,0),.4,Tween.TRANS_LINEAR,Tween.EASE_OUT)
@@ -139,10 +171,52 @@ func apply_result(mode):
 	yield(get_tree().create_timer(.8),"timeout")
 	
 	if hp_node.value <= 0:
-		if mode=="PLAYER": GC.CURRENT_ROOM = GC.CURRENT_COMBAT_DATA.lose_room
-		elif mode=="ENEMY": GC.CURRENT_ROOM = GC.CURRENT_COMBAT_DATA.win_room
+		if mode=="PLAYER": 
+			GC.CURRENT_ROOM = $CS.lose_room
+			show_turn_label("LOSE")
+			yield(get_tree().create_timer(1),"timeout")
+		elif mode=="ENEMY": 
+			GC.CURRENT_ROOM = $CS.win_room
+			show_turn_label("WIN")
+			yield(get_tree().create_timer(1),"timeout")
 		get_tree().change_scene("res://adventure_core/Adventure.tscn")
 	else: emit_signal("end_apply_result")
+
+func add_player_stat(stat,cnt):
+	var node
+	$Player/Options.visible = false
+	yield(get_tree().create_timer(.4),"timeout")
+	if(stat=="BO"):
+		node = $Player/Atk
+		pj_bo += cnt
+		set_stats()
+	if(stat=="CA"):
+		node = $Player/Def
+		pj_ca += cnt
+		set_stats()
+	if node:
+		$Tween.interpolate_property(node,"rect_scale",Vector2(1.5,1.5),Vector2(1,1),.5,Tween.TRANS_LINEAR,Tween.EASE_OUT)
+		$Tween.start()
+		yield(get_tree().create_timer(.8),"timeout")
+	emit_signal("end_add_stat")
+
+func add_enemy_stat(stat,cnt):
+	var node
+	$Player/Options.visible = false
+	yield(get_tree().create_timer(.4),"timeout")
+	if(stat=="BO"):
+		node = $Enemy/Atk
+		en_bo += cnt
+		set_stats()
+	if(stat=="CA"):
+		node = $Enemy/Def
+		en_ca += cnt
+		set_stats()
+	if node:
+		$Tween.interpolate_property(node,"rect_scale",Vector2(1.5,1.5),Vector2(1,1),.5,Tween.TRANS_LINEAR,Tween.EASE_OUT)
+		$Tween.start()
+		yield(get_tree().create_timer(.8),"timeout")
+	emit_signal("end_add_stat")
 
 func set_turn_line(mode):
 	$TurnLine/AnimationPlayer.play("flash")
