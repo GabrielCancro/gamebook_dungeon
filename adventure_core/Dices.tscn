@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://adventure_core/Dices.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/TextoFlotante.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/gold_dices.png" type="Texture" id=5]
 [ext_resource path="res://assets/ui/BotonCircular.png" type="Texture" id=6]
 [ext_resource path="res://font/KELMSCOT.TTF" type="DynamicFontData" id=7]
+[ext_resource path="res://font/IMFePIsc28P_0.ttf" type="DynamicFontData" id=8]
 
 [sub_resource type="DynamicFontData" id=13]
 font_path = "res://font/IMFePIsc28P_0.ttf"
@@ -25,6 +26,12 @@ size = 59
 outline_size = 6
 outline_color = Color( 0.764706, 0.764706, 0.764706, 1 )
 font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 48
+outline_size = 2
+outline_color = Color( 0.207843, 0.207843, 0.207843, 1 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 200
@@ -192,6 +199,73 @@ custom_fonts/font = SubResource( 2 )
 text = "MEJOR NO"
 align = 1
 valign = 1
+
+[node name="Items" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -384.0
+margin_top = 150.0
+margin_right = 384.0
+margin_bottom = 586.0
+
+[node name="VBox" type="VBoxContainer" parent="Items"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -197.0
+margin_right = 300.0
+margin_bottom = 142.0
+custom_constants/separation = 9
+alignment = 1
+
+[node name="item0" type="Button" parent="Items/VBox"]
+margin_top = 75.0
+margin_right = 600.0
+margin_bottom = 165.0
+rect_min_size = Vector2( 600, 90 )
+focus_mode = 0
+custom_colors/font_color = Color( 0.8, 1, 0.396078, 1 )
+custom_fonts/font = SubResource( 15 )
+text = "  Usar Antorcha +2"
+flat = true
+
+[node name="item1" type="Button" parent="Items/VBox"]
+margin_top = 174.0
+margin_right = 600.0
+margin_bottom = 264.0
+rect_min_size = Vector2( 600, 90 )
+focus_mode = 0
+custom_colors/font_color = Color( 0.8, 1, 0.396078, 1 )
+custom_fonts/font = SubResource( 15 )
+text = "  Usar Antorcha +2"
+flat = true
+
+[node name="item2" type="Button" parent="Items/VBox"]
+visible = false
+margin_top = 223.0
+margin_right = 600.0
+margin_bottom = 313.0
+rect_min_size = Vector2( 600, 90 )
+focus_mode = 0
+custom_colors/font_color = Color( 0.8, 1, 0.396078, 1 )
+custom_fonts/font = SubResource( 15 )
+text = "  Usar Antorcha +2"
+flat = true
+
+[node name="item3" type="Button" parent="Items/VBox"]
+visible = false
+margin_top = 297.0
+margin_right = 600.0
+margin_bottom = 387.0
+rect_min_size = Vector2( 600, 90 )
+custom_colors/font_color = Color( 0.8, 1, 0.396078, 1 )
+custom_fonts/font = SubResource( 15 )
+text = "  Usar Antorcha +2"
+flat = true
 
 [node name="lb_result" type="Label" parent="."]
 anchor_left = 0.5

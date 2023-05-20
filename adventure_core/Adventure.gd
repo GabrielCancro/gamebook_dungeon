@@ -8,6 +8,11 @@ func _ready():
 	GC.ADVENTURE = self
 	set_blocker(false)
 	if !GC.CURRENT_ROOM: GC.CURRENT_ROOM = "room_000"
+	#LOAD ITEMS 
+	var adventure_items_node = Node.new()
+	adventure_items_node.name = "adventure_items_node"
+	adventure_items_node.set_script( load("res://adventures/adv_test/adventure_items.gd") )
+	add_child(adventure_items_node)
 	change_room(GC.CURRENT_ROOM)
 
 func change_room(room_id):

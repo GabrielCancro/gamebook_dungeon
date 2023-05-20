@@ -31,6 +31,7 @@ func show_dices(ab_name):
 	ability_name = ab_name
 	ability_bonif = 0
 	dice_cost = 0
+	set_usable_items()
 	
 	$btn_add/Label2.text = str(GC.ACTION_POINTS)
 	$lb_ability.text = ability_name+" +"+str(ability_bonif)
@@ -117,3 +118,32 @@ func check_dices_type():
 		elif GC.CURRENT_NODE.isDice == 3: 
 			GC.DESITIONS.hide_a_showed_desition(GC.CURRENT_NODE.node_id)
 		GC.DESITIONS.update_data(false)
+
+func set_usable_items():
+	for li in $Items/VBox.get_children(): 
+		li.visible = false
+		li.disabled = false
+		li.modulate.a = 1
+		li.connect("button_down",self,"on_item_click",[li])
+		
+	
+	print("BONOS ",GC.CURRENT_NODE)
+	if !GC.CURRENT_NODE: return
+	if GC.CURRENT_NODE.has("bon"):
+		for i in range( GC.CURRENT_NODE.bon.keys().size() ):
+			var li = $Items/VBox.get_children()[i]
+			var it_name = GC.CURRENT_NODE.bon.keys()[i]
+			if GC.get_item(it_name):
+				var data = GC.get_item(it_name)
+				li.text = "Usar "+data.name+" +"+str(GC.CURRENT_NODE.bon[it_name])
+				li.visible = true
+
+func on_item_click(li):
+	var i = li.get_index()
+	var it_name = GC.CURRENT_NODE.bon.keys()[i]
+	li.disabled = true
+	li.modulate.a = .3
+	ability_bonif += GC.CURRENT_NODE.bon[it_name]
+	$lb_ability.text = ability_name+" +"+str(ability_bonif)
+	$Tween.interpolate_property($lb_ability,"rect_scale",Vector2(1.1,1.1),Vector2(1,1),.3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
+	$Tween.start()

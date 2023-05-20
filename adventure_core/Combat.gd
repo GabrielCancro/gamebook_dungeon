@@ -17,6 +17,7 @@ signal end_add_stat
 
 func _ready():
 	$Timer.connect("timeout",self,"on_time_dices_update")
+	$EndButton.connect("button_down",self,"on_click_end_button")
 	$Middle/Dice1.modulate.a = 0
 	$Middle/Dice2.modulate.a = 0
 	$Middle/Label.modulate.a = 0
@@ -47,8 +48,6 @@ func set_stats():
 func show_turn_label(mode):
 	if mode=="PLAYER": $TurnLabel/Label.text = "Tu Turno"
 	if mode=="ENEMY": $TurnLabel/Label.text = "Turno Del Enemigo"
-	if mode=="WIN": $TurnLabel/Label.text = "Has Ganado"
-	if mode=="LOSE": $TurnLabel/Label.text = "Moriste..."
 	$Tween.interpolate_property($TurnLabel,"modulate",Color(1,1,1,.8),Color(1,1,1,1),.2,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 	$Tween.start()
 	yield(get_tree().create_timer(.6),"timeout")
@@ -129,7 +128,9 @@ func run_dices(mode):
 	yield(get_tree().create_timer(1),"timeout")
 	$Timer.stop()
 	yield(get_tree().create_timer(1),"timeout")
-	final_dice = d1+d2+pj_bo
+	var BO = pj_bo
+	if mode == "ENEMY": BO = en_bo
+	final_dice = d1+d2+BO
 	$Middle/Label.text = str(final_dice)
 	var atk_node = $Player/Atk
 	if mode == "ENEMY": atk_node = $Enemy/Atk
@@ -170,16 +171,7 @@ func apply_result(mode):
 	$Tween.start()
 	yield(get_tree().create_timer(.8),"timeout")
 	
-	if hp_node.value <= 0:
-		if mode=="PLAYER": 
-			GC.CURRENT_ROOM = $CS.lose_room
-			show_turn_label("LOSE")
-			yield(get_tree().create_timer(1),"timeout")
-		elif mode=="ENEMY": 
-			GC.CURRENT_ROOM = $CS.win_room
-			show_turn_label("WIN")
-			yield(get_tree().create_timer(1),"timeout")
-		get_tree().change_scene("res://adventure_core/Adventure.tscn")
+	if hp_node.value <= 0: end_combat(mode)		
 	else: emit_signal("end_apply_result")
 
 func add_player_stat(stat,cnt):
@@ -226,4 +218,22 @@ func set_turn_line(mode):
 	if mode == "ENEMY": end_pos.y = 0
 	$Tween.interpolate_property($TurnLine,"rect_position",$TurnLine.rect_position,end_pos,.3,Tween.TRANS_QUAD,Tween.EASE_OUT)
 	$Tween.start()
-	
+
+func end_combat(mode):
+	$EndButton.modulate.a = 0
+	$EndButton.disabled = true
+	$EndButton.visible = true
+	$Tween.interpolate_property($EndButton,"modulate",Color(1,1,1,0),Color(1,1,1,1),.8,Tween.TRANS_QUAD,Tween.EASE_OUT)
+	$Tween.start()
+	if mode=="PLAYER": 
+		GC.CURRENT_ROOM = $CS.lose_room
+		$EndButton/End/Label.text = "Derrotado"
+	elif mode=="ENEMY": 
+		GC.CURRENT_ROOM = $CS.win_room
+		$EndButton/End/Label.text = "Has Ganado"
+	yield(get_tree().create_timer(.6),"timeout")
+	$EndButton.disabled = false
+
+func on_click_end_button():
+	if GC.CURRENT_ROOM: get_tree().change_scene("res://adventure_core/Adventure.tscn")
+	else: get_tree().change_scene("res://scenes/Main.tscn")

@@ -10,7 +10,7 @@ var ADV_DATA = {
 	"vars":{},
 	"rerolls":0
 }
-var CURRENT_ROOM = null
+var CURRENT_ROOM = "Room_003"
 var CURRENT_NODE
 var CURRENT_COMBAT_ID = ''
 
@@ -28,6 +28,10 @@ func get_item(id_item):
 	if ADV_DATA["items"].has(id_item):
 		return ADV_DATA["items"][id_item]
 	else: return null
+
+func remove_item(id_item):
+	ADV_DATA["items"].erase(id_item)
+	print( "YOUR ITEMS", ADV_DATA.items )
 	
 func set_gamevar(key,value=null):
 	if value==null: ADV_DATA["vars"].erase(key)
