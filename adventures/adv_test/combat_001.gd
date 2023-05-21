@@ -26,6 +26,7 @@ func init_combat_data():
 #	GC.add_item("torch")
 	if GC.get_item("sword"): actions["n5"].isHidden = false
 	if GC.get_item("meat"): actions["n6"].isHidden = false
+	if GC.set_gamevar("furtive_hyena"): get_parent().add_enemy_hp(-40)
 
 func on_click_node(btn,node_id):
 	print("CLICK ", node_id)

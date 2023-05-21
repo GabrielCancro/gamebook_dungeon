@@ -1,23 +1,22 @@
 extends Node
 
 var room_data = {
-	"name": "Comedor",
+	"name": "Jaulas",
 	"image": null,
-	"desc": """Buscas algo que te indique a que sala entrar, pero solo logras imaginarte cosas horrendas.
-	Por donde continuaré avanzando?
+	"desc": """Entras a una gran sala rocosa. 
+	Huecos en las paredes parecen celdas de prisión cubiertas con troncos de varios tamaños a modo de puertas. 
+	La criatura parece almacenar a sus presas vivas. Puede verse movimiento en una de ellas. 
+	Más cerca tuyo, y sin pasar desapercibido, se encuentra el guardián. Una hiena enorme. 
+	No podré revisar las jaulas hasta deshacerme de ella.
 	""",
 	"actions": {
-		"n1":{ "text":"Avanzar por la primera sala" },
-		"n2":{ "text":"Avanzar por la segunda sala" },
-		"n3":{ "text":"No estoy seguro, aún no avanzaré" },
+		"n1":{ "text":"Tu llamativa entrada en escena alerta a la hiena, y se ve decidida a devorarte!", "isHidden": true },
+		"n2":{ "text":"La hiena aún no te a visto, podría retirarme y volver mas tarde", "isHidden": true },
+		"n3":{ "text":"Quizas pueda sorprenderla con un ataque furtivo y sacar ventaja, aunque parece difícil", "isHidden": true, "isDice":3 },
 	},
 	"pops":{
-		"p1":"Un pequeño fuego que alumbra el lugar.\n\n +Nuevo item: ANTORCHA",
-		"sentido1":"Intentas escuchar por un buen rato pero no oyes nada. Las salas parecen vacías",
-		"sentido2":"Escuchas un ladrido de la primera sala, creo que puede ser el guardián",
-		"sentido3":"Pones toda tu atención en la tarea, y pareces escuchar un ronquido que proviene de la segunda sala",
-		"buscar1":"Hay cientos de huesos, no creo que sirvan para mucho",
-		"buscar2":"Entre tantos huesos roídos encuentras un trozo de carne en dudoso estado.\n\n +Nuevo item: CARNE",
+		"furtive1":"Mientras te acerca para tomar ventaja la hiena escucha tus pasos, preparate para el combate!",
+		"furtive2":"Eres tan sigiloso como nunca, te abalanzas sobre ella y la sorprendes con un fuerte golpe en la cabeza, el resto parece fácil",
 	},
 
 }
@@ -26,33 +25,23 @@ func on_click_node(node_data,node_id):
 	print("CLICK IN",node_data)
 	var room_data = GC.get_current_room_data();
 	if node_id=="n1": 
-		yield( GC.POPUP.show_popup(room_data.pops.p1), "on_close")
-		GC.add_item("torch") 
+		GC.start_combat("combat_001") 
 	elif node_id=="n2": 
-		GC.DICES.show_dices("SETIDOS")
-		var dices = yield(GC.DICES,"on_dice")
-		var res = GC.POPUP.set_dice_result(dices,{ "0":"F", "5":"EP", "8":"EA" } )
-		if dices<5:
-			yield(GC.POPUP.show_popup(room_data.pops.sentido1), "on_close")
-		if dices>=5:
-			yield(GC.POPUP.show_popup(room_data.pops.sentido2), "on_close")
-			GC.set_gamevar("heardBarking",true)
-		if dices>=8:
-			yield(GC.POPUP.show_popup(room_data.pops.sentido3), "on_close")
-			GC.set_gamevar("heardSnoring",true)
-			yield( GC.DESITIONS.hide_a_showed_desition("n2"), "on_finish_difuse")
+		GC.ADVENTURE.change_room('room_004')
 	elif node_id=="n3": 
-		GC.DICES.show_dices("BUSCAR")
+		GC.DICES.show_dices("FURTIVO")
 		var dices = yield(GC.DICES,"on_dice")
-		var res = GC.POPUP.set_dice_result(dices,{ "0":"F", "5":"E" } )
-		if dices<5:
-			yield(GC.POPUP.show_popup(room_data.pops.buscar1), "on_close")
+		var res = GC.POPUP.set_dice_result(dices,{ "0":"F", "9":"EA" } )
+		if dices<9: 
+			yield(GC.POPUP.show_popup(room_data.pops.furtive1), "on_close")
 		if dices>=5:
-			yield(GC.POPUP.show_popup(room_data.pops.buscar2), "on_close")
-			GC.add_item("torch")
-			yield( GC.DESITIONS.hide_a_showed_desition("n3"), "on_finish_difuse")
-	elif node_id=="n4":
-		GC.ADVENTURE.change_room('room_005')
+			GC.set_gamevar("furtive_hyena",true)
+			yield(GC.POPUP.show_popup(room_data.pops.furtive2), "on_close")
+		GC.start_combat("combat_001")
 
 func on_enter_room():
-	print("ENTER ROOM ",GC.get_current_room_data())
+	if !GC.get_gamevar("stealth_hyena"):
+		yield( GC.DESITIONS.show_a_hidden_desition("n1"), "on_finish_resalt" )
+	if GC.get_gamevar("stealth_hyena"):
+		yield( GC.DESITIONS.show_a_hidden_desition("n2"), "on_finish_resalt" )
+		yield( GC.DESITIONS.show_a_hidden_desition("n3"), "on_finish_resalt" )

@@ -38,6 +38,11 @@ func set_gamevar(key,value=null):
 	else: ADV_DATA["vars"][key] = value
 	print( "YOUR VARS", ADV_DATA.vars )
 
+func get_gamevar(key):
+	if ADV_DATA["vars"].has(key): 
+		return ADV_DATA["vars"][key]
+	else: return null
+
 func start_combat( combat_id ):
 	CURRENT_COMBAT_ID = combat_id
 	get_tree().change_scene("res://adventure_core/Combat.tscn")

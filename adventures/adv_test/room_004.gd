@@ -40,7 +40,6 @@ func on_click_node(node_data,node_id):
 		GC.DICES.show_dices("SENTIDOS")
 		var dices = yield(GC.DICES,"on_dice")
 		var res = GC.POPUP.set_dice_result(dices,{ "0":"F", "5":"EP", "8":"EA" } )
-#		GC.set_gamevar("heardDices",res)
 		if dices<5:
 			yield(GC.POPUP.show_popup(room_data.pops.sentido1), "on_close")
 			yield( GC.DESITIONS.show_a_hidden_desition("n4"), "on_finish_resalt" )
@@ -64,6 +63,14 @@ func on_click_node(node_data,node_id):
 			yield(GC.POPUP.show_popup(room_data.pops.buscar2), "on_close")
 			GC.add_item("meat")
 			yield( GC.DESITIONS.hide_a_showed_desition("n3"), "on_finish_difuse")
-	
+	elif node_id=="n4": #jaula sin tirada
+		GC.ADVENTURE.change_room('room_005')
+	elif node_id=="n5": #jaula con tirada
+		GC.DICES.show_dices("SIGILIO")
+		var dices = yield(GC.DICES,"on_dice")
+		var res = GC.POPUP.set_dice_result(dices,{ "0":"F", "5":"EA" } )
+		if dices>=5: GC.set_gamevar("stealth_hyena",true)
+		GC.DESITIONS.show_a_hidden_desition("n4")
+		GC.ADVENTURE.change_room('room_005')
 	elif node_id=="n8": 
 		GC.ADVENTURE.change_room('room_003')

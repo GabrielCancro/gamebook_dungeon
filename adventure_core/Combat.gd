@@ -210,6 +210,11 @@ func add_enemy_stat(stat,cnt):
 		yield(get_tree().create_timer(.8),"timeout")
 	emit_signal("end_add_stat")
 
+func add_enemy_hp(cnt):
+	yield($Tween,"tween_all_completed")
+	$Tween.interpolate_property($Enemy/HP_ENEM,"value",$Enemy/HP_ENEM.value,$Enemy/HP_ENEM.value+cnt,.3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
+	$Tween.start()
+
 func set_turn_line(mode):
 	$TurnLine/AnimationPlayer.play("flash")
 	$TurnLine.rect_size.y = rect_size.y/2
