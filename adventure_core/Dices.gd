@@ -28,6 +28,7 @@ func on_time_dices_update():
 
 func show_dices(ab_name):
 	$DiceCost.visible = (GC.CURRENT_NODE && GC.CURRENT_NODE.isDice == 2)
+	$ItemSelector.hide_menu()
 	ability_name = ab_name
 	ability_bonif = 0
 	dice_cost = 0

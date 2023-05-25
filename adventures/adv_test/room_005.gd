@@ -1,22 +1,25 @@
 extends Node
 
 var room_data = {
-	"name": "Jaulas",
+	"name": "Bifurcacion",
 	"image": null,
-	"desc": """Entras a una gran sala rocosa. 
-	Huecos en las paredes parecen celdas de prisión cubiertas con troncos de varios tamaños a modo de puertas. 
-	La criatura parece almacenar a sus presas vivas. Puede verse movimiento en una de ellas. 
-	Más cerca tuyo, y sin pasar desapercibido, se encuentra el guardián. Una hiena enorme. 
-	No podré revisar las jaulas hasta deshacerme de ella.
+	"desc": """
+		Las dos opciones por donde continuar son aterradoras. 
+		A la izquierda un corredor humedo lleno de rasguños. 
+		A la derecha una leve pendiente hacia abajo dificulta la vista.
 	""",
 	"actions": {
-		"n1":{ "text":"Tu llamativa entrada en escena alerta a la hiena, y se ve decidida a devorarte!", "isHidden": true },
-		"n2":{ "text":"La hiena aún no te a visto, podría retirarme y volver mas tarde", "isHidden": true },
-		"n3":{ "text":"Quizas pueda sorprenderla con un ataque furtivo y sacar ventaja, aunque parece difícil", "isHidden": true, "isDice":3 },
+		"n1":{ "text":"No se que habrá en las otras salas pero podría ser peligroso. Presentimiento.", "isDice": 3 },
+		"n2":{ "text":"Continuar por el corredor de la izquierda" },
+		"n3":{ "text":"Bajar la pendiente a la derecha" },
+		"n4":{ "text":"Continuar por el corredor, de aquí provienen los ladridos, debo ir con cuidado", "isHidden":true, "isDice":3 },
+		"n5":{ "text":"Bajar por la pendiente, los ronquidos provenían de aquí, seré silencioso", "isHidden":true, "isDice":3 },
+		"n6":{ "text":"No debería continuar aún" },
 	},
 	"pops":{
-		"furtive1":"Mientras te acerca para tomar ventaja la hiena escucha tus pasos, preparate para el combate!",
-		"furtive2":"Eres tan sigiloso como nunca, te abalanzas sobre ella y la sorprendes con un fuerte golpe en la cabeza, el resto parece fácil",
+		"sentido1":"Intentas escuchar por un buen rato pero no oyes nada. Las salas parecen vacías",
+		"sentido2":"Escuchas un ladrido de la primera sala, creo que puede ser el guardián",
+		"sentido3":"Pones toda tu atención en la tarea, y pareces escuchar un ronquido que proviene de la segunda sala",
 	},
 
 }
@@ -24,24 +27,32 @@ var room_data = {
 func on_click_node(node_data,node_id):
 	print("CLICK IN",node_data)
 	var room_data = GC.get_current_room_data();
-	if node_id=="n1": 
-		GC.start_combat("combat_001") 
-	elif node_id=="n2": 
-		GC.ADVENTURE.change_room('room_004')
-	elif node_id=="n3": 
-		GC.DICES.show_dices("FURTIVO")
+	if node_id=="n1":
+		GC.DICES.show_dices("SENTIDOS")
 		var dices = yield(GC.DICES,"on_dice")
-		var res = GC.POPUP.set_dice_result(dices,{ "0":"F", "9":"EA" } )
-		if dices<9: 
-			yield(GC.POPUP.show_popup(room_data.pops.furtive1), "on_close")
+		var res = GC.POPUP.set_dice_result(dices,{ "0":"F", "5":"EP", "8":"EA" } )
+		if dices<5:
+			yield(GC.POPUP.show_popup(room_data.pops.sentido1), "on_close")
 		if dices>=5:
-			GC.set_gamevar("furtive_hyena",true)
-			yield(GC.POPUP.show_popup(room_data.pops.furtive2), "on_close")
-		GC.start_combat("combat_001")
-
-func on_enter_room():
-	if !GC.get_gamevar("stealth_hyena"):
-		yield( GC.DESITIONS.show_a_hidden_desition("n1"), "on_finish_resalt" )
-	if GC.get_gamevar("stealth_hyena"):
-		yield( GC.DESITIONS.show_a_hidden_desition("n2"), "on_finish_resalt" )
-		yield( GC.DESITIONS.show_a_hidden_desition("n3"), "on_finish_resalt" )
+			GC.DESITIONS.hide_a_showed_desition("n2")
+			yield(GC.POPUP.show_popup(room_data.pops.sentido2), "on_close")
+			yield( GC.DESITIONS.show_a_hidden_desition("n4"), "on_finish_resalt" )
+		if dices>=8:
+			GC.DESITIONS.hide_a_showed_desition("n3")
+			yield(GC.POPUP.show_popup(room_data.pops.sentido3), "on_close")
+			yield( GC.DESITIONS.show_a_hidden_desition("n5"), "on_finish_resalt" )
+	elif node_id=="n2": #jaula sin tirada
+		GC.ADVENTURE.change_room('room_006')
+	elif node_id=="n3": #troll sin tirada
+		pass
+	elif node_id=="n4": #jaula con tirada
+		GC.DICES.show_dices("SIGILIO")
+		var dices = yield(GC.DICES,"on_dice")
+		var res = GC.POPUP.set_dice_result(dices,{ "0":"F", "5":"EA" } )
+		if dices>=5: GC.set_gamevar("stealth_hyena",true)
+		GC.DESITIONS.show_a_hidden_desition("n4")
+		GC.ADVENTURE.change_room('room_006')
+	elif node_id=="n5": #troll con tirada
+		pass
+	elif node_id=="n6": 
+		GC.ADVENTURE.change_room('room_004')

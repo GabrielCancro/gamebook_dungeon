@@ -6,11 +6,12 @@ var POPUP
 var DESITIONS
 var ACTION_POINTS = 10
 var ADV_DATA = {
-	"items":{},
+	"items":{
+	},
 	"vars":{},
 	"rerolls":0
 }
-var CURRENT_ROOM = "Room_003"
+var CURRENT_ROOM = "Room_000"
 var CURRENT_NODE
 var CURRENT_COMBAT_ID = ''
 
@@ -47,5 +48,5 @@ func start_combat( combat_id ):
 	CURRENT_COMBAT_ID = combat_id
 	get_tree().change_scene("res://adventure_core/Combat.tscn")
 
-
-	
+func end_game():
+	get_tree().change_scene("res://scenes/Main.tscn")

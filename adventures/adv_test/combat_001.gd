@@ -9,15 +9,15 @@ var actions = {
 	"n6":{ "text":"Utilizar la carne para distraer a la hiena (reduce su defensa)", "isHidden": true },
 }
 
-var win_room = "room_000"
-var lose_room = null
+var win_room = "room_007"
+var lose_room = "end_001"
 
 # Called when the node enters the scene tree for the first time.
 func init_combat_data():
 	print("CURRENT COMBAT ID SCRIPTING ",GC.CURRENT_COMBAT_ID);
 	get_parent().pj_bo = 2
 	get_parent().pj_ca = 8
-	get_parent().en_bo = 2
+	get_parent().en_bo = 200
 	get_parent().en_ca = 8
 	get_parent().on_finish_script_load()
 #	GC.ALL_ITEMS = {"sword":"x","meat":"x","torch":"x"}

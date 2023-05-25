@@ -3,7 +3,8 @@ extends Node
 var room_data = {
 	"name": "Guardia Herido",
 	"image": preload("res://adventures/adv_test/imgs/room_002 guardia herido.jpg"),
-	"desc": """Parece muy herido, no creo que sobreviva.
+	"desc": """
+		Parece muy herido, no creo que sobreviva.
 		- Gracias a los dioses… coff coff, alguien me ha escuchado.
 		No puedo rescatar al príncipe en este estado… Crees… cof coff… poder ayudarnos?
 	""",

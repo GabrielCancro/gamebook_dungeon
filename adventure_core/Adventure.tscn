@@ -2,7 +2,7 @@
 
 [ext_resource path="res://adventure_core/MenuInv.tscn" type="PackedScene" id=1]
 [ext_resource path="res://adventure_core/Adventure.gd" type="Script" id=2]
-[ext_resource path="res://font/IMFePIsc28P_0.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://font/FONT_1 Narrator CantoraOne-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/ui/TextoGrande.png" type="Texture" id=4]
 [ext_resource path="res://font/font_title.tres" type="DynamicFont" id=5]
 [ext_resource path="res://assets/ui/Garb.png" type="Texture" id=6]
@@ -14,9 +14,9 @@
 [ext_resource path="res://adventure_core/Dices.tscn" type="PackedScene" id=14]
 [ext_resource path="res://adventure_core/PopupText.tscn" type="PackedScene" id=15]
 
-[sub_resource type="DynamicFont" id=1]
-size = 48
-extra_spacing_top = -10
+[sub_resource type="DynamicFont" id=3]
+size = 42
+use_filter = true
 extra_spacing_bottom = -7
 font_data = ExtResource( 3 )
 
@@ -44,9 +44,11 @@ rect_pivot_offset = Vector2( 384, 683 )
 script = ExtResource( 2 )
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-anchor_right = 1.0
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
-margin_right = 21.0
+margin_left = -380.0
+margin_right = 406.0
 texture = ExtResource( 4 )
 patch_margin_left = 326
 patch_margin_top = 197
@@ -98,10 +100,10 @@ expand = true
 [node name="Desc" type="Label" parent="Narrator/VBox"]
 margin_top = 325.0
 margin_right = 675.0
-margin_bottom = 416.0
+margin_bottom = 420.0
 rect_pivot_offset = Vector2( 620, 634 )
 custom_colors/font_color = Color( 0.054902, 0.0509804, 0.0509804, 1 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 text = "Hay dos guardias heridos. En el fondo se ve la entrada a la cueva."
 align = 1
 autowrap = true
@@ -148,7 +150,7 @@ anchor_top = 0.623
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -382.0
-margin_top = -307.018
+margin_top = -376.018
 margin_right = 389.0
 rect_pivot_offset = Vector2( 453, 0 )
 script = ExtResource( 7 )
@@ -197,6 +199,8 @@ margin_right = 650.0
 margin_bottom = 844.0
 
 [node name="MenuInv" parent="." instance=ExtResource( 1 )]
+margin_top = -6.0
+margin_bottom = -6.0
 
 [node name="Dices" parent="." instance=ExtResource( 14 )]
 visible = false

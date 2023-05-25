@@ -4,7 +4,8 @@ var room_data = {
 	"name": "Prologo",
 	"room_id": null,
 	"image": null,
-	"desc": """Caminas por el bosque cuando escuchas un grito.
+	"desc": """
+		Caminas por el bosque cuando escuchas un grito.
 		Corres en su dirección y te encuentras con un guardia herido. Es un guardia Real. 
 		Aún sigue con vida y te pide ayuda.
 		Escoltaban al príncipe a través del bosque cuando encontraron una cueva. 
