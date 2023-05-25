@@ -1,15 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://font/button_main.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scenes/Main.gd" type="Script" id=2]
-[ext_resource path="res://font/KELMSCOT.TTF" type="DynamicFontData" id=3]
-[ext_resource path="res://assets/eye.png" type="Texture" id=4]
+[ext_resource path="res://assets/ui/PH_logo.png" type="Texture" id=3]
 [ext_resource path="res://assets/ui/btn_main_style_1.tres" type="StyleBox" id=6]
 [ext_resource path="res://assets/ui/btn_main_style_1p.tres" type="StyleBox" id=7]
-
-[sub_resource type="DynamicFont" id=1]
-size = 95
-font_data = ExtResource( 3 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "idle"
@@ -25,7 +20,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1, 2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [node name="Main" type="Control"]
@@ -38,20 +33,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.588235, 0.588235, 0.588235, 1 )
 
-[node name="Label" type="Label" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -369.5
-margin_top = 64.0
-margin_right = 369.5
-margin_bottom = 324.0
-custom_colors/font_color = Color( 0.121569, 0.121569, 0.121569, 1 )
-custom_fonts/font = SubResource( 1 )
-text = "GAMEBOOK
-v6"
-align = 1
-valign = 1
-
 [node name="VBox2" type="Control" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -63,16 +44,13 @@ margin_right = 180.5
 margin_bottom = 641.0
 
 [node name="Eye" type="TextureRect" parent="."]
-modulate = Color( 1, 1, 1, 0.377414 )
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -160.0
-margin_top = -322.0
-margin_right = 160.0
-margin_bottom = -142.0
-texture = ExtResource( 4 )
+margin_left = -444.0
+margin_top = 56.0
+margin_right = 444.0
+margin_bottom = 539.0
+texture = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Eye"]
 anims/idle = SubResource( 2 )

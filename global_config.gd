@@ -6,8 +6,7 @@ var POPUP
 var DESITIONS
 var ACTION_POINTS = 10
 var ADV_DATA = {
-	"items":{
-	},
+	"items":{},
 	"vars":{},
 	"rerolls":0
 }
