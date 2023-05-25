@@ -10,7 +10,7 @@ var ADV_DATA = {
 	"vars":{},
 	"rerolls":0
 }
-var CURRENT_ROOM = "Room_000"
+var CURRENT_ROOM = "room_000"
 var CURRENT_NODE
 var CURRENT_COMBAT_ID = ''
 
