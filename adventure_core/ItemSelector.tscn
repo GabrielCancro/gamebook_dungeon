@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/ui/PH_items.png" type="Texture" id=1]
 [ext_resource path="res://adventure_core/ItemSelector.gd" type="Script" id=2]
 [ext_resource path="res://assets/ui/ItemSelectorBg.png" type="Texture" id=3]
-[ext_resource path="res://assets/items/IconCarne.png" type="Texture" id=4]
 [ext_resource path="res://assets/ui/arrow.png" type="Texture" id=5]
 [ext_resource path="res://assets/ui/BotonCircular.png" type="Texture" id=6]
 
@@ -27,17 +26,27 @@ margin_bottom = 150.0
 texture_normal = ExtResource( 1 )
 expand = true
 
-[node name="Back" type="TextureRect" parent="."]
+[node name="ArrowLeft" type="TextureButton" parent="."]
+margin_left = 75.0
+margin_top = -169.0
+margin_right = 145.0
+margin_bottom = -119.0
+rect_rotation = 104.536
+texture_normal = ExtResource( 5 )
+expand = true
+
+[node name="Back" type="TextureRect" parent="ArrowLeft"]
+visible = false
 modulate = Color( 1, 1, 1, 0.235294 )
-margin_left = -13.0
-margin_top = -96.0
-margin_right = 127.0
-margin_bottom = 44.0
+margin_left = -35.8531
+margin_top = -50.6217
+margin_right = 104.147
+margin_bottom = 89.3783
 texture = ExtResource( 6 )
 expand = true
 stretch_mode = 5
 
-[node name="Icon" type="TextureRect" parent="Back"]
+[node name="Icon" type="TextureRect" parent="ArrowLeft/Back"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -46,19 +55,28 @@ margin_left = -46.5
 margin_top = -51.5
 margin_right = 46.5
 margin_bottom = 41.5
-texture = ExtResource( 4 )
 
-[node name="Next" type="TextureRect" parent="."]
+[node name="ArrowRight" type="TextureButton" parent="."]
+margin_left = 150.0
+margin_top = 17.0
+margin_right = 220.0
+margin_bottom = 67.0
+rect_rotation = -12.487
+texture_normal = ExtResource( 5 )
+expand = true
+
+[node name="Next" type="TextureRect" parent="ArrowRight"]
+visible = false
 modulate = Color( 1, 1, 1, 0.235294 )
-margin_left = 108.0
-margin_top = 34.0
-margin_right = 248.0
-margin_bottom = 174.0
+margin_left = -32.2463
+margin_top = -44.0134
+margin_right = 107.754
+margin_bottom = 95.9866
 texture = ExtResource( 6 )
 expand = true
 stretch_mode = 5
 
-[node name="Icon" type="TextureRect" parent="Next"]
+[node name="Icon" type="TextureRect" parent="ArrowRight/Next"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -67,13 +85,12 @@ margin_left = -46.5
 margin_top = -50.5
 margin_right = 46.5
 margin_bottom = 42.5
-texture = ExtResource( 4 )
 
 [node name="Line" type="TextureRect" parent="."]
 margin_left = 62.0
-margin_top = -104.0
+margin_top = -184.0
 margin_right = 704.0
-margin_bottom = 91.0
+margin_bottom = 11.0
 texture = ExtResource( 3 )
 stretch_mode = 5
 
@@ -82,7 +99,6 @@ margin_left = 35.0
 margin_top = 39.0
 margin_right = 159.0
 margin_bottom = 152.0
-texture = ExtResource( 4 )
 stretch_mode = 6
 
 [node name="Desc" type="Label" parent="Line"]
@@ -101,20 +117,4 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="ArrowLeft" type="TextureButton" parent="."]
-margin_left = 81.0
-margin_top = -74.0
-margin_right = 151.0
-margin_bottom = -24.0
-rect_rotation = 104.536
-texture_normal = ExtResource( 5 )
-expand = true
-
-[node name="ArrowRight" type="TextureButton" parent="."]
-margin_left = 141.0
-margin_top = 86.0
-margin_right = 211.0
-margin_bottom = 136.0
-rect_rotation = -12.487
-texture_normal = ExtResource( 5 )
-expand = true
+[node name="Tween" type="Tween" parent="."]

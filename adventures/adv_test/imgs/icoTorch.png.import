@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/IconCarne.png-19764e811d2266b2385b95f75ba2e9b4.stex"
+path="res://.import/icoTorch.png-6e3611efc1550c39024fe2fae5ab68d0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/IconCarne.png"
-dest_files=[ "res://.import/IconCarne.png-19764e811d2266b2385b95f75ba2e9b4.stex" ]
+source_file="res://adventures/adv_test/imgs/icoTorch.png"
+dest_files=[ "res://.import/icoTorch.png-6e3611efc1550c39024fe2fae5ab68d0.stex" ]
 
 [params]
 

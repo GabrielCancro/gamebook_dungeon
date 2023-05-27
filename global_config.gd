@@ -1,12 +1,19 @@
 extends Node
 
 var ADVENTURE
+var ADVENTURE_FOLDER = "adv_test"
 var DICES
 var POPUP
 var DESITIONS
 var ACTION_POINTS = 10
 var ADV_DATA = {
-	"items":{},
+	"items":{
+		"sword": {"name":"Espada", "img":"icoSword", "desc": "Una hermosa espada real, espero no tener que utilizarla"},
+		"lockpick": {"name":"Ganzúa", "img":"icoLockpick", "desc": "Una precaria y corroida ganzúa metalica, podría servir para alguna cerradura estropeada."},
+		"map1": {"name":"Trozo de mapa", "img":null, "desc": "Es un trozo de lo que parece el mapa de algún lugar o tesoro, solo tenemos la mitad de él."},
+		"torch": {"name":"Antorcha", "img":"icoTorch", "desc": "Un trozo de madera de la fogata te sirve como antorcha."},
+		"meat": {"name":"Carne", "img":"icoMeat", "desc": "Carne en dudoso estado, va, dudoso.. esta podrida."}
+	},
 	"vars":{},
 	"rerolls":0
 }

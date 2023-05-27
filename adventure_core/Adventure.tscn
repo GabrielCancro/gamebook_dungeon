@@ -171,30 +171,30 @@ custom_constants/separation = 35
 alignment = 2
 
 [node name="Line" type="ColorRect" parent="Desitions/Options"]
-margin_top = 365.0
+margin_top = 374.0
 margin_right = 650.0
-margin_bottom = 370.0
+margin_bottom = 379.0
 rect_min_size = Vector2( 0, 5 )
 color = Color( 0, 0, 0, 0.392157 )
 
 [node name="Desc" parent="Desitions/Options" instance=ExtResource( 13 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 405.0
+margin_top = 414.0
 margin_right = 650.0
-margin_bottom = 528.0
+margin_bottom = 534.0
 
 [node name="Desc2" parent="Desitions/Options" instance=ExtResource( 13 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 563.0
+margin_top = 569.0
 margin_right = 650.0
-margin_bottom = 686.0
+margin_bottom = 689.0
 
 [node name="Desc3" parent="Desitions/Options" instance=ExtResource( 13 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 721.0
+margin_top = 724.0
 margin_right = 650.0
 margin_bottom = 844.0
 

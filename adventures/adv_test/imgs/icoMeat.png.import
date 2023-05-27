@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/IconEspada.png-00b86536e5c2139e2aa15f3e7da5904a.stex"
+path="res://.import/icoMeat.png-a5c43a18138e6e628255c2dbf2464eac.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/IconEspada.png"
-dest_files=[ "res://.import/IconEspada.png-00b86536e5c2139e2aa15f3e7da5904a.stex" ]
+source_file="res://adventures/adv_test/imgs/icoMeat.png"
+dest_files=[ "res://.import/icoMeat.png-a5c43a18138e6e628255c2dbf2464eac.stex" ]
 
 [params]
 

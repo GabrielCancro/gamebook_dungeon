@@ -1,22 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://font/IMFePIsc28P_0.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://adventure_core/Font_ActionLine.tres" type="DynamicFont" id=1]
 [ext_resource path="res://adventure_core/ActionLine.gd" type="Script" id=2]
 [ext_resource path="res://assets/ui/dices_icon_1.png" type="Texture" id=3]
-[ext_resource path="res://font/FONT_1 Narrator CantoraOne-Regular.ttf" type="DynamicFontData" id=4]
-
-[sub_resource type="DynamicFont" id=1]
-size = 48
-extra_spacing_top = -12
-extra_spacing_bottom = -10
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 42
-use_filter = true
-extra_spacing_top = -5
-extra_spacing_bottom = -10
-font_data = ExtResource( 4 )
 
 [node name="ActionLine" type="Label"]
 anchor_right = 0.924
@@ -26,7 +12,7 @@ margin_bottom = 0.0599976
 rect_min_size = Vector2( 0, 60 )
 rect_pivot_offset = Vector2( 355, 62 )
 custom_colors/font_color = Color( 0.196078, 0.196078, 0.196078, 1 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = ExtResource( 1 )
 text = "Acercarme al Guardia y pedirle una explicacón de lo que sucedio ese dia tan terrible"
 valign = 1
 autowrap = true
@@ -48,7 +34,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 355, 62 )
 custom_colors/font_color = Color( 0.196078, 0.196078, 0.196078, 1 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = ExtResource( 1 )
 text = "Acercarme al Guardia y pedirle una explicacón de lo que sucedio ese dia tan terrible"
 valign = 1
 autowrap = true
