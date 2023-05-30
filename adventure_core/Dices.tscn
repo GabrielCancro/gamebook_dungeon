@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://adventure_core/Dices.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/TextoFlotante.png" type="Texture" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://font/KELMSCOT.TTF" type="DynamicFontData" id=7]
 [ext_resource path="res://font/IMFePIsc28P_0.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://adventure_core/ItemSelector.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/ui/FondoPagina-IntroYCapítulo.png" type="Texture" id=10]
+[ext_resource path="res://assets/ui/FondoOscuro.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFontData" id=16]
 font_path = "res://font/IMFePIsc28P_0.ttf"
@@ -94,9 +96,27 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.101961, 0.00392157, 0.00392157, 0.980392 )
 
+[node name="FullBg" type="TextureRect" parent="."]
+modulate = Color( 0.313726, 0.313726, 0.313726, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 11 )
+expand = true
+
+[node name="PageImg" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -406.0
+margin_right = 399.0
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 6
+
 [node name="Tween" type="Tween" parent="."]
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -150,10 +170,14 @@ align = 1
 valign = 1
 
 [node name="Buttons" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 687.0
-margin_bottom = -542.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -400.0
+margin_top = -105.5
+margin_right = 400.0
+margin_bottom = 265.5
 
 [node name="btn_roll" type="Button" parent="Buttons"]
 modulate = Color( 0.976471, 1, 0.392157, 1 )
@@ -284,12 +308,12 @@ align = 1
 valign = 1
 
 [node name="Dice1" type="AnimatedSprite" parent="."]
-position = Vector2( 289.8, 1537.8 )
+position = Vector2( 329.8, 1713.8 )
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 12 )
 
 [node name="Dice2" type="AnimatedSprite" parent="."]
-position = Vector2( 441.8, 1537.8 )
+position = Vector2( 481.8, 1713.8 )
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 12 )
 
@@ -298,13 +322,13 @@ wait_time = 0.05
 
 [node name="btn_add" type="Button" parent="."]
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = 214.0
-margin_top = -169.0
-margin_right = 346.0
-margin_bottom = -40.0
+anchor_bottom = 0.5
+margin_left = 238.0
+margin_top = 511.5
+margin_right = 370.0
+margin_bottom = 640.5
 focus_mode = 0
 flat = true
 
@@ -351,13 +375,20 @@ align = 2
 valign = 1
 autowrap = true
 
+[node name="ItemSelector" parent="." instance=ExtResource( 9 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -379.0
+margin_top = 492.5
+margin_right = -229.0
+margin_bottom = 643.5
+
 [node name="DiceCost" type="ColorRect" parent="."]
 visible = false
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -384.0
-margin_right = 384.0
-margin_bottom = 1163.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 color = Color( 0.101961, 0.00392157, 0.00392157, 0.980392 )
 
 [node name="diceIcon" type="TextureRect" parent="DiceCost"]
@@ -448,13 +479,3 @@ margin_top = 1019.0
 margin_right = 384.0
 margin_bottom = 1363.0
 color = Color( 0.101961, 0.00392157, 0.00392157, 0 )
-
-[node name="ItemSelector" parent="." instance=ExtResource( 9 )]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -351.0
-margin_top = -185.0
-margin_right = -201.0
-margin_bottom = -34.0

@@ -21,13 +21,13 @@ GC="*res://global_config.gd"
 
 [display]
 
-window/size/width=768
-window/size/height=1366
-window/size/test_width=300
-window/size/test_height=540
+window/size/width=800
+window/size/height=1600
+window/size/test_width=250
+window/size/test_height=500
 window/handheld/orientation="portrait"
 window/stretch/mode="viewport"
-window/stretch/aspect="keep_height"
+window/stretch/aspect="expand"
 
 [physics]
 

@@ -1,14 +1,15 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://adventure_core/MenuInv.tscn" type="PackedScene" id=1]
 [ext_resource path="res://adventure_core/Adventure.gd" type="Script" id=2]
 [ext_resource path="res://font/FONT_1 Narrator CantoraOne-Regular.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://assets/ui/TextoGrande.png" type="Texture" id=4]
 [ext_resource path="res://font/font_title.tres" type="DynamicFont" id=5]
 [ext_resource path="res://assets/ui/Garb.png" type="Texture" id=6]
 [ext_resource path="res://adventure_core/Desitions.gd" type="Script" id=7]
 [ext_resource path="res://adventure_core/Narrator.gd" type="Script" id=8]
 [ext_resource path="res://adventure_core/Fade.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/ui/FondoPagina-IntroYCapítulo.png" type="Texture" id=10]
+[ext_resource path="res://assets/ui/FondoOscuro.png" type="Texture" id=11]
 [ext_resource path="res://assets/ui/frame_image.png" type="Texture" id=12]
 [ext_resource path="res://adventure_core/ActionLine.tscn" type="PackedScene" id=13]
 [ext_resource path="res://adventure_core/Dices.tscn" type="PackedScene" id=14]
@@ -43,26 +44,32 @@ anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 384, 683 )
 script = ExtResource( 2 )
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="FullBg" type="TextureRect" parent="."]
+modulate = Color( 0.313726, 0.313726, 0.313726, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 11 )
+expand = true
+
+[node name="PageImg" type="TextureRect" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -380.0
-margin_right = 406.0
-texture = ExtResource( 4 )
-patch_margin_left = 326
-patch_margin_top = 197
-patch_margin_right = 333
-patch_margin_bottom = 206
+margin_left = -406.0
+margin_right = 399.0
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 6
 
 [node name="Narrator" type="Control" parent="."]
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.602
+anchor_bottom = 0.5
 margin_left = -384.0
-margin_top = 71.0
+margin_top = -606.434
 margin_right = 384.0
-margin_bottom = 0.667908
+margin_bottom = 286.434
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_group_": true
@@ -146,12 +153,13 @@ anims/idle = SubResource( 2 )
 
 [node name="Desitions" type="Control" parent="."]
 anchor_left = 0.5
-anchor_top = 0.623
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -382.0
-margin_top = -376.018
-margin_right = 389.0
+anchor_bottom = 0.5
+margin_left = -385.5
+margin_top = -281.609
+margin_right = 385.5
+margin_bottom = 697.609
 rect_pivot_offset = Vector2( 453, 0 )
 script = ExtResource( 7 )
 
