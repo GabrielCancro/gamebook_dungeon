@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/ui/Portada.jpg" type="Texture" id=1]
+[ext_resource path="res://scenes/Intro.gd" type="Script" id=2]
+[ext_resource path="res://assets/ui/FondoOscuro.png" type="Texture" id=3]
+[ext_resource path="res://assets/ui/btn_main_style_1.tres" type="StyleBox" id=4]
+[ext_resource path="res://assets/ui/btn_main_style_1p.tres" type="StyleBox" id=5]
+[ext_resource path="res://font/FONT_2 Titles BubblegumSans-Regular.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+outline_size = 2
+outline_color = Color( 0.160784, 0.160784, 0.160784, 1 )
+font_data = ExtResource( 6 )
+
+[node name="Intro" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="FullBg" type="TextureRect" parent="."]
+modulate = Color( 0.313726, 0.313726, 0.313726, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="PageImg" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="btn_start" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -225.0
+margin_top = 486.0
+margin_right = 225.0
+margin_bottom = 606.0
+rect_min_size = Vector2( 450, 120 )
+custom_colors/font_color_disabled = Color( 0.854902, 0.898039, 0.921569, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0.854902, 0.898039, 0.921569, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 5 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = ExtResource( 4 )
+custom_styles/normal = ExtResource( 4 )
+text = "Listo para la aventura..."
+flat = true
+
+[node name="Button" type="Button" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+flat = true

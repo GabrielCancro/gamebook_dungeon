@@ -1,6 +1,6 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
-[ext_resource path="res://assets/ui/TextoGrande.png" type="Texture" id=1]
+[ext_resource path="res://assets/ui/FondoPagina-IntroYCapítulo.png" type="Texture" id=1]
 [ext_resource path="res://adventure_core/ActionLine.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/ui/frame_image.png" type="Texture" id=3]
 [ext_resource path="res://font/IMFePIsc28P_0.ttf" type="DynamicFontData" id=4]
@@ -11,6 +11,7 @@
 [ext_resource path="res://adventure_core/Combat.gd" type="Script" id=9]
 [ext_resource path="res://assets/combat/hiena.png" type="Texture" id=10]
 [ext_resource path="res://assets/gold_dices.png" type="Texture" id=11]
+[ext_resource path="res://assets/ui/FondoOscuro.png" type="Texture" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 114
@@ -107,29 +108,29 @@ script = ExtResource( 9 )
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="FullBg" type="TextureRect" parent="."]
+modulate = Color( 0.313726, 0.313726, 0.313726, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.137255, 0.0156863, 0.0156863, 1 )
+texture = ExtResource( 12 )
+expand = true
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="PageImg" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 21.0
 texture = ExtResource( 1 )
-patch_margin_left = 326
-patch_margin_top = 197
-patch_margin_right = 333
-patch_margin_bottom = 206
+expand = true
+stretch_mode = 6
 
 [node name="Player" type="Control" parent="."]
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 margin_left = -384.0
-margin_top = -678.0
+margin_top = 29.0
 margin_right = 384.0
+margin_bottom = 707.0
 
 [node name="HP_PLAYER" type="TextureProgress" parent="Player"]
 anchor_left = 0.5
@@ -207,26 +208,26 @@ custom_constants/separation = 35
 alignment = 1
 
 [node name="Desc1" parent="Player/Options" instance=ExtResource( 2 )]
-visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_top = 149.0
 margin_right = 461.0
-margin_bottom = 207.0
+margin_bottom = 310.0
 
 [node name="Desc2" parent="Player/Options" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 345.0
+margin_right = 461.0
+margin_bottom = 506.0
+
+[node name="Desc3" parent="Player/Options" instance=ExtResource( 2 )]
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 242.0
+margin_top = 443.0
 margin_right = 461.0
-margin_bottom = 449.0
-
-[node name="Desc3" parent="Player/Options" instance=ExtResource( 2 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 224.0
-margin_right = 461.0
-margin_bottom = 431.0
+margin_bottom = 604.0
 rect_pivot_offset = Vector2( 354, -247 )
 
 [node name="DamageLabel" type="Label" parent="Player"]
@@ -247,10 +248,13 @@ autowrap = true
 
 [node name="Enemy" type="Control" parent="."]
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 margin_left = -380.5
+margin_top = -702.5
 margin_right = 380.5
-margin_bottom = 685.0
+margin_bottom = -17.5
 
 [node name="Def" type="TextureRect" parent="Enemy"]
 anchor_left = 0.5
@@ -417,6 +421,7 @@ color = Color( 1, 0.984314, 0, 1 )
 anims/flash = SubResource( 14 )
 
 [node name="TurnLabel" type="ColorRect" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -449,8 +454,14 @@ autowrap = true
 
 [node name="EndButton" type="Button" parent="."]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -418.0
+margin_top = -713.0
+margin_right = 418.0
+margin_bottom = 713.0
 flat = true
 
 [node name="ColorRect" type="ColorRect" parent="EndButton"]

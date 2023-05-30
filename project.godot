@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Gamebook Dungeon"
-run/main_scene="res://scenes/Main.tscn"
+run/main_scene="res://scenes/Intro.tscn"
 config/icon="res://icon.png"
 config/quit_on_go_back=false
 
@@ -21,8 +21,8 @@ GC="*res://global_config.gd"
 
 [display]
 
-window/size/width=800
-window/size/height=1600
+window/size/width=836
+window/size/height=1426
 window/size/test_width=250
 window/size/test_height=500
 window/handheld/orientation="portrait"
