@@ -3,20 +3,24 @@ extends Control
 signal end_fade
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	visible = true
 
-func fadeIn():
+func fadeIn(time=.3, delay=0):
 	visible = true
-	$Tween.interpolate_property($ColorRect,"modulate",$ColorRect.modulate,Color(1,1,1,1),.3,Tween.TRANS_LINEAR,Tween.EASE_IN)
+	$Tween.interpolate_property($ColorRect,"modulate",$ColorRect.modulate,Color(1,1,1,1),time,Tween.TRANS_LINEAR,Tween.EASE_IN,delay)
 	$Tween.start()
 	yield($Tween,"tween_completed")
 	emit_signal("end_fade")
 
-func fadeOut():
-	$Tween.interpolate_property($ColorRect,"modulate",$ColorRect.modulate,Color(1,1,1,0),.3,Tween.TRANS_LINEAR,Tween.EASE_IN)
+func fadeOut(time=.3, delay=0):
+	$Tween.interpolate_property($ColorRect,"modulate",$ColorRect.modulate,Color(1,1,1,0),time,Tween.TRANS_LINEAR,Tween.EASE_IN,delay)
 	$Tween.start()
 	yield($Tween,"tween_completed")
 	visible = false
 	emit_signal("end_fade")
+
+#func forceVisible(_visible):
+#	visible = _visible
+#	if visible: $ColorRect.modulate = Color(1,1,1,1)
+#	else: $ColorRect.modulate = Color(1,1,1,0)

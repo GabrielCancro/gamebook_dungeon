@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://adventure_core/Font_ActionLine.tres" type="DynamicFont" id=1]
 [ext_resource path="res://adventure_core/ActionLine.gd" type="Script" id=2]
 [ext_resource path="res://assets/ui/dices_icon_1.png" type="Texture" id=3]
+[ext_resource path="res://assets/ui/GlowDecisiones.png" type="Texture" id=4]
 
 [node name="ActionLine" type="Label"]
 anchor_right = 0.924
@@ -10,15 +11,17 @@ anchor_bottom = 0.09
 margin_right = 0.367981
 margin_bottom = 0.0599976
 rect_min_size = Vector2( 0, 60 )
-rect_pivot_offset = Vector2( 355, 62 )
+rect_pivot_offset = Vector2( 386, 64 )
 custom_colors/font_color = Color( 0.196078, 0.196078, 0.196078, 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "Acercarme al Guardia y pedirle una explicacón de lo que sucedio ese dia tan terrible"
+align = 1
 valign = 1
 autowrap = true
 script = ExtResource( 2 )
 
 [node name="bg" type="ColorRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -10.0
@@ -27,7 +30,16 @@ margin_right = 12.0
 margin_bottom = 9.0
 rect_pivot_offset = Vector2( 384, 683 )
 mouse_filter = 2
-color = Color( 0.909804, 0.913725, 0.917647, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -53.0
+margin_top = -48.0
+margin_right = 69.168
+margin_bottom = 43.6
+texture = ExtResource( 4 )
+expand = true
 
 [node name="Desc" type="Label" parent="."]
 anchor_right = 1.0
@@ -36,6 +48,7 @@ rect_pivot_offset = Vector2( 355, 62 )
 custom_colors/font_color = Color( 0.196078, 0.196078, 0.196078, 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "Acercarme al Guardia y pedirle una explicacón de lo que sucedio ese dia tan terrible"
+align = 1
 valign = 1
 autowrap = true
 
@@ -56,9 +69,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -42.0
-margin_top = -79.0
-margin_right = 59.0
-margin_bottom = 22.0
+margin_left = 11.0
+margin_top = -51.0
+margin_right = 72.0
+margin_bottom = 8.0
 texture = ExtResource( 3 )
 expand = true
+stretch_mode = 6

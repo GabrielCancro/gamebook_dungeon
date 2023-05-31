@@ -1,12 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://font/dynamic_font_main_menu.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scenes/Main.gd" type="Script" id=2]
 [ext_resource path="res://assets/ui/Logo.png" type="Texture" id=3]
 [ext_resource path="res://assets/ui/FondoMenu.png" type="Texture" id=4]
 [ext_resource path="res://assets/ui/FondoOscuro.png" type="Texture" id=5]
-[ext_resource path="res://assets/ui/btn_main_style_1.tres" type="StyleBox" id=6]
-[ext_resource path="res://assets/ui/btn_main_style_1p.tres" type="StyleBox" id=7]
+[ext_resource path="res://adventure_core/Fade.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Animation" id=2]
 resource_name = "idle"
@@ -36,6 +35,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 5 )
 expand = true
+stretch_mode = 7
 
 [node name="PageImg" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -92,11 +92,6 @@ custom_colors/font_color = Color( 0.180392, 0.180392, 0.180392, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 1 )
-custom_styles/hover = ExtResource( 7 )
-custom_styles/pressed = ExtResource( 7 )
-custom_styles/focus = ExtResource( 6 )
-custom_styles/disabled = ExtResource( 6 )
-custom_styles/normal = ExtResource( 6 )
 text = "Comenzar"
 flat = true
 
@@ -111,11 +106,6 @@ custom_colors/font_color = Color( 0.180392, 0.180392, 0.180392, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 1 )
-custom_styles/hover = ExtResource( 7 )
-custom_styles/pressed = ExtResource( 7 )
-custom_styles/focus = ExtResource( 6 )
-custom_styles/disabled = ExtResource( 6 )
-custom_styles/normal = ExtResource( 6 )
 text = "Cerraduras"
 flat = true
 __meta__ = {
@@ -133,11 +123,6 @@ custom_colors/font_color = Color( 0.180392, 0.180392, 0.180392, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 1 )
-custom_styles/hover = ExtResource( 7 )
-custom_styles/pressed = ExtResource( 7 )
-custom_styles/focus = ExtResource( 6 )
-custom_styles/disabled = ExtResource( 6 )
-custom_styles/normal = ExtResource( 6 )
 text = "Combat"
 flat = true
 __meta__ = {
@@ -156,11 +141,6 @@ custom_colors/font_color = Color( 0.180392, 0.180392, 0.180392, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 1 )
-custom_styles/hover = ExtResource( 7 )
-custom_styles/pressed = ExtResource( 7 )
-custom_styles/focus = ExtResource( 6 )
-custom_styles/disabled = ExtResource( 6 )
-custom_styles/normal = ExtResource( 6 )
 text = "Combat Sword"
 flat = true
 __meta__ = {
@@ -179,11 +159,6 @@ custom_colors/font_color = Color( 0.180392, 0.180392, 0.180392, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 1 )
-custom_styles/hover = ExtResource( 7 )
-custom_styles/pressed = ExtResource( 7 )
-custom_styles/focus = ExtResource( 6 )
-custom_styles/disabled = ExtResource( 6 )
-custom_styles/normal = ExtResource( 6 )
 text = "Comenzar"
 flat = true
 
@@ -198,13 +173,10 @@ custom_colors/font_color = Color( 0.180392, 0.180392, 0.180392, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 1 )
-custom_styles/hover = ExtResource( 7 )
-custom_styles/pressed = ExtResource( 7 )
-custom_styles/focus = ExtResource( 6 )
-custom_styles/disabled = ExtResource( 6 )
-custom_styles/normal = ExtResource( 6 )
 text = "Abandonar"
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Fade" parent="." instance=ExtResource( 8 )]

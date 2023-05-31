@@ -64,7 +64,7 @@ func difuse_node(node_id):
 	update_data(false)
 	emit_signal("on_finish_difuse")
 	
-func show_a_hidden_desition(node_id):	
+func show_a_hidden_desition(node_id):
 	GC.get_current_room_data().actions[node_id].isHidden = false
 	update_data(false)
 	resalt_node(node_id)

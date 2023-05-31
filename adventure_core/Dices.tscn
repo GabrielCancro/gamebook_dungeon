@@ -1,16 +1,17 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://adventure_core/Dices.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/TextoFlotante.png" type="Texture" id=2]
 [ext_resource path="res://assets/ui/Garb.png" type="Texture" id=3]
 [ext_resource path="res://assets/ui/dices_icon_2.png" type="Texture" id=4]
 [ext_resource path="res://assets/gold_dices.png" type="Texture" id=5]
-[ext_resource path="res://assets/ui/BotonCircular.png" type="Texture" id=6]
+[ext_resource path="res://font/FONT_2 Titles BubblegumSans-Regular.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://font/KELMSCOT.TTF" type="DynamicFontData" id=7]
 [ext_resource path="res://font/IMFePIsc28P_0.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://adventure_core/ItemSelector.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/ui/FondoPagina-IntroYCapítulo.png" type="Texture" id=10]
 [ext_resource path="res://assets/ui/FondoOscuro.png" type="Texture" id=11]
+[ext_resource path="res://assets/ui/IconoConcetración.png" type="Texture" id=12]
 
 [sub_resource type="DynamicFontData" id=16]
 font_path = "res://font/IMFePIsc28P_0.ttf"
@@ -81,10 +82,10 @@ animations = [ {
 } ]
 
 [sub_resource type="DynamicFont" id=14]
-size = 80
+size = 90
 outline_size = 3
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 7 )
+outline_color = Color( 0.647059, 0.647059, 0.647059, 1 )
+font_data = ExtResource( 6 )
 
 [node name="Dices" type="Control"]
 anchor_right = 1.0
@@ -102,6 +103,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 11 )
 expand = true
+stretch_mode = 7
 
 [node name="PageImg" type="TextureRect" parent="."]
 anchor_left = 0.5
@@ -325,10 +327,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 238.0
-margin_top = 511.5
-margin_right = 370.0
-margin_bottom = 640.5
+margin_left = 202.0
+margin_top = 491.0
+margin_right = 374.0
+margin_bottom = 660.0
+rect_pivot_offset = Vector2( 66, 64.5 )
 focus_mode = 0
 flat = true
 
@@ -336,7 +339,7 @@ flat = true
 modulate = Color( 0.0156863, 0.85098, 0.823529, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 6 )
+texture = ExtResource( 12 )
 expand = true
 
 [node name="Label2" type="Label" parent="btn_add"]
@@ -344,10 +347,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -62.0
-margin_top = -52.0
-margin_right = 70.0
-margin_bottom = 62.0
+margin_left = -65.0
+margin_top = -54.0
+margin_right = 67.0
+margin_bottom = 60.0
 custom_colors/font_color = Color( 0.905882, 0.905882, 0.905882, 1 )
 custom_colors/font_outline_modulate = Color( 0.364706, 0.364706, 0.364706, 1 )
 custom_fonts/font = SubResource( 14 )
@@ -380,10 +383,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -379.0
-margin_top = 492.5
-margin_right = -229.0
-margin_bottom = 643.5
+margin_left = -375.0
+margin_top = 497.5
+margin_right = -225.0
+margin_bottom = 648.5
 
 [node name="DiceCost" type="ColorRect" parent="."]
 visible = false
