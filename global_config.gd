@@ -56,3 +56,11 @@ func start_combat( combat_id ):
 
 func end_game():
 	get_tree().change_scene("res://scenes/Main.tscn")
+
+func add_click_fx(node):
+	var tw = node.get_node_or_null("click_fx_tween")
+	if tw: node.remove_child(tw)
+	tw = Tween.new()
+	node.add_child(tw)
+	tw.interpolate_property(node,"modulate",Color(.1,.1,.1,1),Color(1,1,1,1),.2,Tween.TRANS_LINEAR,Tween.EASE_IN)
+	tw.start()

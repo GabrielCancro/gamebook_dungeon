@@ -12,6 +12,7 @@ func onClick(btn):
 	if !active: return
 	active = false
 	$Fade.fadeIn(.5)
+	GC.add_click_fx(btn)
 	yield(get_tree().create_timer(.5),"timeout")
 	if btn.name=="btn_start": get_tree().change_scene("res://adventure_core/Adventure.tscn")
 	if btn.name=="btn_combat": GC.start_combat("combat_001")

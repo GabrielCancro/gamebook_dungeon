@@ -22,4 +22,5 @@ func set_node_data(_data):
 
 func onClick():
 	GC.CURRENT_NODE = data
+	GC.add_click_fx(self)
 	emit_signal("on_click",data)
