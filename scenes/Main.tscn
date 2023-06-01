@@ -44,16 +44,6 @@ texture = ExtResource( 4 )
 expand = true
 stretch_mode = 6
 
-[node name="VBox2" type="Control" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -180.5
-margin_top = -65.0
-margin_right = 180.5
-margin_bottom = 641.0
-
 [node name="Eye" type="TextureRect" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -180,3 +170,4 @@ __meta__ = {
 }
 
 [node name="Fade" parent="." instance=ExtResource( 8 )]
+visible = false
