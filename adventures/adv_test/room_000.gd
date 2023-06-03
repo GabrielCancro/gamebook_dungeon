@@ -5,16 +5,14 @@ var room_data = {
 	"room_id": null,
 	"image": null,
 	"desc": """
-		Caminas por el bosque cuando escuchas un grito.
-		Corres en su dirección y te encuentras con un guardia herido. Es un guardia Real. 
-		Aún sigue con vida y te pide ayuda.
-		Escoltaban al príncipe a través del bosque cuando encontraron una cueva. 
-		El príncipe quiso explorar pero sus guardias se lo negaron. 
-		Y mientras hablaban, una criatura salió, los atacó y se llevó al príncipe. 
-		Encuentra al príncipe y tendrás nuestra gratitud.
+		Un nuevo día de viaje. Los pájaros vuelan por sobre los árboles y los venados corren por entre los arbustos del bosque. 
+		El camino está despejado y la mañana parece tranquila.
+		De hecho, desde que comenzaste tu viaje, este ha sido muy tranquilo. 
+		Llevas ya unos días viajando. Has cruzado algunos pueblos y, fuera de alguna que otra pelea en un bar, nada ha impedido que llegues a tiempo a tu destino: La ciudad de Illenys, capital del reino.
+		Pero ese no es el único atractivo. La gran ciudad es el hogar del gremio de guerreros, donde se entrena para guardia real, puesto al que aspiras desde pequeña.
 	""",
 	"actions": {
-		"n1":{ "text":"No todos los días se presenta una situación para convertirse en una heroína, te dices mientras miras con atención el túnel que conduce a la cueva." },
+		"n1":{ "text":"Continuar el camino, ya no falta tanto." },
 	}
 }
 
@@ -22,4 +20,4 @@ func on_click_node(node_data,node_id):
 	print("CLICK IN",node_data)
 	var room_data = GC.get_current_room_data();
 	if node_id=="n1": 
-		GC.ADVENTURE.change_room("room_001")
+		GC.ADVENTURE.change_room("room_000b")

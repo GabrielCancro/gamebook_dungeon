@@ -5,9 +5,10 @@ var room_data = {
 	"room_id": "room_001",
 	"image": preload("res://adventures/adv_test/imgs/room_001 el bosque.jpg"),
 	"desc": """
-		Caminas por el bosque cuando escuchas un grito.
-		Corres en su dirección y te encuentras con un guardia herido.
-		Es un guardia Real. Aún sigue con vida y te pide ayuda.
+		No dudas en correr en su dirección. 
+		El grito te guía a través de los árboles fuera del camino. 
+		Cuando llegas te encuentras con un guardia herido. Es un guardia Real. 
+		Aún sigue con vida y te pide ayuda.
 	""",
 	"actions": {
 		"n1":{ "text":"Habla con el guardia" },

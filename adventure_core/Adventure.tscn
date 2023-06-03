@@ -18,8 +18,9 @@
 
 [sub_resource type="DynamicFont" id=3]
 size = 42
+outline_color = Color( 0.827451, 0.772549, 0.615686, 1 )
 use_filter = true
-extra_spacing_bottom = -7
+extra_spacing_bottom = -8
 font_data = ExtResource( 3 )
 
 [sub_resource type="Animation" id=2]
@@ -106,11 +107,13 @@ expand = true
 [node name="Desc" type="Label" parent="Narrator/VBox"]
 margin_top = 325.0
 margin_right = 675.0
-margin_bottom = 420.0
+margin_bottom = 706.0
 rect_pivot_offset = Vector2( 620, 634 )
 custom_colors/font_color = Color( 0.054902, 0.0509804, 0.0509804, 1 )
 custom_fonts/font = SubResource( 3 )
-text = "Hay dos guardias heridos. En el fondo se ve la entrada a la cueva."
+text = "Cada página del libro tiene una descripción de una escena y unas elecciones. 
+Esas opciones te llevan a una nueva página y a avanzar en la aventura. 
+También podrás realizar pruebas de habilidad, conseguir objetos y combatir."
 align = 1
 autowrap = true
 
