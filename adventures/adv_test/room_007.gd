@@ -21,4 +21,4 @@ func on_click_node(node_data,node_id):
 		GC.ADVENTURE.change_room("room_008") 
 
 func on_enter_room():
-	pass
+	GC.set_gamevar("dead_hyena",true)

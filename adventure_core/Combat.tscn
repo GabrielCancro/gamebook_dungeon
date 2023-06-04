@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/ui/FondoPagina-IntroYCapítulo.png" type="Texture" id=1]
 [ext_resource path="res://adventure_core/ActionLine.tscn" type="PackedScene" id=2]
@@ -9,7 +9,7 @@
 [ext_resource path="res://assets/combat/Escudo.png" type="Texture" id=7]
 [ext_resource path="res://assets/combat/Ataque.png" type="Texture" id=8]
 [ext_resource path="res://adventure_core/Combat.gd" type="Script" id=9]
-[ext_resource path="res://assets/combat/hiena.png" type="Texture" id=10]
+[ext_resource path="res://assets/ui/Clavo1.png" type="Texture" id=10]
 [ext_resource path="res://assets/gold_dices.png" type="Texture" id=11]
 [ext_resource path="res://assets/ui/FondoOscuro.png" type="Texture" id=12]
 
@@ -74,22 +74,6 @@ extra_spacing_top = -10
 extra_spacing_bottom = -7
 font_data = ExtResource( 4 )
 
-[sub_resource type="Animation" id=14]
-resource_name = "flash"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1.1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.196078 ), Color( 1, 1, 1, 1 ) ]
-}
-
 [sub_resource type="DynamicFont" id=15]
 size = 111
 outline_size = 9
@@ -150,9 +134,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 168.0
+margin_left = 200.0
 margin_top = -359.0
-margin_right = 335.0
+margin_right = 367.0
 margin_bottom = -157.0
 rect_pivot_offset = Vector2( 84, 101 )
 texture = ExtResource( 7 )
@@ -174,9 +158,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 153.5
+margin_left = 185.5
 margin_top = -566.0
-margin_right = 349.5
+margin_right = 381.5
 margin_bottom = -371.0
 rect_pivot_offset = Vector2( 100.5, 98 )
 texture = ExtResource( 8 )
@@ -199,7 +183,7 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -332.0
+margin_left = -361.0
 margin_top = -701.0
 margin_right = 129.0
 margin_bottom = -45.0
@@ -211,14 +195,14 @@ alignment = 1
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 149.0
-margin_right = 461.0
+margin_right = 490.0
 margin_bottom = 310.0
 
 [node name="Desc2" parent="Player/Options" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 345.0
-margin_right = 461.0
+margin_right = 490.0
 margin_bottom = 506.0
 
 [node name="Desc3" parent="Player/Options" instance=ExtResource( 2 )]
@@ -259,9 +243,9 @@ margin_bottom = -17.5
 [node name="Def" type="TextureRect" parent="Enemy"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 162.5
+margin_left = 194.5
 margin_top = 159.0
-margin_right = 329.5
+margin_right = 361.5
 margin_bottom = 361.0
 rect_pivot_offset = Vector2( 83.5, 101 )
 texture = ExtResource( 7 )
@@ -281,9 +265,9 @@ autowrap = true
 [node name="Atk" type="TextureRect" parent="Enemy"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 148.0
+margin_left = 180.0
 margin_top = 375.0
-margin_right = 344.0
+margin_right = 376.0
 margin_bottom = 570.0
 rect_pivot_offset = Vector2( 98, 98 )
 texture = ExtResource( 8 )
@@ -304,9 +288,9 @@ autowrap = true
 [node name="Image" type="TextureRect" parent="Enemy"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -302.0
+margin_left = -328.0
 margin_top = 176.0
-margin_right = 118.0
+margin_right = 92.0
 margin_bottom = 547.0
 rect_min_size = Vector2( 0, 300 )
 texture = ExtResource( 10 )
@@ -317,10 +301,10 @@ stretch_mode = 7
 modulate = Color( 0.180392, 0.176471, 0.176471, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -27.0
-margin_top = -23.0
-margin_right = 25.0
-margin_bottom = 20.0
+margin_left = -17.0
+margin_top = -29.0
+margin_right = 23.0
+margin_bottom = 39.0
 rect_min_size = Vector2( 0, 300 )
 texture = ExtResource( 3 )
 expand = true
@@ -403,22 +387,6 @@ text = "15"
 align = 1
 valign = 1
 autowrap = true
-
-[node name="TurnLine" type="ColorRect" parent="."]
-modulate = Color( 1, 1, 1, 0.866013 )
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -376.0
-margin_top = -612.0
-margin_right = -366.0
-margin_bottom = -112.0
-rect_min_size = Vector2( 0, 5 )
-color = Color( 1, 0.984314, 0, 1 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="TurnLine"]
-anims/flash = SubResource( 14 )
 
 [node name="TurnLabel" type="ColorRect" parent="."]
 visible = false

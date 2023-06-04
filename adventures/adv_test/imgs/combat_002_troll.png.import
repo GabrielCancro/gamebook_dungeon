@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hiena.png-99dc1f5d01a3ba7e900411cc4ddd29bb.stex"
+path="res://.import/combat_002_troll.png-9b7d32bf2023066f5f55edd1910281c2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/combat/hiena.png"
-dest_files=[ "res://.import/hiena.png-99dc1f5d01a3ba7e900411cc4ddd29bb.stex" ]
+source_file="res://adventures/adv_test/imgs/combat_002_troll.png"
+dest_files=[ "res://.import/combat_002_troll.png-9b7d32bf2023066f5f55edd1910281c2.stex" ]
 
 [params]
 

@@ -30,7 +30,6 @@ func _ready():
 	$CS.init_combat_data()
 
 func on_finish_script_load():
-	set_turn_line("PLAYER")
 	set_stats()
 	$Player/Options.visible = false
 	$Tween.interpolate_property($Player/HP_PLAYER,"value",0,100,1,Tween.TRANS_LINEAR,Tween.EASE_OUT,.5)
@@ -82,7 +81,6 @@ func show_actions():
 
 func end_player_turn():
 	show_turn_label("ENEMY")
-	set_turn_line("ENEMY")
 	yield(get_tree().create_timer(1.2),"timeout")
 	yield(get_tree().create_timer(.4),"timeout")
 	run_dices("ENEMY")
@@ -91,7 +89,6 @@ func end_player_turn():
 	yield(self,"end_apply_result")
 	
 	yield(get_tree().create_timer(.4),"timeout")
-	set_turn_line("PLAYER")
 	yield(get_tree().create_timer(.4),"timeout")
 	show_actions()
 
@@ -213,15 +210,6 @@ func add_enemy_stat(stat,cnt):
 func add_enemy_hp(cnt):
 	yield($Tween,"tween_all_completed")
 	$Tween.interpolate_property($Enemy/HP_ENEM,"value",$Enemy/HP_ENEM.value,$Enemy/HP_ENEM.value+cnt,.3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
-	$Tween.start()
-
-func set_turn_line(mode):
-	$TurnLine/AnimationPlayer.play("flash")
-	$TurnLine.rect_size.y = rect_size.y/2
-	var end_pos = $TurnLine.rect_position
-	end_pos.y = rect_size.y - $TurnLine.rect_size.y
-	if mode == "ENEMY": end_pos.y = 0
-	$Tween.interpolate_property($TurnLine,"rect_position",$TurnLine.rect_position,end_pos,.3,Tween.TRANS_QUAD,Tween.EASE_OUT)
 	$Tween.start()
 
 func end_combat(mode):

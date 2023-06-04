@@ -1,6 +1,6 @@
 extends Node
 
-var texture_image = preload("res://adventures/adv_test/imgs/combat_001_hiena.png")
+var texture_image = preload("res://adventures/adv_test/imgs/combat_002_troll.png")
 var actions = {
 	"n1":{ "text":"Dar un golpe directo", "isDice": 1 },
 	"n2":{ "text":"Posicionarte mejor (pierdes el turno pero obtienes ataque)" },

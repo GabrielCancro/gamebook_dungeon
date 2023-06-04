@@ -11,8 +11,8 @@ var room_data = {
 	"actions": {
 		"n1":{ "text":"No se que habrá en las otras salas pero podría ser peligroso. Presentimiento.", "isDice": 3 },
 		"n2":{ "text":"Continuar por el corredor de la izquierda" },
-		"n3":{ "text":"Bajar la pendiente a la derecha" },
-		"n4":{ "text":"Continuar por el corredor, de aquí provienen los ladridos, debo ir con cuidado", "isHidden":true, "isDice":3 },
+		"n3":{ "text":"Continuar por el corredor, de aquí provienen los ladridos, debo ir con cuidado", "isHidden":true, "isDice":3 },
+		"n4":{ "text":"Bajar la pendiente a la derecha" },
 		"n5":{ "text":"Bajar por la pendiente, los ronquidos provenían de aquí, seré silencioso", "isHidden":true, "isDice":3 },
 		"n6":{ "text":"No debería continuar aún" },
 	},
@@ -36,22 +36,22 @@ func on_click_node(node_data,node_id):
 		if dices>=5:
 			GC.DESITIONS.hide_a_showed_desition("n2")
 			yield(GC.POPUP.show_popup(room_data.pops.sentido2), "on_close")
-			yield( GC.DESITIONS.show_a_hidden_desition("n4"), "on_finish_resalt" )
+			yield( GC.DESITIONS.show_a_hidden_desition("n3"), "on_finish_resalt" )
 		if dices>=8:
-			GC.DESITIONS.hide_a_showed_desition("n3")
+			GC.DESITIONS.hide_a_showed_desition("n4")
 			yield(GC.POPUP.show_popup(room_data.pops.sentido3), "on_close")
 			yield( GC.DESITIONS.show_a_hidden_desition("n5"), "on_finish_resalt" )
 	elif node_id=="n2": #jaula sin tirada
 		GC.ADVENTURE.change_room('room_006')
-	elif node_id=="n3": #troll sin tirada
-		pass
-	elif node_id=="n4": #jaula con tirada
+	elif node_id=="n3": #jaula con tirada
 		GC.DICES.show_dices("SIGILIO")
 		var dices = yield(GC.DICES,"on_dice")
 		var res = GC.POPUP.set_dice_result(dices,{ "0":"F", "5":"EA" } )
 		if dices>=5: GC.set_gamevar("stealth_hyena",true)
-		GC.DESITIONS.show_a_hidden_desition("n4")
+		GC.DESITIONS.show_a_hidden_desition("n3")
 		GC.ADVENTURE.change_room('room_006')
+	elif node_id=="n4": #troll sin tirada
+		pass
 	elif node_id=="n5": #troll con tirada
 		pass
 	elif node_id=="n6": 

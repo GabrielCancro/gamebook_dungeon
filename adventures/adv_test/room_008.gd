@@ -4,12 +4,13 @@ var room_data = {
 	"name": "JaulaVacia",
 	"image": null,
 	"desc": """
-		La habitacion es espaciosa, en una de las jaulas se escucha un sollozo, al prestar atencion ves a un joven, por sus vestimentas es el principe, es un alivio que siga con vida.
+		La mayoría de las jaulas contienen huesos roídos, tal vez por la hiena o las ratas. 
+		Poco a poco te acercas a donde habías visto movimiento. 
+		Un joven de buen vestir, algo golpeado, yace acurrucado en el suelo. 
+		Es el príncipe. Entre lloros te explica la situación que ya sabes y pide que lo rescates.
 	""",
 	"actions": {
-		"n1":{ "text":"Jaula del príncipe" },
-		"n2":{ "text":"Buscar en las celdas (Agujero Escondido)" },
-		"n3":{ "text":"Restos de la hiena" },
+		"n1":{ "text":"Abrir la Jaula del príncipe" },
 	},
 	"pops":{
 	},
@@ -18,6 +19,10 @@ var room_data = {
 func on_click_node(node_data,node_id):
 	print("CLICK IN",node_data)
 	var room_data = GC.get_current_room_data();
+	if node_id=="n1": 
+		GC.ADVENTURE.change_room("room_009") 
+	elif node_id=="n2": 
+		GC.ADVENTURE.change_room("room_005")
 
 func on_enter_room():
 	pass
