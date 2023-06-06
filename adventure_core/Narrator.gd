@@ -30,6 +30,10 @@ func start_narrator():
 	if "title" in data: 
 		$VBox/Title/Label.text = data.title
 		$VBox/Title.visible = true
+		var dX = $VBox/Title/Label.text.length()*13
+		var cenX = $VBox/Title.rect_position.x + $VBox/Title.rect_size.x / 2 -$VBox.rect_position.x
+		$VBox/Title/D1.rect_position.x = cenX - dX
+		$VBox/Title/D2.rect_position.x = cenX + dX
 	$Tween.interpolate_property($VBox/Desc,"percent_visible",0,1,time_read,Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	$Tween.start()
 	yield($Tween,"tween_all_completed")
