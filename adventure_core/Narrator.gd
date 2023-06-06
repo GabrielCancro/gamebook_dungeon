@@ -8,14 +8,16 @@ func _ready():
 
 func clear_narrator():
 	$VBox/Image.visible = false
+	$VBox/Title.visible = false
 	$VBox/Desc.percent_visible = 0
 	$Button.visible = false
 	$VBox/Desc.text = ""
 	
 func start_narrator():
+	$VBox/Title/Label.text = "Un rescate inesperado"
 	var data = GC.get_current_room_data()
 	$Tween.remove_all()
-	$VBox/Desc.text = data.desc
+	$VBox/Desc.bbcode_text = "[center]"+data.desc+"[/center]"
 	var time_read = data.desc.length()/30
 	if data.isShowed: time_read = 0.3
 	else: data.isShowed = true
@@ -25,6 +27,9 @@ func start_narrator():
 		$VBox/Image.modulate = Color(1,1,1,0)
 		$VBox/Image.texture = data.image
 		$Tween.interpolate_property($VBox/Image,"modulate",Color(1,1,1,.3),Color(1,1,1,1),.3,Tween.TRANS_LINEAR, Tween.EASE_IN)
+	if "title" in data: 
+		$VBox/Title/Label.text = data.title
+		$VBox/Title.visible = true
 	$Tween.interpolate_property($VBox/Desc,"percent_visible",0,1,time_read,Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	$Tween.start()
 	yield($Tween,"tween_all_completed")

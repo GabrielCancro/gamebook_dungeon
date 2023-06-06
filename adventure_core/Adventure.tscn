@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://adventure_core/MenuInv.tscn" type="PackedScene" id=1]
 [ext_resource path="res://adventure_core/Adventure.gd" type="Script" id=2]
@@ -15,12 +15,32 @@
 [ext_resource path="res://adventure_core/ActionLine.tscn" type="PackedScene" id=13]
 [ext_resource path="res://adventure_core/Dices.tscn" type="PackedScene" id=14]
 [ext_resource path="res://adventure_core/PopupText.tscn" type="PackedScene" id=15]
+[ext_resource path="res://font/FONT_2 Titles BubblegumSans-Regular.ttf" type="DynamicFontData" id=16]
+[ext_resource path="res://assets/ui/Rayas2-TítuloIntro.png" type="Texture" id=17]
+[ext_resource path="res://assets/ui/Clavo1.png" type="Texture" id=18]
+
+[sub_resource type="DynamicFont" id=4]
+size = 55
+font_data = ExtResource( 16 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 42
+size = 40
 outline_color = Color( 0.827451, 0.772549, 0.615686, 1 )
 use_filter = true
 extra_spacing_bottom = -8
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 38
+outline_size = 6
+outline_color = Color( 0.94902, 0.968627, 0.698039, 0.658824 )
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 38
+use_filter = true
+extra_spacing_bottom = -5
 font_data = ExtResource( 3 )
 
 [sub_resource type="Animation" id=2]
@@ -80,14 +100,60 @@ __meta__ = {
 [node name="VBox" type="VBoxContainer" parent="Narrator"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -336.5
-margin_right = 338.5
+margin_left = -357.0
+margin_right = 351.0
 margin_bottom = 752.0
 custom_constants/separation = 25
 
+[node name="Title" type="Control" parent="Narrator/VBox"]
+margin_right = 708.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 100 )
+
+[node name="Label" type="Label" parent="Narrator/VBox/Title"]
+anchor_right = 1.0
+margin_bottom = 65.0
+rect_pivot_offset = Vector2( 620, 634 )
+custom_colors/font_color = Color( 0.054902, 0.0509804, 0.0509804, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Un rescate inesperado"
+align = 1
+
+[node name="Raya" type="TextureRect" parent="Narrator/VBox/Title"]
+modulate = Color( 0.180392, 0.176471, 0.176471, 1 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -354.0
+margin_top = -39.0
+margin_right = 354.0
+margin_bottom = -7.0
+texture = ExtResource( 17 )
+stretch_mode = 6
+
+[node name="D1" type="TextureRect" parent="Narrator/VBox/Title"]
+modulate = Color( 0.180392, 0.176471, 0.176471, 1 )
+margin_top = 16.0
+margin_right = 30.0
+margin_bottom = 44.0
+texture = ExtResource( 18 )
+stretch_mode = 6
+
+[node name="D2" type="TextureRect" parent="Narrator/VBox/Title"]
+modulate = Color( 0.180392, 0.176471, 0.176471, 1 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -30.0
+margin_top = 16.0
+margin_bottom = 44.0
+texture = ExtResource( 18 )
+stretch_mode = 6
+
 [node name="Image" type="TextureRect" parent="Narrator/VBox"]
-margin_right = 675.0
-margin_bottom = 300.0
+margin_top = 125.0
+margin_right = 708.0
+margin_bottom = 425.0
 rect_min_size = Vector2( 0, 300 )
 expand = true
 stretch_mode = 7
@@ -104,18 +170,32 @@ rect_min_size = Vector2( 0, 300 )
 texture = ExtResource( 12 )
 expand = true
 
-[node name="Desc" type="Label" parent="Narrator/VBox"]
-margin_top = 325.0
-margin_right = 675.0
-margin_bottom = 706.0
+[node name="Desc2" type="Label" parent="Narrator/VBox"]
+visible = false
+margin_top = 450.0
+margin_right = 708.0
+margin_bottom = 627.0
 rect_pivot_offset = Vector2( 620, 634 )
 custom_colors/font_color = Color( 0.054902, 0.0509804, 0.0509804, 1 )
 custom_fonts/font = SubResource( 3 )
-text = "Cada página del libro tiene una descripción de una escena y unas elecciones. 
-Esas opciones te llevan a una nueva página y a avanzar en la aventura. 
-También podrás realizar pruebas de habilidad, conseguir objetos y combatir."
+text = "
+Un nuevo día de viaje. Los pájaros vuelan por sobre los árboles y los venados corren por entre los arbustos del bosque. "
 align = 1
 autowrap = true
+
+[node name="Desc" type="RichTextLabel" parent="Narrator/VBox"]
+margin_top = 450.0
+margin_right = 708.0
+margin_bottom = 631.0
+custom_colors/default_color = Color( 0.054902, 0.0509804, 0.0509804, 1 )
+custom_fonts/bold_font = SubResource( 6 )
+custom_fonts/normal_font = SubResource( 5 )
+bbcode_enabled = true
+bbcode_text = "[center]
+Un [b]nuevo[/b] día de viaje. Los pájaros vuelan por sobre los árboles y los venados corren por entre los arbustos del bosque."
+text = "
+Un nuevo día de viaje. Los pájaros vuelan por sobre los árboles y los venados corren por entre los arbustos del bosque."
+fit_content_height = true
 
 [node name="Label" type="Label" parent="Narrator"]
 visible = false
