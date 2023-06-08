@@ -1,12 +1,15 @@
 extends Control
 
 var ability_name = "SIGILO"
+var dices_data = null
 var ability_bonif = 0
 var start_dices_y = 0
 var dice_cost = 0
 var d1
 var d2
 var isRolled = false
+
+onready var DicesResults = get_node("../DicesResults")
 
 signal on_dice(value)
 
@@ -26,10 +29,11 @@ func on_time_dices_update():
 	d2 = randi()%6+1
 	$Dice2.frame = d2-1
 
-func show_dices(ab_name):
+func show_dices(data):
+	dices_data = data
 	$DiceCost.visible = (GC.CURRENT_NODE && GC.CURRENT_NODE.isDice == 2)
 	$ItemSelector.hide_menu()
-	ability_name = ab_name
+	if "abName" in dices_data: ability_name = dices_data.abName
 	ability_bonif = 0
 	dice_cost = 0
 	set_usable_items()
@@ -111,6 +115,7 @@ func run_dices():
 	yield(get_tree().create_timer(2.2),"timeout")
 	visible = false
 	emit_signal("on_dice",d1+d2+ability_bonif)
+	DicesResults.show_results(d1+d2+ability_bonif,dices_data)
 
 func check_dices_type():
 	if(GC.CURRENT_NODE): 

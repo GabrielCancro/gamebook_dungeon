@@ -34,6 +34,7 @@ func change_room(room_id):
 	GC.CURRENT_ROOM = room_id
 	
 	if room_data_node.has_method("on_enter_room"): room_data_node.on_enter_room()
+	if room_data_node.has_method("on_dices_result"): $DicesResults.connect("on_accept_result",room_data_node,"on_dices_result")
 	
 	$Desitions.hide_options()
 	$Fade.fadeOut()
