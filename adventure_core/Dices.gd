@@ -33,6 +33,7 @@ func show_dices(data):
 	dices_data = data
 	$DiceCost.visible = (GC.CURRENT_NODE && GC.CURRENT_NODE.isDice == 2)
 	$ItemSelector.hide_menu()
+	$Node_text.text = GC.CURRENT_NODE.text
 	if "abName" in dices_data: ability_name = dices_data.abName
 	ability_bonif = 0
 	dice_cost = 0

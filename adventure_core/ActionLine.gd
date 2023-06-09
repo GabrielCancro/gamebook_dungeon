@@ -15,6 +15,10 @@ func set_node_data(_data):
 	$Desc.text = text
 	rect_pivot_offset = rect_size/2
 	
+	if "isNew" in data && data.isNew:
+		data.isNew = false
+		$TextureRect.modulate = Color(1,.5,.5,.7)
+
 	$diceIcon.visible = false
 	if data.has("isDice") && data.isDice>0:
 		$diceIcon.visible = true

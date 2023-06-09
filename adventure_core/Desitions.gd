@@ -64,12 +64,17 @@ func difuse_node(node_id):
 	update_data(false)
 	emit_signal("on_finish_difuse")
 	
-func show_a_hidden_desition(node_id):
-	GC.get_current_room_data().actions[node_id].isHidden = false
-	update_data(false)
-	resalt_node(node_id)
-	return self;
+#func show_a_hidden_desition(node_id):
+#	GC.get_current_room_data().actions[node_id].isHidden = false
+#	update_data(false)
+#	resalt_node(node_id)
+#	return self;
 
-func hide_a_showed_desition(node_id):
-	difuse_node(node_id)
-	return self;
+func set_visible_desition(node_id,_visible):
+	GC.get_current_room_data().actions[node_id]["isHidden"] = !_visible
+	GC.get_current_room_data().actions[node_id]["isNew"] = _visible
+	print("CHANGE ",GC.get_current_room_data().actions[node_id])
+
+#func hide_a_showed_desition(node_id):
+#	difuse_node(node_id)
+#	return self;

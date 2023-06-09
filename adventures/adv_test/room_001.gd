@@ -31,8 +31,8 @@ var room_data = {
 		"abName":"Buscar",
 		"results":{
 			"r0":{"ran":[-99,2,"F"],"tx":"No encuentras nada interesante en el lugar"},
-			"r1":{"ran":[3,99,"EP"],"tx":"No muy lejos de los guardias se ve la entrada a una cueva"},
-			"r2":{"ran":[5,99,"EA"],"tx":"Cerca de la entrada a la cueva yace otro guardia, muerto"},
+			"r1":{"ran":[3,99,"EP"],"tx":"No muy lejos de los guardias se ve la entrada a una cueva","newDesition":"n3"},
+			"r2":{"ran":[5,99,"EA"],"tx":"Cerca de la entrada a la cueva yace otro guardia, muerto","newDesition":"n4"},
 			"r3":{"ran":[5,99,"EA"],"tx":"Hay un espada, parece ser del guardia muerto. Te puede hacer falta","addItem":"sword"}
 		}
 	}
@@ -46,26 +46,17 @@ func on_click_node(node_data,node_id):
 		GC.ADVENTURE.change_room("room_002")
 	elif node_id=="n2": 
 		GC.DICES.show_dices(room_data.dices_buscar)
-#		GC.DICES.show_dices("BUSCAR")
-#		var dices = yield(GC.DICES,"on_dice")
-#		var res = GC.POPUP.set_dice_result(dices,{ "0":"F", "3":"EP", "5":"E", "7":"EA" } )
-#		if dices<3:
-#			yield(GC.POPUP.show_popup(room_data.pops.r1), "on_close")
-#		if dices>=3:
-#			yield(GC.POPUP.show_popup(room_data.pops.r2), "on_close")
-#			yield( GC.DESITIONS.show_a_hidden_desition("n3"), "on_finish_resalt" )
-#		if dices>=5:
-#			yield(GC.POPUP.show_popup(room_data.pops.r3), "on_close")
-#			yield( GC.DESITIONS.show_a_hidden_desition("n4"), "on_finish_resalt" )
-#		if dices>=7:
-#			yield(GC.POPUP.show_popup(room_data.pops.r4), "on_close")
-#			GC.add_item("sword") 
-#			yield( GC.DESITIONS.hide_a_showed_desition("n2"), "on_finish_difuse")
-#		GC.POPUP.set_dice_result(null)
 	elif node_id=="n3": 
 		GC.ADVENTURE.change_room("room_003")
 	elif node_id=="n4": 
 		yield(GC.POPUP.show_popup(room_data.pops.p1), "on_close")
 
-func on_dices_result(data):
-	print("ROOM ON DICE RESULT ",data)
+func on_dices_result(res):
+	if res.id=="r0":
+		pass
+	if res.id=="r1":
+		pass
+	if res.id=="r2":
+		pass
+	if res.id=="r3":
+		GC.DESITIONS.set_visible_desition("n2",false)

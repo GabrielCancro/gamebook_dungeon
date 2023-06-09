@@ -58,15 +58,34 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -383.5
-margin_top = -200.5
-margin_right = 383.5
-margin_bottom = -139.5
+margin_left = -325.0
+margin_top = -136.0
+margin_right = 325.0
+margin_bottom = 302.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 17 )
-text = "No encuentras nada de interés"
+text = "No encuentras nada de interés
+No encuentras nada de interés
+No encuentras nada de interés
+No encuentras nada de interés
+
+NUEVO ALGO DISPONIBLE
+UNA ESPADA PONELE"
 align = 1
-valign = 1
+autowrap = true
+
+[node name="AddItem" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.705882 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -134.0
+margin_top = -389.0
+margin_right = 134.0
+margin_bottom = -171.0
+texture = ExtResource( 3 )
+stretch_mode = 6
 
 [node name="Special" type="Label" parent="."]
 visible = false
@@ -100,6 +119,8 @@ flat = true
 modulate = Color( 1, 1, 1, 0.705882 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 80.0
+margin_bottom = 80.0
 texture = ExtResource( 3 )
 stretch_mode = 6
 
