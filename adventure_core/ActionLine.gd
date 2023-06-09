@@ -17,7 +17,7 @@ func set_node_data(_data):
 	
 	if "isNew" in data && data.isNew:
 		data.isNew = false
-		$TextureRect.modulate = Color(1,.5,.5,.7)
+		$TextureRect.modulate = Color(.8,.5,.5,.7)
 
 	$diceIcon.visible = false
 	if data.has("isDice") && data.isDice>0:
