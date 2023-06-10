@@ -19,6 +19,7 @@
 [ext_resource path="res://assets/ui/Rayas2-TítuloIntro.png" type="Texture" id=17]
 [ext_resource path="res://assets/ui/Clavo1.png" type="Texture" id=18]
 [ext_resource path="res://adventure_core/DicesResults.tscn" type="PackedScene" id=19]
+[ext_resource path="res://fx/AlphaFx.tscn" type="PackedScene" id=20]
 
 [sub_resource type="DynamicFont" id=4]
 size = 55
@@ -43,23 +44,6 @@ size = 38
 use_filter = true
 extra_spacing_bottom = -5
 font_data = ExtResource( 3 )
-
-[sub_resource type="Animation" id=2]
-resource_name = "idle"
-length = 2.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 0.392157 ), Color( 1, 1, 1, 0.588235 ) ]
-}
 
 [node name="Adventure" type="Control"]
 anchor_right = 1.0
@@ -217,23 +201,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -56.5
-margin_top = 147.0
-margin_right = 56.5
-margin_bottom = 256.0
+margin_left = -56.0
+margin_top = 147.132
+margin_right = 57.0
+margin_bottom = 266.132
+icon = ExtResource( 6 )
 flat = true
-__meta__ = {
-"_edit_group_": true
-}
+expand_icon = true
 
-[node name="Garb" type="TextureRect" parent="Narrator/Button"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 6 )
-expand = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Narrator/Button"]
-anims/idle = SubResource( 2 )
+[node name="AlphaFx" parent="Narrator/Button" instance=ExtResource( 20 )]
 
 [node name="Desitions" type="Control" parent="."]
 anchor_left = 0.5

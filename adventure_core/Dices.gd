@@ -1,6 +1,5 @@
 extends Control
 
-var ability_name = "SIGILO"
 var dices_data = null
 var ability_bonif = 0
 var start_dices_y = 0
@@ -18,8 +17,8 @@ func _ready():
 	randomize()
 	visible = false
 	$Timer.connect("timeout",self,"on_time_dices_update")
-	$Buttons/btn_roll.connect("button_down",self,"onButtonRoll")
-	$Buttons/btn_back.connect("button_down",self,"onButtonClose")
+	$btn_roll.connect("button_down",self,"onButtonRoll")
+	$btn_back.connect("button_down",self,"onButtonClose")
 	$btn_add.connect("button_down",self,"onButtonAdd")
 	$DiceCost/btn_cost.connect("button_down",self,"onButtonCost")
 
@@ -32,22 +31,23 @@ func on_time_dices_update():
 func show_dices(data):
 	dices_data = data
 	$DiceCost.visible = (GC.CURRENT_NODE && GC.CURRENT_NODE.isDice == 2)
+	$DiceCost/btn_add/Label2.text = str(GC.ACTION_POINTS)
 	$ItemSelector.hide_menu()
 	$Node_text.text = GC.CURRENT_NODE.text
-	if "abName" in dices_data: ability_name = dices_data.abName
+	$Ability/Label.text = dices_data.abName
 	ability_bonif = 0
 	dice_cost = 0
 	set_usable_items()
 	
 	$btn_add/Label2.text = str(GC.ACTION_POINTS)
-	$lb_ability.text = ability_name+" +"+str(ability_bonif)
+	$Modif/Label2.text = "+"+str(ability_bonif)
 	visible = true
 	isRolled = false
 	$Dice1.visible = false
 	$Dice2.visible = false
-	$lb_result.visible = false
-	$Buttons/btn_roll.visible = true
-	$Buttons/btn_back.visible = true
+	$Result.visible = false
+	$btn_roll.visible = true
+	$btn_back.visible = true
 	$Tween.interpolate_property(self,"modulate",Color(1,1,1,.5),Color(1,1,1,1),.2,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 	$Tween.start()
 
@@ -63,8 +63,8 @@ func onButtonAdd():
 	GC.ACTION_POINTS -= 1
 	ability_bonif += 1
 	$btn_add/Label2.text = str(GC.ACTION_POINTS)
-	$lb_ability.text = ability_name+" +"+str(ability_bonif)
-	$Tween.interpolate_property($lb_ability,"rect_scale",Vector2(1.1,1.1),Vector2(1,1),.3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
+	$Modif/Label2.text = "+"+str(ability_bonif)
+	$Tween.interpolate_property($Modif,"rect_scale",Vector2(1.1,1.1),Vector2(1,1),.3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 	$Tween.interpolate_property($btn_add,"rect_scale",Vector2(1.1,1.1),Vector2(1,1),.3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 	$Tween.start()
 
@@ -84,8 +84,8 @@ func run_dices():
 	if isRolled: return
 	isRolled = true
 	check_dices_type()
-	$Buttons/btn_roll.visible = false
-	$Buttons/btn_back.visible = false
+	$btn_roll.visible = false
+	$btn_back.visible = false
 	var duration = 1.2
 	$Timer.start()
 	$Tween.remove_all()
@@ -107,16 +107,29 @@ func run_dices():
 	yield(get_tree().create_timer(1),"timeout")
 	$Timer.stop()
 	yield(get_tree().create_timer(1),"timeout")
-	$lb_result.text = str(d1+d2+ability_bonif)
-	$lb_result.visible = true
-	$lb_result.modulate = Color(0,0,0,.2)
-	$Tween.interpolate_property($lb_result,"modulate",$lb_result.modulate,Color(1,1,1,1),.3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
+	show_result()
+	
+
+func show_result():
+	var value = d1+d2+ability_bonif
+	var result_desc = "F" 
+	var size = dices_data.results.size()
+	for i in range(size):
+		if value >= dices_data.results[ dices_data.results.keys()[i] ].ran[0]: 
+			if i==1: result_desc = "EP" 
+			if i==size-1: result_desc = "ET"
+	dices_data["result_texture"] = "res://assets/ui/Result_"+result_desc+".png"
+	$Result.texture = load(dices_data.result_texture) 
+	$Result/Label.text = str(value)
+	$Result.visible = true
+	$Result.modulate = Color(0,0,0,.2)
+	$Tween.interpolate_property($Result,"modulate",$Result.modulate,Color(1,1,1,1),.3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 	$Tween.start()
 	
 	yield(get_tree().create_timer(2.2),"timeout")
 	visible = false
 	emit_signal("on_dice",d1+d2+ability_bonif)
-	DicesResults.show_results(d1+d2+ability_bonif,dices_data)
+	DicesResults.show_results(value,dices_data)
 
 func check_dices_type():
 	if(GC.CURRENT_NODE): 
@@ -151,6 +164,6 @@ func on_item_click(li):
 	li.disabled = true
 	li.modulate.a = .3
 	ability_bonif += GC.CURRENT_NODE.bon[it_name]
-	$lb_ability.text = ability_name+" +"+str(ability_bonif)
-	$Tween.interpolate_property($lb_ability,"rect_scale",Vector2(1.1,1.1),Vector2(1,1),.3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
+	$Modif/Label2.text = "+"+str(ability_bonif)
+	$Tween.interpolate_property($Modif,"rect_scale",Vector2(1.1,1.1),Vector2(1,1),.3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 	$Tween.start()

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TiradaResultado-ExitoTotal.png-143adb4a144cbc17d64ff0d0ad498448.stex"
+path="res://.import/icoMap.png-c7ebedbaa076f5e4596f64fa13e31126.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/TiradaResultado-ExitoTotal.png"
-dest_files=[ "res://.import/TiradaResultado-ExitoTotal.png-143adb4a144cbc17d64ff0d0ad498448.stex" ]
+source_file="res://adventures/adv_test/imgs/icoMap.png"
+dest_files=[ "res://.import/icoMap.png-c7ebedbaa076f5e4596f64fa13e31126.stex" ]
 
 [params]
 

@@ -1,11 +1,19 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://adventure_core/DicesResults.gd" type="Script" id=1]
 [ext_resource path="res://font/FONT_1 Narrator CantoraOne-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/ui/Garb.png" type="Texture" id=3]
+[ext_resource path="res://assets/ui/Result_F.png" type="Texture" id=4]
+[ext_resource path="res://fx/AlphaFx.tscn" type="PackedScene" id=5]
 [ext_resource path="res://font/KELMSCOT.TTF" type="DynamicFontData" id=7]
 [ext_resource path="res://assets/ui/FondoPagina-IntroYCapítulo.png" type="Texture" id=10]
 [ext_resource path="res://assets/ui/FondoOscuro.png" type="Texture" id=11]
+
+[sub_resource type="DynamicFont" id=18]
+size = 200
+outline_size = 8
+outline_color = Color( 1, 0.960784, 0.282353, 1 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=17]
 size = 48
@@ -21,12 +29,6 @@ size = 48
 outline_size = 3
 outline_color = Color( 0.360784, 0.360784, 0.360784, 1 )
 font_data = SubResource( 16 )
-
-[sub_resource type="DynamicFont" id=4]
-size = 200
-outline_size = 8
-outline_color = Color( 1, 0.960784, 0.282353, 1 )
-font_data = ExtResource( 7 )
 
 [node name="DicesResults" type="Control"]
 anchor_right = 1.0
@@ -51,6 +53,32 @@ texture = ExtResource( 10 )
 expand = true
 stretch_mode = 6
 
+[node name="Result" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -158.5
+margin_top = -628.5
+margin_right = 158.5
+margin_bottom = -267.5
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="Result"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -103.5
+margin_top = -79.0
+margin_right = 103.5
+margin_bottom = 143.0
+custom_colors/font_color = Color( 0.196078, 0.2, 0.145098, 1 )
+custom_fonts/font = SubResource( 18 )
+text = "12"
+align = 1
+valign = 1
+
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Desc" type="Label" parent="."]
@@ -59,9 +87,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -325.0
-margin_top = -136.0
+margin_top = -88.0
 margin_right = 325.0
-margin_bottom = 302.0
+margin_bottom = 350.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 17 )
 text = "No encuentras nada de interés
@@ -81,9 +109,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -134.0
-margin_top = -389.0
+margin_top = -317.0
 margin_right = 134.0
-margin_bottom = -171.0
+margin_bottom = -99.0
 texture = ExtResource( 3 )
 stretch_mode = 6
 
@@ -124,20 +152,7 @@ margin_bottom = 80.0
 texture = ExtResource( 3 )
 stretch_mode = 6
 
-[node name="lb_result" type="Label" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -103.5
-margin_top = -601.5
-margin_right = 103.5
-margin_bottom = -379.5
-custom_colors/font_color = Color( 0.196078, 0.2, 0.145098, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "12"
-align = 1
-valign = 1
+[node name="AlphaFx" parent="btn_next" instance=ExtResource( 5 )]
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.05

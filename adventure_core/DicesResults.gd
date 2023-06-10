@@ -10,7 +10,11 @@ func _ready():
 	$btn_next.connect("button_down",self,"click_next")
 
 func show_results(val,data):
-	$lb_result.text = str(val)
+	$Result.texture = load(data.result_texture) 
+	$Result/Label.text = str(val)
+	$Desc.visible = false
+	$AddItem.visible = false
+	$btn_next.visible = false
 	visible = true
 	results_data = data
 	results_array = []
@@ -19,22 +23,38 @@ func show_results(val,data):
 		var result = results_data.results[r]
 		result["id"] = r
 		if(val>=result.ran[0] && val<=result.ran[1]): results_array.append(result)
+
+	yield(get_tree().create_timer(1.5),"timeout")
 	show_result()
 
 func show_result():
 	var result = results_array[results_index]
-	$Desc.text = result.tx
+	$btn_next.visible = false
+	$Desc.visible = true
 	$AddItem.visible = false
+	$Desc.modulate.a = 0
+	$AddItem.modulate.a = 0
+	$btn_next.modulate.a = 0
+	$Desc.text = result.tx
+	
+	$Tween.remove_all()
 	if "newDesition" in result:
 		GC.DESITIONS.set_visible_desition(result.newDesition,true)
 		$Desc.text +="\n\n+Nueva decisión disponible+" 
 		$Desc.text +="\n"+GC.get_current_room_data().actions[result.newDesition].text
+		
 	if "addItem" in result:
 		GC.add_item(result.addItem)
 		$Desc.text +="\n\n+Nuevo objeto adquirido+"
 		$Desc.text +="\n"+GC.get_item(result.addItem).name
 		$AddItem.texture = load("res://adventures/"+GC.ADVENTURE_FOLDER+"/imgs/"+GC.get_item(result.addItem).img+".png")
 		$AddItem.visible = true
+
+	$Tween.interpolate_property($Desc,"modulate",Color(1,1,1,.5),Color(1,1,1,1),1)
+	$Tween.interpolate_property($AddItem,"modulate",Color(1,1,1,.5),Color(1,1,1,1),1)
+	$Tween.start()
+	yield(get_tree().create_timer(2),"timeout")
+	$btn_next.visible = true
 	emit_signal("on_accept_result",result)
 
 func click_next():

@@ -18,10 +18,6 @@ var room_data = {
 		"n4":{ "text":"Acercate al guardia muerto", "isHidden":true }
 	},
 	"pops":{
-		"r1":"No encuentras nada interesante en el lugar",
-		"r2":"No muy lejos de los guardias se ve la entrada a una cueva",
-		"r3":"Cerca de la entrada a la cueva yace otro guardia, muerto",
-		"r4":"Hay un espada, parece ser del guardia muerto. Te puede hacer falta.\n\n +Nuevo item: ESPADA",
 		"p1":"""
 			En el suelo yace otro guardia, muerto. Su rostro es jóven, se lo ve con poca experiencia. 
 			En cierta forma te recuerda a ti. Sea lo que sea que lo mató, espero no tener que enfrentarlo.
@@ -30,10 +26,10 @@ var room_data = {
 	"dices_buscar":{
 		"abName":"Buscar",
 		"results":{
-			"r0":{"ran":[-99,2,"F"],"tx":"No encuentras nada interesante en el lugar"},
-			"r1":{"ran":[3,99,"EP"],"tx":"No muy lejos de los guardias se ve la entrada a una cueva","newDesition":"n3"},
-			"r2":{"ran":[5,99,"EA"],"tx":"Cerca de la entrada a la cueva yace otro guardia, muerto","newDesition":"n4"},
-			"r3":{"ran":[5,99,"EA"],"tx":"Hay un espada, parece ser del guardia muerto. Te puede hacer falta","addItem":"sword"}
+			"r0":{"ran":[-99,2],"tx":"No encuentras nada interesante en el lugar"},
+			"r1":{"ran":[3,99],"tx":"No muy lejos de los guardias se ve la entrada a una cueva","newDesition":"n3"},
+			"r2":{"ran":[5,99],"tx":"Cerca de la entrada a la cueva yace otro guardia, muerto","newDesition":"n4"},
+			"r3":{"ran":[7,99],"tx":"Hay un espada, parece ser del guardia muerto. Te puede hacer falta","addItem":"sword"}
 		}
 	}
 

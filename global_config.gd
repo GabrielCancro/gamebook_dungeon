@@ -1,7 +1,8 @@
 extends Node
 
-var ADVENTURE
 var ADVENTURE_FOLDER = "adv_test"
+var CURRENT_ROOM = "room_000"
+var ADVENTURE
 var DICES
 var POPUP
 var DESITIONS
@@ -17,10 +18,9 @@ var ADV_DATA = {
 	"vars":{},
 	"rerolls":0
 }
-var CURRENT_ROOM = "room_001"
+
 var CURRENT_NODE
 var CURRENT_COMBAT_ID = ''
-
 var ALL_ITEMS = {} #Content all data of all items of specific adventure (from room_000)
 
 # Called when the node enters the scene tree for the first time.

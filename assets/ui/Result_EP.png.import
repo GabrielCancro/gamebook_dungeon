@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TiradaResultado-ExitoParcial.png-73610eeab38c43e1e340f25827bd7802.stex"
+path="res://.import/Result_EP.png-757b67831a05b41011d1f48c50d35f56.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/TiradaResultado-ExitoParcial.png"
-dest_files=[ "res://.import/TiradaResultado-ExitoParcial.png-73610eeab38c43e1e340f25827bd7802.stex" ]
+source_file="res://assets/ui/Result_EP.png"
+dest_files=[ "res://.import/Result_EP.png-757b67831a05b41011d1f48c50d35f56.stex" ]
 
 [params]
 

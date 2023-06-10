@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TiradaResultado-Fallo.png-e2844e80cc02b8244ee5e3b3b3307866.stex"
+path="res://.import/Result_ET.png-004bd48cd3ad86caf4301471f860b2c2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/TiradaResultado-Fallo.png"
-dest_files=[ "res://.import/TiradaResultado-Fallo.png-e2844e80cc02b8244ee5e3b3b3307866.stex" ]
+source_file="res://assets/ui/Result_ET.png"
+dest_files=[ "res://.import/Result_ET.png-004bd48cd3ad86caf4301471f860b2c2.stex" ]
 
 [params]
 
