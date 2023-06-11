@@ -25,17 +25,18 @@ func on_click_node(node_data,node_id):
 	print("CLICK IN",node_data)
 	var room_data = GC.get_current_room_data();
 	if node_id=="n1": 
-		yield( GC.POPUP.show_popup(room_data.pops.p1), "on_close")
+		GC.POPUP.show_popup(room_data.pops.p1)
 		GC.ACTION_POINTS += 5
-		yield( GC.DESITIONS.hide_a_showed_desition("n1"), "on_finish_difuse")
-		yield( GC.DESITIONS.hide_a_showed_desition("n2"), "on_finish_difuse")
-		yield( GC.DESITIONS.hide_a_showed_desition("n2"), "on_finish_difuse")
-		yield( GC.DESITIONS.show_a_hidden_desition("n4"), "on_finish_resalt")
+		GC.DESITIONS.set_visible_desition("n1",false)
+		GC.DESITIONS.set_visible_desition("n2",false)
+		GC.DESITIONS.set_visible_desition("n3",false)
+		GC.DESITIONS.set_visible_desition("n4",true)
 	elif node_id=="n2": 
-		yield( GC.POPUP.show_popup(room_data.pops.p2), "on_close")
-		yield( GC.DESITIONS.show_a_hidden_desition("n4"), "on_finish_resalt")
+		GC.POPUP.show_popup(room_data.pops.p2)
+		GC.DESITIONS.set_visible_desition("n4",true)
 	elif node_id=="n3":
-		yield( GC.POPUP.show_popup(room_data.pops.p3), "on_close")
-		GC.DESITIONS.hide_a_showed_desition("n3")
+		GC.POPUP.show_popup(room_data.pops.p3)
+		GC.DESITIONS.set_visible_desition("n3",false)
+		GC.DESITIONS.set_visible_desition("n4",true)
 	elif node_id=="n4":
 		GC.ADVENTURE.change_room('room_001')

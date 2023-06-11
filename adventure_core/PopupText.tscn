@@ -1,37 +1,16 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://adventure_core/PopupText.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/Garb.png" type="Texture" id=2]
-[ext_resource path="res://assets/ui/TextoChico.png" type="Texture" id=3]
-[ext_resource path="res://font/IMFePIsc28P_0.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://font/KELMSCOT.TTF" type="DynamicFontData" id=5]
+[ext_resource path="res://fx/AlphaFx.tscn" type="PackedScene" id=3]
+[ext_resource path="res://font/FONT_1 Narrator CantoraOne-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/ui/FondoPagina-IntroYCapítulo.png" type="Texture" id=5]
+[ext_resource path="res://assets/ui/FondoOscuro.png" type="Texture" id=6]
+[ext_resource path="res://adventures/adv_test/imgs/icoTorch.png" type="Texture" id=7]
 
-[sub_resource type="DynamicFontData" id=7]
-font_path = "res://font/IMFePIsc28P_0.ttf"
-
-[sub_resource type="DynamicFont" id=2]
-size = 48
-outline_size = 2
-outline_color = Color( 0.698039, 0.698039, 0.698039, 1 )
-font_data = SubResource( 7 )
-
-[sub_resource type="DynamicFontData" id=3]
-font_path = "res://font/IMFePIsc28P_0.ttf"
-
-[sub_resource type="DynamicFont" id=4]
-size = 48
-outline_size = 2
-outline_color = Color( 0.698039, 0.698039, 0.698039, 1 )
-font_data = SubResource( 3 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 150
-outline_size = 8
-outline_color = Color( 1, 0.960784, 0.282353, 1 )
-font_data = ExtResource( 5 )
-
-[sub_resource type="DynamicFont" id=6]
-size = 50
+[sub_resource type="DynamicFont" id=1]
+size = 42
+extra_spacing_bottom = 4
 font_data = ExtResource( 4 )
 
 [node name="PopupText" type="Control"]
@@ -40,100 +19,67 @@ anchor_bottom = 1.0
 rect_pivot_offset = Vector2( -2333, 331 )
 script = ExtResource( 1 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="FullBg" type="TextureRect" parent="."]
+modulate = Color( 0.313726, 0.313726, 0.313726, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.101961, 0.00392157, 0.00392157, 0.980392 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 7
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="PageImg" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+
+[node name="Item" type="TextureRect" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -337.0
-margin_top = -372.0
-margin_right = 337.0
-margin_bottom = 179.0
-texture = ExtResource( 3 )
-patch_margin_top = 374
-patch_margin_bottom = 18
+margin_left = -120.0
+margin_top = -621.5
+margin_right = 120.0
+margin_bottom = -370.5
+texture = ExtResource( 7 )
+stretch_mode = 6
 
-[node name="Label" type="Label" parent="NinePatchRect"]
+[node name="Label" type="Label" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -301.5
-margin_top = -282.0
-margin_right = 301.5
-margin_bottom = 282.0
+margin_left = -329.0
+margin_top = -324.5
+margin_right = 329.0
+margin_bottom = -27.5
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Buscas por la zona y encuentras algo llamativo, resulta que es un hermoso brazalete, seguro es del principe. Se le debe haber caìdo cuando forcejeaba con la bestia"
 align = 1
 valign = 1
 autowrap = true
 
-[node name="Garb" type="TextureRect" parent="NinePatchRect"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -29.5
-margin_top = -17.0
-margin_right = 29.5
-margin_bottom = 42.0
-texture = ExtResource( 2 )
-
-[node name="Button" type="Button" parent="NinePatchRect"]
-modulate = Color( 0.976471, 1, 0.392157, 1 )
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -145.0
-margin_top = -1.0
-margin_right = 145.0
-margin_bottom = 104.0
-focus_mode = 0
-flat = true
-
-[node name="Label2" type="Label" parent="NinePatchRect/Button"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 8.0
-margin_bottom = 8.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_outline_modulate = Color( 0.364706, 0.364706, 0.364706, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "OK"
-align = 1
-valign = 1
-
 [node name="Tween" type="Tween" parent="."]
 
-[node name="lb_result" type="Label" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -147.5
-margin_top = 48.0
-margin_right = 147.5
-margin_bottom = 215.0
-custom_colors/font_color = Color( 0.196078, 0.2, 0.145098, 1 )
-custom_fonts/font = SubResource( 5 )
-text = "12"
-align = 1
-valign = 1
-
-[node name="lb_result_text" type="Label" parent="lb_result"]
+[node name="Button" type="Button" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -350.5
-margin_top = 54.0
-margin_right = 350.5
-margin_bottom = 138.0
-custom_colors/font_color = Color( 1, 0.964706, 0.352941, 1 )
-custom_fonts/font = SubResource( 6 )
-text = "ÉXITO PARCIAL"
-align = 1
-valign = 1
+margin_left = -49.5
+margin_top = 414.0
+margin_right = 49.5
+margin_bottom = 514.0
+flat = true
+
+[node name="Garb" type="TextureRect" parent="Button"]
+modulate = Color( 1, 1, 1, 0.705882 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+stretch_mode = 6
+
+[node name="AlphaFx" parent="Button" instance=ExtResource( 3 )]

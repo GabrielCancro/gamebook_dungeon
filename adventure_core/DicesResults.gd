@@ -10,6 +10,7 @@ func _ready():
 	$btn_next.connect("button_down",self,"click_next")
 
 func show_results(val,data):
+	$Result.modulate.a = 0
 	$Result.texture = load(data.result_texture) 
 	$Result/Label.text = str(val)
 	$Desc.visible = false
@@ -23,8 +24,11 @@ func show_results(val,data):
 		var result = results_data.results[r]
 		result["id"] = r
 		if(val>=result.ran[0] && val<=result.ran[1]): results_array.append(result)
-
-	yield(get_tree().create_timer(1.5),"timeout")
+	
+	$Tween.interpolate_property($Result,"modulate",Color(1,1,1,0),Color(1,1,1,1),.5,Tween.TRANS_QUAD,Tween.EASE_OUT)
+	$Tween.interpolate_property($Result,"rect_position",$Result.rect_position+Vector2(0,300),$Result.rect_position,.5,Tween.TRANS_QUAD,Tween.EASE_OUT)
+	$Tween.start()
+	yield(get_tree().create_timer(1),"timeout")
 	show_result()
 
 func show_result():
@@ -50,10 +54,10 @@ func show_result():
 		$AddItem.texture = load("res://adventures/"+GC.ADVENTURE_FOLDER+"/imgs/"+GC.get_item(result.addItem).img+".png")
 		$AddItem.visible = true
 
-	$Tween.interpolate_property($Desc,"modulate",Color(1,1,1,.5),Color(1,1,1,1),1)
-	$Tween.interpolate_property($AddItem,"modulate",Color(1,1,1,.5),Color(1,1,1,1),1)
+	$Tween.interpolate_property($Desc,"modulate",Color(1,1,1,.1),Color(1,1,1,1),.6)
+	$Tween.interpolate_property($AddItem,"modulate",Color(1,1,1,.1),Color(1,1,1,1),.6)
 	$Tween.start()
-	yield(get_tree().create_timer(2),"timeout")
+	yield(get_tree().create_timer(1),"timeout")
 	$btn_next.visible = true
 	emit_signal("on_accept_result",result)
 
