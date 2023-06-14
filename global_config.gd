@@ -1,9 +1,10 @@
 extends Node
 
 var ADVENTURE_FOLDER = "adv_test"
-var CURRENT_ROOM = "room_000"
+var CURRENT_ROOM = "room_010"
 var ADVENTURE
 var DICES
+var DICESRESULTS
 var POPUP
 var DESITIONS
 var ACTION_POINTS = 10

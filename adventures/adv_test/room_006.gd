@@ -19,6 +19,13 @@ var room_data = {
 		"furtive1":"Mientras te acerca para tomar ventaja la hiena escucha tus pasos, preparate para el combate!",
 		"furtive2":"Eres tan sigiloso como nunca, te abalanzas sobre ella y la sorprendes con un fuerte golpe en la cabeza, el resto parece fácil",
 	},
+	"dices_furtivo":{
+		"abName":"Furtivo",
+		"results":{
+			"r0":{"ran":[-99,4],"tx":"Mientras te acerca para tomar ventaja la hiena escucha tus pasos, preparate para el combate!"},
+			"r1":{"ran":[5,99],"tx":"Eres tan sigiloso como nunca, te abalanzas sobre ella y la sorprendes con un fuerte golpe en la cabeza, el resto parece fácil.","setGamevar":"furtive_hyena"}
+		}
+	},
 
 }
 
@@ -30,19 +37,13 @@ func on_click_node(node_data,node_id):
 	elif node_id=="n2": 
 		GC.ADVENTURE.change_room('room_004')
 	elif node_id=="n3": 
-		GC.DICES.show_dices("FURTIVO")
-		var dices = yield(GC.DICES,"on_dice")
-		var res = GC.POPUP.set_dice_result(dices,{ "0":"F", "9":"EA" } )
-		if dices<9: 
-			yield(GC.POPUP.show_popup(room_data.pops.furtive1), "on_close")
-		if dices>=5:
-			GC.set_gamevar("furtive_hyena",true)
-			yield(GC.POPUP.show_popup(room_data.pops.furtive2), "on_close")
+		GC.DICES.show_dices(room_data.dices_furtivo)
+		yield(GC.DICESRESULTS,"end_results")
 		GC.start_combat("combat_001")
 
 func on_enter_room():
 	if !GC.get_gamevar("stealth_hyena"):
-		yield( GC.DESITIONS.show_a_hidden_desition("n1"), "on_finish_resalt" )
-	if GC.get_gamevar("stealth_hyena"):
-		yield( GC.DESITIONS.show_a_hidden_desition("n2"), "on_finish_resalt" )
-		yield( GC.DESITIONS.show_a_hidden_desition("n3"), "on_finish_resalt" )
+		GC.DESITIONS.set_visible_desition("n1",true)
+	else:
+		GC.DESITIONS.set_visible_desition("n2",true)
+		GC.DESITIONS.set_visible_desition("n3",true)

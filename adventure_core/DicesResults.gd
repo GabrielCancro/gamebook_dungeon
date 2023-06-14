@@ -5,8 +5,10 @@ var results_array = []
 var results_index = 0
 
 signal on_accept_result(id_result,result_data)
+signal end_results()
 
 func _ready():
+	GC.DICESRESULTS = self
 	$btn_next.connect("button_down",self,"click_next")
 
 func show_results(val,data):
@@ -45,7 +47,9 @@ func show_result():
 	if "newDesition" in result:
 		GC.DESITIONS.set_visible_desition(result.newDesition,true)
 		$Desc.text +="\n\n+Nueva decisión disponible+" 
-		$Desc.text +="\n"+GC.get_current_room_data().actions[result.newDesition].text
+		var text = GC.get_current_room_data().actions[result.newDesition].text
+		if text.length()>50: text = text.substr(0,50)+"..."
+		$Desc.text +="\n"+text
 		
 	if "addItem" in result:
 		GC.add_item(result.addItem)
@@ -53,6 +57,9 @@ func show_result():
 		$Desc.text +="\n"+GC.get_item(result.addItem).name
 		$AddItem.texture = load("res://adventures/"+GC.ADVENTURE_FOLDER+"/imgs/"+GC.get_item(result.addItem).img+".png")
 		$AddItem.visible = true
+	
+	if "setGamevar" in result:
+		GC.set_gamevar(result.setGamevar,true)
 
 	$Tween.interpolate_property($Desc,"modulate",Color(1,1,1,.1),Color(1,1,1,1),.6)
 	$Tween.interpolate_property($AddItem,"modulate",Color(1,1,1,.1),Color(1,1,1,1),.6)
@@ -66,5 +73,9 @@ func click_next():
 	if(results_index<results_array.size()):
 		show_result()
 	else: 
+		$btn_next.visible = false
+		emit_signal("end_results")
+		yield(get_tree().create_timer(.2),"timeout")
 		visible = false
 		GC.DESITIONS.update_data()
+		

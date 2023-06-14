@@ -136,7 +136,9 @@ func check_dices_type():
 		if GC.CURRENT_NODE.isDice == 1: 
 			GC.CURRENT_NODE.isDice = 2
 		elif GC.CURRENT_NODE.isDice == 3: 
-			GC.DESITIONS.hide_a_showed_desition(GC.CURRENT_NODE.node_id)
+			GC.DESITIONS.set_visible_desition(GC.CURRENT_NODE.node_id,false)
+		elif GC.CURRENT_NODE.isDice == 4: 
+			pass #tiradas negras pero que no desaparecen
 		GC.DESITIONS.update_data(false)
 
 func set_usable_items():

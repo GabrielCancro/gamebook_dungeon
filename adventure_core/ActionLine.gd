@@ -20,7 +20,7 @@ func set_node_data(_data):
 		$TextureRect.modulate = Color(1,1,.5,1)
 
 	$diceIcon.visible = false
-	if data.has("isDice") && data.isDice>0:
+	if data.has("isDice"):
 		$diceIcon.visible = true
 		$diceIcon.texture = load("res://assets/ui/dices_icon_"+str(data.isDice)+".png")
 
