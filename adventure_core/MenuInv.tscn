@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://font/options_foot.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/ui/time_icon.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/ui/btn_menu_style.tres" type="StyleBox" id=7]
 [ext_resource path="res://assets/ui/btn_menu_style_p.tres" type="StyleBox" id=8]
 [ext_resource path="res://adventure_core/MenuInv.gd" type="Script" id=9]
+[ext_resource path="res://font/FONT_2 Titles BubblegumSans-Regular.ttf" type="DynamicFontData" id=10]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://font/IMFePIsc28P_0.ttf"
@@ -18,6 +19,10 @@ size = 48
 outline_size = 2
 outline_color = Color( 0.698039, 0.698039, 0.698039, 1 )
 font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 62
+font_data = ExtResource( 10 )
 
 [node name="MenuInv" type="Control"]
 anchor_right = 1.0
@@ -132,10 +137,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -225.0
-margin_top = -434.0
-margin_right = 225.0
-margin_bottom = -314.0
+margin_left = -505.0
+margin_top = -450.0
+margin_right = -55.0
+margin_bottom = -330.0
 rect_min_size = Vector2( 450, 120 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
@@ -155,10 +160,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -232.0
-margin_top = -260.0
-margin_right = 218.0
-margin_bottom = -140.0
+margin_left = 56.0
+margin_top = -452.0
+margin_right = 506.0
+margin_bottom = -332.0
 rect_min_size = Vector2( 450, 120 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
@@ -171,4 +176,90 @@ custom_styles/pressed = ExtResource( 5 )
 custom_styles/focus = ExtResource( 4 )
 custom_styles/disabled = ExtResource( 4 )
 custom_styles/normal = ExtResource( 4 )
-text = "Salir del juego"
+text = "Salir"
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -348.5
+margin_top = 342.5
+margin_right = 348.5
+margin_bottom = 521.5
+custom_constants/vseparation = 21
+custom_constants/hseparation = 13
+columns = 5
+
+[node name="B1" type="Button" parent="NinePatchRect/GridContainer"]
+margin_right = 129.0
+margin_bottom = 79.0
+custom_fonts/font = SubResource( 3 )
+text = "000"
+
+[node name="B2" type="Button" parent="NinePatchRect/GridContainer"]
+margin_left = 142.0
+margin_right = 271.0
+margin_bottom = 79.0
+custom_fonts/font = SubResource( 3 )
+text = "000"
+
+[node name="B3" type="Button" parent="NinePatchRect/GridContainer"]
+margin_left = 284.0
+margin_right = 413.0
+margin_bottom = 79.0
+custom_fonts/font = SubResource( 3 )
+text = "000"
+
+[node name="B4" type="Button" parent="NinePatchRect/GridContainer"]
+margin_left = 426.0
+margin_right = 555.0
+margin_bottom = 79.0
+custom_fonts/font = SubResource( 3 )
+text = "000"
+
+[node name="B5" type="Button" parent="NinePatchRect/GridContainer"]
+margin_left = 568.0
+margin_right = 697.0
+margin_bottom = 79.0
+custom_fonts/font = SubResource( 3 )
+text = "000"
+
+[node name="B6" type="Button" parent="NinePatchRect/GridContainer"]
+margin_top = 100.0
+margin_right = 129.0
+margin_bottom = 179.0
+custom_fonts/font = SubResource( 3 )
+text = "000"
+
+[node name="B7" type="Button" parent="NinePatchRect/GridContainer"]
+margin_left = 142.0
+margin_top = 100.0
+margin_right = 271.0
+margin_bottom = 179.0
+custom_fonts/font = SubResource( 3 )
+text = "000"
+
+[node name="B8" type="Button" parent="NinePatchRect/GridContainer"]
+margin_left = 284.0
+margin_top = 100.0
+margin_right = 413.0
+margin_bottom = 179.0
+custom_fonts/font = SubResource( 3 )
+text = "000"
+
+[node name="B9" type="Button" parent="NinePatchRect/GridContainer"]
+margin_left = 426.0
+margin_top = 100.0
+margin_right = 555.0
+margin_bottom = 179.0
+custom_fonts/font = SubResource( 3 )
+text = "000"
+
+[node name="B10" type="Button" parent="NinePatchRect/GridContainer"]
+margin_left = 568.0
+margin_top = 100.0
+margin_right = 697.0
+margin_bottom = 179.0
+custom_fonts/font = SubResource( 3 )
+text = "000"

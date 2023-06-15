@@ -7,6 +7,9 @@ func _ready():
 	$btn_menu.connect("button_down",self,"show_menu")
 	$NinePatchRect/btn_continue.connect("button_down",self,"hide_menu")
 	$NinePatchRect/btn_quit.connect("button_down",self,"goto_menu")
+	for b in $NinePatchRect/GridContainer.get_children():
+		b.text = str(b.get_index()).pad_zeros(3)
+		b.connect("button_down",self,"on_grid_click",[b])
 
 func show_menu():
 	if !start_rect_position: start_rect_position = $NinePatchRect.rect_position
@@ -34,3 +37,8 @@ func hide_menu():
 
 func goto_menu():
 	get_tree().change_scene("res://scenes/Main.tscn")
+
+func on_grid_click(b):
+	print( "room_"+b.text )
+	GC.ADVENTURE.change_room("room_"+b.text)
+	hide_menu()

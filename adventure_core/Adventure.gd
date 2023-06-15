@@ -45,7 +45,9 @@ func change_room(room_id):
 	$Narrator.start_narrator()
 	yield($Narrator,"on_finish")
 	
-	if("is_auto_next" in GC.get_current_room_data()): $NextPage.visible = true 
+	if("is_auto_next" in GC.get_current_room_data()): 
+		yield(get_tree().create_timer(.5),"timeout")
+		$NextPage.visible = true 
 	else: $Desitions.show_options()
 
 func set_blocker(vis):
