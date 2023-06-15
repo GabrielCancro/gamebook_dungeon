@@ -1,7 +1,7 @@
 extends Node
 
 var ADVENTURE_FOLDER = "adv_test"
-var CURRENT_ROOM = "room_010"
+var CURRENT_ROOM = "room_000"
 var ADVENTURE
 var DICES
 var DICESRESULTS

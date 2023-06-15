@@ -4,29 +4,19 @@ var dices_data = null
 var ability_bonif = 0
 var start_dices_y = 0
 var dice_cost = 0
-var d1
-var d2
+var dices_value = 0
 var isRolled = false
 
 onready var DicesResults = get_node("../DicesResults")
-
-signal on_dice(value)
 
 func _ready():
 	GC.DICES = self
 	randomize()
 	visible = false
-	$Timer.connect("timeout",self,"on_time_dices_update")
 	$btn_roll.connect("button_down",self,"onButtonRoll")
 	$btn_back.connect("button_down",self,"onButtonClose")
 	$btn_add.connect("button_down",self,"onButtonAdd")
 	$DiceCost/btn_cost.connect("button_down",self,"onButtonCost")
-
-func on_time_dices_update():
-	d1 = randi()%6+1
-	$Dice1.frame = d1-1
-	d2 = randi()%6+1
-	$Dice2.frame = d2-1
 
 func show_dices(data):
 	dices_data = data
@@ -43,8 +33,7 @@ func show_dices(data):
 	$Modif/Label2.text = "+"+str(ability_bonif)
 	visible = true
 	isRolled = false
-	$Dice1.visible = false
-	$Dice2.visible = false
+	$DicesRolling.hide_dices()
 	$Result.visible = false
 	$btn_roll.visible = true
 	$btn_back.visible = true
@@ -52,7 +41,14 @@ func show_dices(data):
 	$Tween.start()
 
 func onButtonRoll():
-	run_dices()
+	if isRolled: return
+	isRolled = true
+	check_dices_type()
+	$btn_roll.visible = false
+	$btn_back.visible = false	
+	$DicesRolling.roll()
+	var dices_value = yield($DicesRolling,"end_roll")	
+	show_result()
 
 func onButtonClose():
 	GC.ACTION_POINTS += ability_bonif + dice_cost
@@ -80,38 +76,8 @@ func onButtonCost():
 		visible = false
 		GC.POPUP.show_popup("No tienes suficiente PUNTOS DE CONCENTRACIÓN para realizar esta tirada!")
 
-func run_dices():
-	if isRolled: return
-	isRolled = true
-	check_dices_type()
-	$btn_roll.visible = false
-	$btn_back.visible = false
-	var duration = 1.2
-	$Timer.start()
-	$Tween.remove_all()
-	var start_pos = Vector2(rect_size.x*.3,rect_size.y*1.2)
-	var end_pos = Vector2(rect_size.x*.4,rect_size.y*.7)
-	$Tween.interpolate_property($Dice1,"position",start_pos,end_pos,duration,Tween.TRANS_QUAD,Tween.EASE_OUT)
-	var rot = -40-randi()%100
-	$Tween.interpolate_property($Dice1,"rotation_degrees",rot,0,duration,Tween.TRANS_QUAD,Tween.EASE_OUT)
-	
-	start_pos = Vector2(rect_size.x*.7,rect_size.y*1.2)
-	end_pos = Vector2(rect_size.x*.6,rect_size.y*.7)
-	$Tween.interpolate_property($Dice2,"position",start_pos,end_pos,duration,Tween.TRANS_QUAD,Tween.EASE_OUT)
-	rot = -190-randi()%400
-	$Tween.interpolate_property($Dice2,"rotation_degrees",rot,0,duration,Tween.TRANS_QUAD,Tween.EASE_OUT)
-	
-	$Tween.start()
-	$Dice1.visible = true
-	$Dice2.visible = true
-	yield(get_tree().create_timer(1),"timeout")
-	$Timer.stop()
-	yield(get_tree().create_timer(1),"timeout")
-	show_result()
-	
-
 func show_result():
-	var value = d1+d2+ability_bonif
+	var value = dices_value+ability_bonif
 	var result_desc = "F" 
 	var size = dices_data.results.size()
 	for i in range(size):
@@ -128,7 +94,6 @@ func show_result():
 	
 	yield(get_tree().create_timer(2.2),"timeout")
 	visible = false
-	emit_signal("on_dice",d1+d2+ability_bonif)
 	DicesResults.show_results(value,dices_data)
 
 func check_dices_type():

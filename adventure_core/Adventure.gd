@@ -14,6 +14,7 @@ func _ready():
 	adventure_items_node.set_script( load("res://adventures/adv_test/adventure_items.gd") )
 	add_child(adventure_items_node)
 	change_room(GC.CURRENT_ROOM)
+	$NextPage.connect("button_down",self,"on_next_page_click")
 
 func change_room(room_id):
 	$Fade.fadeIn()
@@ -33,6 +34,7 @@ func change_room(room_id):
 		GC.ADV_DATA[room_id] = room_data_node.room_data
 	GC.CURRENT_ROOM = room_id
 	
+	$NextPage.visible = false
 	if room_data_node.has_method("on_enter_room"): room_data_node.on_enter_room()
 	if room_data_node.has_method("on_dices_result"): $DicesResults.connect("on_accept_result",room_data_node,"on_dices_result")
 	
@@ -42,7 +44,12 @@ func change_room(room_id):
 	
 	$Narrator.start_narrator()
 	yield($Narrator,"on_finish")
-	$Desitions.show_options()
+	
+	if("is_auto_next" in GC.get_current_room_data()): $NextPage.visible = true 
+	else: $Desitions.show_options()
 
 func set_blocker(vis):
 	$Blocker.visible = vis
+
+func on_next_page_click():
+	change_room(GC.get_current_room_data().is_auto_next)

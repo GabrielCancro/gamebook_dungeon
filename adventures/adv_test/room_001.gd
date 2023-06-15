@@ -5,10 +5,9 @@ var room_data = {
 	"room_id": "room_001",
 	"image": preload("res://adventures/adv_test/imgs/room_001 el bosque.jpg"),
 	"desc": """
-		Y mientras ves como los pájaros vuelan por sobre los árboles y los venados corren por entre los arbustos del bosque, oyes un grito. Un grito que te hiela la sangre.
-		\nNo dudas en correr en su dirección. 
+		No dudas en correr en su dirección. 
 		El grito te guía a través de los árboles fuera del camino. 
-		Cuando llegas te encuentras con un guardia herido. Es un guardia Real. 
+		\nCuando llegas te encuentras con un guardia herido. Es un guardia Real. 
 		Aún sigue con vida y te pide ayuda.
 	""",
 	"actions": {

@@ -3,7 +3,7 @@
 [ext_resource path="res://font/FONT_1 Narrator CantoraOne-Regular.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 42
+size = 40
 use_filter = true
 extra_spacing_top = -5
 extra_spacing_bottom = -10

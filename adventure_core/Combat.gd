@@ -3,8 +3,7 @@ extends Control
 var action_line_scene = preload("res://adventure_core/ActionLine.tscn")
 
 var isRolled = false
-var d1 = 0
-var d2 = 0
+var dices_value = 0
 var pj_bo = 2
 var pj_ca = 8
 var en_bo = 1
@@ -16,10 +15,8 @@ signal end_apply_result
 signal end_add_stat
 
 func _ready():
-	$Timer.connect("timeout",self,"on_time_dices_update")
 	$EndButton.connect("button_down",self,"on_click_end_button")
-	$Middle/Dice1.modulate.a = 0
-	$Middle/Dice2.modulate.a = 0
+	$Middle/DicesRolling.hide_dices()
 	$Middle/Label.modulate.a = 0
 	$TurnLabel.modulate.a = 0
 	$TurnLabel.visible = true
@@ -92,42 +89,18 @@ func end_player_turn():
 	yield(get_tree().create_timer(.4),"timeout")
 	show_actions()
 
-func on_time_dices_update():
-	d1 = randi()%6+1
-	$Middle/Dice1.frame = d1-1
-	d2 = randi()%6+1
-	$Middle/Dice2.frame = d2-1
-
 func run_dices(mode):
 	if isRolled: return
 	isRolled = true
 	$Player/Options.visible = false
-	var duration = 1.2
-	$Timer.start()
-	$Tween.remove_all()
-	var start_pos = Vector2(rect_size.x*.2,rect_size.y*1.2)
-	if mode == "ENEMY": start_pos.y = -rect_size.y*.2
-	var end_pos = Vector2(rect_size.x*.35-80,$Middle.rect_size.y*.5+30)
-	$Tween.interpolate_property($Middle/Dice1,"position",start_pos,end_pos,duration,Tween.TRANS_QUAD,Tween.EASE_OUT)
-	var rot = -40-randi()%100
-	$Tween.interpolate_property($Middle/Dice1,"rotation_degrees",rot,0,duration,Tween.TRANS_QUAD,Tween.EASE_OUT)
 	
-	start_pos = Vector2(rect_size.x*.3,rect_size.y*1.2)
-	if mode == "ENEMY": start_pos.y = -rect_size.y*.2
-	end_pos = Vector2(rect_size.x*.35+80,$Middle.rect_size.y*.5+30)
-	$Tween.interpolate_property($Middle/Dice2,"position",start_pos,end_pos,duration,Tween.TRANS_QUAD,Tween.EASE_OUT)
-	rot = -190-randi()%400
-	$Tween.interpolate_property($Middle/Dice2,"rotation_degrees",rot,0,duration,Tween.TRANS_QUAD,Tween.EASE_OUT)
-	$Tween.start()
-	yield(get_tree().create_timer(.05),"timeout")
-	$Middle/Dice1.modulate.a = 1
-	$Middle/Dice2.modulate.a = 1
-	yield(get_tree().create_timer(1),"timeout")
-	$Timer.stop()
-	yield(get_tree().create_timer(1),"timeout")
+	if mode == "PLAYER": $Middle/DicesRolling.roll(250)
+	else: $Middle/DicesRolling.roll(-250)
+	dices_value = yield($Middle/DicesRolling,"end_roll")
+	
 	var BO = pj_bo
 	if mode == "ENEMY": BO = en_bo
-	final_dice = d1+d2+BO
+	final_dice = dices_value+BO
 	$Middle/Label.text = str(final_dice)
 	var atk_node = $Player/Atk
 	if mode == "ENEMY": atk_node = $Enemy/Atk
@@ -162,8 +135,7 @@ func apply_result(mode):
 		$Tween.start()
 		yield(get_tree().create_timer(.8),"timeout")
 		dmg_label.visible = false
-	$Tween.interpolate_property($Middle/Dice1,"modulate",Color(1,1,1,1),Color(1,1,1,0),.4,Tween.TRANS_LINEAR,Tween.EASE_OUT)
-	$Tween.interpolate_property($Middle/Dice2,"modulate",Color(1,1,1,1),Color(1,1,1,0),.4,Tween.TRANS_LINEAR,Tween.EASE_OUT)
+	$Middle/DicesRolling.hide_dices_with_anim(.4)
 	$Tween.interpolate_property($Middle/Label,"modulate",Color(1,1,1,1),Color(1,1,1,0),.4,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 	$Tween.start()
 	yield(get_tree().create_timer(.8),"timeout")
