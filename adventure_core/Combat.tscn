@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/ui/FondoPagina-IntroYCapítulo.png" type="Texture" id=1]
 [ext_resource path="res://adventure_core/ActionLine.tscn" type="PackedScene" id=2]
@@ -9,17 +9,18 @@
 [ext_resource path="res://assets/combat/Escudo.png" type="Texture" id=7]
 [ext_resource path="res://assets/combat/Ataque.png" type="Texture" id=8]
 [ext_resource path="res://adventure_core/Combat.gd" type="Script" id=9]
-[ext_resource path="res://assets/ui/Clavo1.png" type="Texture" id=10]
+[ext_resource path="res://adventures/adv_test/imgs/combat_002_troll.png" type="Texture" id=10]
 [ext_resource path="res://adventure_core/DicesRolling.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/ui/FondoOscuro.png" type="Texture" id=12]
+[ext_resource path="res://font/FONT_2 Titles BubblegumSans-Regular.ttf" type="DynamicFontData" id=13]
 
 [sub_resource type="DynamicFont" id=1]
-size = 114
+size = 100
 outline_size = 5
 outline_color = Color( 0.560784, 0.560784, 0.560784, 1 )
 extra_spacing_top = -10
 extra_spacing_bottom = -7
-font_data = ExtResource( 4 )
+font_data = ExtResource( 13 )
 
 [sub_resource type="DynamicFont" id=17]
 size = 154
@@ -29,12 +30,12 @@ extra_spacing_bottom = -7
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=16]
-size = 150
-outline_size = 13
+size = 120
+outline_size = 9
 outline_color = Color( 0.560784, 0.560784, 0.560784, 1 )
 extra_spacing_top = -10
 extra_spacing_bottom = -7
-font_data = ExtResource( 4 )
+font_data = ExtResource( 13 )
 
 [sub_resource type="DynamicFont" id=15]
 size = 111
@@ -42,7 +43,7 @@ outline_size = 9
 outline_color = Color( 0.560784, 0.560784, 0.560784, 1 )
 extra_spacing_top = -10
 extra_spacing_bottom = -7
-font_data = ExtResource( 4 )
+font_data = ExtResource( 13 )
 
 [node name="Combat" type="Control"]
 anchor_right = 1.0
@@ -156,7 +157,7 @@ alignment = 1
 [node name="Desc1" parent="Player/Options" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 231.0
+margin_top = 245.0
 margin_right = 490.0
 margin_bottom = 310.0
 
@@ -165,7 +166,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 345.0
 margin_right = 490.0
-margin_bottom = 424.0
+margin_bottom = 410.0
 
 [node name="Desc3" parent="Player/Options" instance=ExtResource( 2 )]
 visible = false
@@ -250,10 +251,10 @@ autowrap = true
 [node name="Image" type="TextureRect" parent="Enemy"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -328.0
-margin_top = 176.0
-margin_right = 92.0
-margin_bottom = 547.0
+margin_left = -351.5
+margin_top = 147.0
+margin_right = 152.5
+margin_bottom = 629.0
 rect_min_size = Vector2( 0, 300 )
 texture = ExtResource( 10 )
 expand = true
@@ -327,10 +328,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 71.0
-margin_top = -106.0
-margin_right = 329.0
-margin_bottom = 106.0
+margin_left = 104.0
+margin_top = -91.0
+margin_right = 362.0
+margin_bottom = 121.0
 rect_pivot_offset = Vector2( 123.5, 90.5 )
 custom_colors/font_color = Color( 0.886275, 0.933333, 0.0431373, 1 )
 custom_colors/font_outline_modulate = Color( 0.184314, 0.184314, 0.184314, 1 )
