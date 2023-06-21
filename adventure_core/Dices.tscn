@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://adventure_core/Dices.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/TextoFlotante.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/ui/dices_icon_2.png" type="Texture" id=4]
 [ext_resource path="res://adventure_core/DicesRolling.tscn" type="PackedScene" id=5]
 [ext_resource path="res://font/FONT_2 Titles BubblegumSans-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://font/FONT_1 I AveriaSerifLibre-Italic.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://font/IMFePIsc28P_0.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://adventure_core/ItemSelector.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/ui/FondoPagina-IntroYCapítulo.png" type="Texture" id=10]
@@ -14,10 +15,8 @@
 [ext_resource path="res://assets/ui/Rayas6-Decisiones.png" type="Texture" id=13]
 [ext_resource path="res://assets/ui/Rayas2-TítuloIntro.png" type="Texture" id=14]
 [ext_resource path="res://assets/ui/Clavo1.png" type="Texture" id=15]
-[ext_resource path="res://font/FONT_1 Narrator CantoraOne-Regular.ttf" type="DynamicFontData" id=16]
 [ext_resource path="res://assets/ui/IconoBoton.png" type="Texture" id=17]
 [ext_resource path="res://assets/ui/arrow.png" type="Texture" id=18]
-[ext_resource path="res://font/button_main.tres" type="DynamicFont" id=19]
 [ext_resource path="res://fx/AlphaFx.tscn" type="PackedScene" id=20]
 
 [sub_resource type="DynamicFont" id=17]
@@ -27,16 +26,13 @@ font_data = ExtResource( 6 )
 [sub_resource type="DynamicFont" id=18]
 size = 38
 extra_spacing_bottom = -7
-font_data = ExtResource( 16 )
-
-[sub_resource type="DynamicFontData" id=1]
-font_path = "res://font/IMFePIsc28P_0.ttf"
+font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 61
 outline_size = 6
 outline_color = Color( 0.764706, 0.764706, 0.764706, 1 )
-font_data = SubResource( 1 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=19]
 size = 200
@@ -226,10 +222,10 @@ custom_constants/separation = 25
 alignment = 1
 
 [node name="Label1" type="Label" parent="Modif"]
-margin_left = 242.0
-margin_top = 33.0
-margin_right = 387.0
-margin_bottom = 110.0
+margin_left = 248.0
+margin_top = 36.0
+margin_right = 378.0
+margin_bottom = 107.0
 rect_pivot_offset = Vector2( 380.5, 65 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
@@ -238,10 +234,10 @@ align = 1
 valign = 1
 
 [node name="Label2" type="Label" parent="Modif"]
-margin_left = 412.0
-margin_top = 33.0
-margin_right = 480.0
-margin_bottom = 110.0
+margin_left = 403.0
+margin_top = 36.0
+margin_right = 474.0
+margin_bottom = 107.0
 rect_pivot_offset = Vector2( 380.5, 65 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
@@ -541,7 +537,6 @@ margin_top = 195.5
 margin_right = 145.0
 margin_bottom = 336.5
 focus_mode = 0
-custom_fonts/font = ExtResource( 19 )
 text = "OK"
 flat = true
 

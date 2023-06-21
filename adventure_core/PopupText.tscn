@@ -3,7 +3,7 @@
 [ext_resource path="res://adventure_core/PopupText.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/Garb.png" type="Texture" id=2]
 [ext_resource path="res://fx/AlphaFx.tscn" type="PackedScene" id=3]
-[ext_resource path="res://font/FONT_1 Narrator CantoraOne-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://font/FONT_1 R AveriaSerifLibre-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://assets/ui/FondoPagina-IntroYCapítulo.png" type="Texture" id=5]
 [ext_resource path="res://assets/ui/FondoOscuro.png" type="Texture" id=6]
 [ext_resource path="res://adventures/adv_test/imgs/icoTorch.png" type="Texture" id=7]

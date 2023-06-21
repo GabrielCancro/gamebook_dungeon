@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://assets/ui/Portada.jpg" type="Texture" id=1]
+[ext_resource path="res://assets/ui/Portada-2.jpg" type="Texture" id=1]
 [ext_resource path="res://scenes/Intro.gd" type="Script" id=2]
 [ext_resource path="res://assets/ui/FondoOscuro.png" type="Texture" id=3]
 [ext_resource path="res://assets/ui/btn_main_style_1.tres" type="StyleBox" id=4]

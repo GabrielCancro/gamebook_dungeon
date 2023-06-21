@@ -1,9 +1,0 @@
-[gd_resource type="DynamicFont" load_steps=2 format=2]
-
-[ext_resource path="res://font/DUNGRG__.TTF" type="DynamicFontData" id=1]
-
-[resource]
-size = 62
-outline_size = 6
-outline_color = Color( 0.176471, 0.176471, 0.176471, 1 )
-font_data = ExtResource( 1 )

@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://adventure_core/DicesResults.gd" type="Script" id=1]
-[ext_resource path="res://font/FONT_1 Narrator CantoraOne-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://font/FONT_1 R AveriaSerifLibre-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/ui/Garb.png" type="Texture" id=3]
 [ext_resource path="res://assets/ui/Result_EP.png" type="Texture" id=4]
 [ext_resource path="res://fx/AlphaFx.tscn" type="PackedScene" id=5]
@@ -22,14 +22,11 @@ outline_size = 2
 outline_color = Color( 0.698039, 0.698039, 0.698039, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFontData" id=16]
-font_path = "res://font/IMFePIsc28P_0.ttf"
-
 [sub_resource type="DynamicFont" id=2]
 size = 48
 outline_size = 3
 outline_color = Color( 0.360784, 0.360784, 0.360784, 1 )
-font_data = SubResource( 16 )
+font_data = ExtResource( 2 )
 
 [node name="DicesResults" type="Control"]
 anchor_right = 1.0
