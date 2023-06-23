@@ -45,11 +45,11 @@ stretch_mode = 7
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -406.0
-margin_right = 399.0
+margin_left = -418.0
+margin_right = 418.0
 texture = ExtResource( 10 )
 expand = true
-stretch_mode = 6
+stretch_mode = 7
 
 [node name="Result" type="TextureRect" parent="."]
 anchor_left = 0.5

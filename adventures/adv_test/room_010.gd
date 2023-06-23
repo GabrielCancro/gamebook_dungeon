@@ -11,8 +11,8 @@ var room_data = {
 		Sin embargo, forzar el candado es más seguro aunque más desafiante. 
 	""",
 	"actions": {
-		"n1":{ "text":"Con paciencia y un par de herramientas simples puedes intentar abrir el candado del cofre", "isDice": 1 },
-		"n2":{ "text":"La sutileza no es para tí, puedes golpear el cofre con violencia hasta abrirlo", "isDice": 1 },
+		"n1":{ "text":"Con paciencia y tus ganzuas puedes intentar abrir el candado del cofre", "isDice": 1, "isHidden": true },
+		"n2":{ "text":"Puedes golpear el cofre con violencia hasta abrirlo, la sutileza no es para ti", "isDice": 1 },
 		"n3":{ "text":"El cofre por fin esta abierto, ya puedes revisar su contenido", "isHidden": true },
 		"n4":{ "text":"Nunca habias visto un troll tan de cerca, es exitante, algo te tienta a picarlo con un palito para ver como se queja" },
 		"n5":{ "text":"Volver a picar al troll, la tentación es cada vez mayor", "isHidden": true  },
@@ -23,8 +23,9 @@ var room_data = {
 		"p2":"Vuelves a picar al trol y esta vez notas un cambio en su ronquido, una leve queja, pero aun no se mueve.",
 		"p3":"El viejo cofre, ya abierto, contenía algunas cosas de valor."
 	},
-	"dices_abrir":{
+	"dices_abrir_lockpick":{
 		"abName":"Abrir",
+		"item":"lockpick",
 		"results":{
 			"r0":{"ran":[-99,9],"tx":"Por más que te esfuerzas no logras abrir el cofre."},
 			"r1":{"ran":[10,99],"tx":"Tras insistir por un tiempo el candado se abre.","newDesition":"n3"}
@@ -65,6 +66,8 @@ func on_click_node(node_data,node_id):
 
 func on_enter_room():
 	pass
+	if (GC.get_item("lockpick")): 
+		GC.DESITIONS.set_visible_desition("n1",true)
 #	if !GC.get_gamevar("stealth_troll"):
 #		GC.DESITIONS.set_visible_desition("n1",true)
 #	else:

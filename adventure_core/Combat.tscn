@@ -63,11 +63,14 @@ texture = ExtResource( 12 )
 expand = true
 
 [node name="PageImg" type="TextureRect" parent="."]
-anchor_right = 1.0
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
+margin_left = -418.0
+margin_right = 418.0
 texture = ExtResource( 1 )
 expand = true
-stretch_mode = 6
+stretch_mode = 7
 
 [node name="Player" type="Control" parent="."]
 anchor_left = 0.5

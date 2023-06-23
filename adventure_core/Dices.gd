@@ -1,7 +1,8 @@
 extends Control
 
 var dices_data = null
-var ability_bonif = 0
+var conc_bonif = 0
+var item_bonif = 0
 var start_dices_y = 0
 var dice_cost = 0
 var dices_value = 0
@@ -25,12 +26,12 @@ func show_dices(data):
 	$ItemSelector.hide_menu()
 	$Node_text.text = GC.CURRENT_NODE.text
 	$Ability/Label.text = dices_data.abName
-	ability_bonif = 0
+	conc_bonif = 0
 	dice_cost = 0
 	set_usable_items()
 	
 	$btn_add/Label2.text = str(GC.ACTION_POINTS)
-	$Modif/Label2.text = "+"+str(ability_bonif)
+	$Modif/Label2.text = "+"+str(conc_bonif)
 	visible = true
 	isRolled = false
 	$DicesRolling.hide_dices()
@@ -47,19 +48,19 @@ func onButtonRoll():
 	$btn_roll.visible = false
 	$btn_back.visible = false	
 	$DicesRolling.roll()
-	var dices_value = yield($DicesRolling,"end_roll")	
+	dices_value = yield($DicesRolling,"end_roll")
 	show_result()
 
 func onButtonClose():
-	GC.ACTION_POINTS += ability_bonif + dice_cost
+	GC.ACTION_POINTS += conc_bonif + dice_cost
 	visible = false
 
 func onButtonAdd():
-	if GC.ACTION_POINTS <= 0 || isRolled || ability_bonif>=5: return
+	if GC.ACTION_POINTS <= 0 || isRolled || conc_bonif>=5: return
 	GC.ACTION_POINTS -= 1
-	ability_bonif += 1
+	conc_bonif += 1
 	$btn_add/Label2.text = str(GC.ACTION_POINTS)
-	$Modif/Label2.text = "+"+str(ability_bonif)
+	$Modif/Label2.text = "+"+str(conc_bonif)
 	$Tween.interpolate_property($Modif,"rect_scale",Vector2(1.1,1.1),Vector2(1,1),.3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 	$Tween.interpolate_property($btn_add,"rect_scale",Vector2(1.1,1.1),Vector2(1,1),.3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 	$Tween.start()
@@ -77,7 +78,7 @@ func onButtonCost():
 		GC.POPUP.show_popup("No tienes suficiente PUNTOS DE CONCENTRACIÓN para realizar esta tirada!")
 
 func show_result():
-	var value = dices_value+ability_bonif
+	var value = dices_value+conc_bonif+item_bonif
 	var result_desc = "F" 
 	var size = dices_data.results.size()
 	for i in range(size):
@@ -107,30 +108,26 @@ func check_dices_type():
 		GC.DESITIONS.update_data(false)
 
 func set_usable_items():
-	for li in $Items/VBox.get_children(): 
-		li.visible = false
-		li.disabled = false
-		li.modulate.a = 1
-		li.connect("button_down",self,"on_item_click",[li])
-		
+	item_bonif = 0
+	$Modif/Space.visible = false
+	$Modif/AddItem.visible = false
+	$Modif/ItemLabel.visible = false
+	if !"item" in dices_data: return
 	
-	print("BONOS ",GC.CURRENT_NODE)
-	if !GC.CURRENT_NODE: return
-	if GC.CURRENT_NODE.has("bon"):
-		for i in range( GC.CURRENT_NODE.bon.keys().size() ):
-			var li = $Items/VBox.get_children()[i]
-			var it_name = GC.CURRENT_NODE.bon.keys()[i]
-			if GC.get_item(it_name):
-				var data = GC.get_item(it_name)
-				li.text = "Usar "+data.name+" +"+str(GC.CURRENT_NODE.bon[it_name])
-				li.visible = true
+	var item_data = GC.get_item(dices_data["item"])
+	item_bonif = 3
+	$Modif/AddItem.texture = load("res://adventures/"+GC.ADVENTURE_FOLDER+"/imgs/"+item_data.img+".png")
+	$Modif/Space.visible = true
+	$Modif/AddItem.visible = true
+	$Modif/ItemLabel.visible = true
+	$Modif/ItemLabel.text = "+"+str(item_bonif)
 
-func on_item_click(li):
-	var i = li.get_index()
-	var it_name = GC.CURRENT_NODE.bon.keys()[i]
-	li.disabled = true
-	li.modulate.a = .3
-	ability_bonif += GC.CURRENT_NODE.bon[it_name]
-	$Modif/Label2.text = "+"+str(ability_bonif)
-	$Tween.interpolate_property($Modif,"rect_scale",Vector2(1.1,1.1),Vector2(1,1),.3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
-	$Tween.start()
+#func on_item_click(li):
+#	var i = li.get_index()
+#	var it_name = GC.CURRENT_NODE.bon.keys()[i]
+#	li.disabled = true
+#	li.modulate.a = .3
+#	conc_bonif += GC.CURRENT_NODE.bon[it_name]
+#	$Modif/Label2.text = "+"+str(conc_bonif)
+#	$Tween.interpolate_property($Modif,"rect_scale",Vector2(1.1,1.1),Vector2(1,1),.3,Tween.TRANS_LINEAR,Tween.EASE_OUT)
+#	$Tween.start()

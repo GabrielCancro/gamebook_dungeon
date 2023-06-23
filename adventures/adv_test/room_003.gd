@@ -15,6 +15,7 @@ var room_data = {
 	},
 	"dices_buscar":{
 		"abName":"Buscar",
+		"item":"torch",
 		"results":{
 			"r0":{"ran":[-99,7],"tx":"El lugar está muy oscuro, no encuentras nada de interés"},
 			"r1":{"ran":[8,99],"tx":"Entre rocas y maleza, algo que brilla llama tu atención","addItem":"lockpick"},

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://adventure_core/Dices.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/TextoFlotante.png" type="Texture" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://adventure_core/DicesRolling.tscn" type="PackedScene" id=5]
 [ext_resource path="res://font/FONT_2 Titles BubblegumSans-Regular.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://font/FONT_1 I AveriaSerifLibre-Italic.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://font/IMFePIsc28P_0.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://adventure_core/ItemSelector.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/ui/FondoPagina-IntroYCapítulo.png" type="Texture" id=10]
 [ext_resource path="res://assets/ui/FondoOscuro.png" type="Texture" id=11]
@@ -15,6 +14,7 @@
 [ext_resource path="res://assets/ui/Rayas6-Decisiones.png" type="Texture" id=13]
 [ext_resource path="res://assets/ui/Rayas2-TítuloIntro.png" type="Texture" id=14]
 [ext_resource path="res://assets/ui/Clavo1.png" type="Texture" id=15]
+[ext_resource path="res://adventures/adv_test/imgs/icoLockpick.png" type="Texture" id=16]
 [ext_resource path="res://assets/ui/IconoBoton.png" type="Texture" id=17]
 [ext_resource path="res://assets/ui/arrow.png" type="Texture" id=18]
 [ext_resource path="res://fx/AlphaFx.tscn" type="PackedScene" id=20]
@@ -40,12 +40,6 @@ outline_size = 3
 outline_color = Color( 0.235294, 0.215686, 0.164706, 1 )
 use_filter = true
 font_data = ExtResource( 6 )
-
-[sub_resource type="DynamicFont" id=15]
-size = 48
-outline_size = 2
-outline_color = Color( 0.207843, 0.207843, 0.207843, 1 )
-font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=14]
 size = 90
@@ -79,11 +73,11 @@ stretch_mode = 7
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -406.0
-margin_right = 399.0
+margin_left = -418.0
+margin_right = 418.0
 texture = ExtResource( 10 )
 expand = true
-stretch_mode = 6
+stretch_mode = 7
 
 [node name="Title" type="Control" parent="."]
 anchor_left = 0.5
@@ -222,10 +216,10 @@ custom_constants/separation = 25
 alignment = 1
 
 [node name="Label1" type="Label" parent="Modif"]
-margin_left = 248.0
-margin_top = 36.0
-margin_right = 378.0
-margin_bottom = 107.0
+margin_left = 80.0
+margin_top = 64.0
+margin_right = 210.0
+margin_bottom = 135.0
 rect_pivot_offset = Vector2( 380.5, 65 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
@@ -234,10 +228,37 @@ align = 1
 valign = 1
 
 [node name="Label2" type="Label" parent="Modif"]
-margin_left = 403.0
-margin_top = 36.0
-margin_right = 474.0
-margin_bottom = 107.0
+margin_left = 235.0
+margin_top = 64.0
+margin_right = 306.0
+margin_bottom = 135.0
+rect_pivot_offset = Vector2( 380.5, 65 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "+0"
+align = 1
+valign = 1
+
+[node name="Space" type="Control" parent="Modif"]
+margin_left = 331.0
+margin_right = 371.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 40, 200 )
+
+[node name="AddItem" type="TextureRect" parent="Modif"]
+modulate = Color( 1, 1, 1, 0.705882 )
+margin_left = 396.0
+margin_right = 546.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 150, 0 )
+texture = ExtResource( 16 )
+stretch_mode = 6
+
+[node name="ItemLabel" type="Label" parent="Modif"]
+margin_left = 571.0
+margin_top = 64.0
+margin_right = 642.0
+margin_bottom = 135.0
 rect_pivot_offset = Vector2( 380.5, 65 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
@@ -313,74 +334,6 @@ icon = ExtResource( 18 )
 flat = true
 icon_align = 1
 expand_icon = true
-
-[node name="Items" type="Control" parent="."]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -384.0
-margin_top = 150.0
-margin_right = 384.0
-margin_bottom = 586.0
-
-[node name="VBox" type="VBoxContainer" parent="Items"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -300.0
-margin_top = -197.0
-margin_right = 300.0
-margin_bottom = 142.0
-custom_constants/separation = 9
-alignment = 1
-
-[node name="item0" type="Button" parent="Items/VBox"]
-margin_top = 75.0
-margin_right = 600.0
-margin_bottom = 165.0
-rect_min_size = Vector2( 600, 90 )
-focus_mode = 0
-custom_colors/font_color = Color( 0.8, 1, 0.396078, 1 )
-custom_fonts/font = SubResource( 15 )
-text = "  Usar Antorcha +2"
-flat = true
-
-[node name="item1" type="Button" parent="Items/VBox"]
-margin_top = 174.0
-margin_right = 600.0
-margin_bottom = 264.0
-rect_min_size = Vector2( 600, 90 )
-focus_mode = 0
-custom_colors/font_color = Color( 0.8, 1, 0.396078, 1 )
-custom_fonts/font = SubResource( 15 )
-text = "  Usar Antorcha +2"
-flat = true
-
-[node name="item2" type="Button" parent="Items/VBox"]
-visible = false
-margin_top = 223.0
-margin_right = 600.0
-margin_bottom = 313.0
-rect_min_size = Vector2( 600, 90 )
-focus_mode = 0
-custom_colors/font_color = Color( 0.8, 1, 0.396078, 1 )
-custom_fonts/font = SubResource( 15 )
-text = "  Usar Antorcha +2"
-flat = true
-
-[node name="item3" type="Button" parent="Items/VBox"]
-visible = false
-margin_top = 297.0
-margin_right = 600.0
-margin_bottom = 387.0
-rect_min_size = Vector2( 600, 90 )
-custom_colors/font_color = Color( 0.8, 1, 0.396078, 1 )
-custom_fonts/font = SubResource( 15 )
-text = "  Usar Antorcha +2"
-flat = true
 
 [node name="btn_add" type="Button" parent="."]
 anchor_left = 0.5
