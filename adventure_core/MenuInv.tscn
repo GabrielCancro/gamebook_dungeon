@@ -1,13 +1,12 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://font/FONT_1 R AveriaSerifLibre-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/ui/time_icon.png" type="Texture" id=2]
-[ext_resource path="res://font/FONT_1 B AveriaSerifLibre-Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://font/FontTheme_Buttons.tres" type="DynamicFont" id=3]
 [ext_resource path="res://assets/ui/btn_main_style_1.tres" type="StyleBox" id=4]
 [ext_resource path="res://assets/ui/btn_main_style_1p.tres" type="StyleBox" id=5]
 [ext_resource path="res://assets/ui/TextoGrande.png" type="Texture" id=6]
-[ext_resource path="res://assets/ui/btn_menu_style.tres" type="StyleBox" id=7]
-[ext_resource path="res://assets/ui/btn_menu_style_p.tres" type="StyleBox" id=8]
+[ext_resource path="res://assets/ui/IconoBoton.png" type="Texture" id=7]
 [ext_resource path="res://adventure_core/MenuInv.gd" type="Script" id=9]
 [ext_resource path="res://font/FONT_2 Titles BubblegumSans-Regular.ttf" type="DynamicFontData" id=10]
 
@@ -17,17 +16,16 @@ outline_size = 2
 outline_color = Color( 0.698039, 0.698039, 0.698039, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=4]
-size = 40
-font_data = ExtResource( 3 )
-
 [sub_resource type="DynamicFont" id=3]
 size = 62
 font_data = ExtResource( 10 )
 
 [node name="MenuInv" type="Control"]
-anchor_right = 1.0
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
+margin_left = -418.0
+margin_right = 418.0
 rect_pivot_offset = Vector2( -1545, 451 )
 mouse_filter = 2
 script = ExtResource( 9 )
@@ -36,22 +34,24 @@ script = ExtResource( 9 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
-anchor_right = 1.0
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
+margin_left = -418.0
+margin_right = 418.0
 color = Color( 0, 0, 0, 0.941176 )
 
 [node name="btn_menu" type="Button" parent="."]
+modulate = Color( 1, 1, 1, 0.588235 )
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 265.0
-margin_top = -40.0
-margin_right = 359.0
-margin_bottom = 70.0
-custom_styles/hover = ExtResource( 8 )
-custom_styles/pressed = ExtResource( 8 )
-custom_styles/focus = ExtResource( 7 )
-custom_styles/disabled = ExtResource( 7 )
-custom_styles/normal = ExtResource( 7 )
+margin_left = 332.0
+margin_top = -81.0
+margin_right = 496.0
+margin_bottom = 99.0
+icon = ExtResource( 7 )
+flat = true
+expand_icon = true
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 anchor_left = 0.5
@@ -147,7 +147,7 @@ custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = ExtResource( 3 )
 custom_styles/hover = ExtResource( 5 )
 custom_styles/pressed = ExtResource( 5 )
 custom_styles/focus = ExtResource( 4 )
@@ -170,7 +170,7 @@ custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = ExtResource( 3 )
 custom_styles/hover = ExtResource( 5 )
 custom_styles/pressed = ExtResource( 5 )
 custom_styles/focus = ExtResource( 4 )

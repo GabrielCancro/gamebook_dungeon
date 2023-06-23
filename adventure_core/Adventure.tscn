@@ -77,9 +77,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -384.0
-margin_top = -606.434
+margin_top = -730.0
 margin_right = 384.0
-margin_bottom = 286.434
+margin_bottom = 286.0
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_group_": true
@@ -206,9 +206,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -56.0
-margin_top = 147.132
+margin_top = 299.132
 margin_right = 57.0
-margin_bottom = 266.132
+margin_bottom = 418.132
 rect_pivot_offset = Vector2( 56, 57.4341 )
 icon = ExtResource( 6 )
 flat = true
@@ -222,9 +222,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -58.5
-margin_top = 562.5
+margin_top = 610.5
 margin_right = 58.5
-margin_bottom = 687.5
+margin_bottom = 735.5
 icon = ExtResource( 21 )
 flat = true
 
@@ -235,10 +235,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -385.5
-margin_top = -281.609
-margin_right = 385.5
-margin_bottom = 697.609
+margin_left = -385.0
+margin_top = -282.0
+margin_right = 386.0
+margin_bottom = 845.0
 rect_pivot_offset = Vector2( 385.5, 765.609 )
 script = ExtResource( 7 )
 
@@ -249,18 +249,18 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -334.0
+margin_left = -357.5
 margin_top = -934.0
-margin_right = 316.0
+margin_right = 333.5
 margin_bottom = -90.0
 rect_min_size = Vector2( 650, 0 )
-custom_constants/separation = 35
+custom_constants/separation = 36
 alignment = 2
 
 [node name="Line" type="TextureRect" parent="Desitions/Options"]
-margin_top = 519.0
-margin_right = 650.0
-margin_bottom = 544.0
+margin_top = 531.0
+margin_right = 691.0
+margin_bottom = 556.0
 rect_min_size = Vector2( 0, 25 )
 texture = ExtResource( 4 )
 stretch_mode = 6
@@ -268,27 +268,25 @@ stretch_mode = 6
 [node name="Desc" parent="Desitions/Options" instance=ExtResource( 13 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 579.0
-margin_right = 650.0
-margin_bottom = 644.0
+margin_top = 592.0
+margin_right = 691.0
+margin_bottom = 652.0
 
 [node name="Desc2" parent="Desitions/Options" instance=ExtResource( 13 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 679.0
-margin_right = 650.0
-margin_bottom = 744.0
+margin_top = 688.0
+margin_right = 691.0
+margin_bottom = 748.0
 
 [node name="Desc3" parent="Desitions/Options" instance=ExtResource( 13 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 779.0
-margin_right = 650.0
+margin_top = 784.0
+margin_right = 691.0
 margin_bottom = 844.0
 
 [node name="MenuInv" parent="." instance=ExtResource( 1 )]
-margin_top = -6.0
-margin_bottom = -6.0
 
 [node name="Dices" parent="." instance=ExtResource( 14 )]
 visible = false
