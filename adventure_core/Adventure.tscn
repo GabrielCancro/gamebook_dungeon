@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://adventure_core/MenuInv.tscn" type="PackedScene" id=1]
 [ext_resource path="res://adventure_core/Adventure.gd" type="Script" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://adventure_core/DicesResults.tscn" type="PackedScene" id=19]
 [ext_resource path="res://fx/AlphaFx.tscn" type="PackedScene" id=20]
 [ext_resource path="res://assets/ui/IconoBoton.png" type="Texture" id=21]
+[ext_resource path="res://adventures/adv_test/imgs/room_001 el bosque.jpg" type="Texture" id=22]
 
 [sub_resource type="DynamicFont" id=4]
 size = 55
@@ -65,8 +66,8 @@ stretch_mode = 7
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -418.0
-margin_right = 418.0
+margin_left = -400.0
+margin_right = 400.0
 texture = ExtResource( 10 )
 expand = true
 stretch_mode = 7
@@ -76,9 +77,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -384.0
+margin_left = -350.0
 margin_top = -730.0
-margin_right = 384.0
+margin_right = 344.0
 margin_bottom = 286.0
 script = ExtResource( 8 )
 __meta__ = {
@@ -90,13 +91,13 @@ __meta__ = {
 [node name="VBox" type="VBoxContainer" parent="Narrator"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -372.0
-margin_right = 384.0
+margin_left = -344.0
+margin_right = 347.0
 margin_bottom = 752.0
 custom_constants/separation = 25
 
 [node name="Title" type="Control" parent="Narrator/VBox"]
-margin_right = 756.0
+margin_right = 691.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 0, 100 )
 
@@ -142,9 +143,10 @@ stretch_mode = 6
 
 [node name="Image" type="TextureRect" parent="Narrator/VBox"]
 margin_top = 125.0
-margin_right = 756.0
+margin_right = 691.0
 margin_bottom = 425.0
 rect_min_size = Vector2( 0, 300 )
+texture = ExtResource( 22 )
 expand = true
 stretch_mode = 7
 
@@ -152,10 +154,10 @@ stretch_mode = 7
 modulate = Color( 0.180392, 0.176471, 0.176471, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -27.0
-margin_top = -23.0
+margin_left = -16.0
+margin_top = -22.0
 margin_right = 25.0
-margin_bottom = 20.0
+margin_bottom = 21.0
 rect_min_size = Vector2( 0, 300 )
 texture = ExtResource( 12 )
 expand = true
@@ -175,8 +177,8 @@ autowrap = true
 
 [node name="Desc" type="RichTextLabel" parent="Narrator/VBox"]
 margin_top = 450.0
-margin_right = 756.0
-margin_bottom = 612.0
+margin_right = 691.0
+margin_bottom = 651.0
 custom_colors/default_color = Color( 0.054902, 0.0509804, 0.0509804, 1 )
 custom_fonts/bold_font = SubResource( 6 )
 custom_fonts/normal_font = SubResource( 5 )
@@ -249,18 +251,18 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -357.5
-margin_top = -934.0
-margin_right = 333.5
+margin_left = -351.5
+margin_top = -828.0
+margin_right = 298.5
 margin_bottom = -90.0
 rect_min_size = Vector2( 650, 0 )
 custom_constants/separation = 36
 alignment = 2
 
 [node name="Line" type="TextureRect" parent="Desitions/Options"]
-margin_top = 531.0
-margin_right = 691.0
-margin_bottom = 556.0
+margin_top = 410.0
+margin_right = 650.0
+margin_bottom = 435.0
 rect_min_size = Vector2( 0, 25 )
 texture = ExtResource( 4 )
 stretch_mode = 6
@@ -268,23 +270,23 @@ stretch_mode = 6
 [node name="Desc" parent="Desitions/Options" instance=ExtResource( 13 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 592.0
-margin_right = 691.0
-margin_bottom = 652.0
+margin_top = 471.0
+margin_right = 650.0
+margin_bottom = 536.0
 
 [node name="Desc2" parent="Desitions/Options" instance=ExtResource( 13 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 688.0
-margin_right = 691.0
-margin_bottom = 748.0
+margin_top = 572.0
+margin_right = 650.0
+margin_bottom = 637.0
 
 [node name="Desc3" parent="Desitions/Options" instance=ExtResource( 13 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 784.0
-margin_right = 691.0
-margin_bottom = 844.0
+margin_top = 673.0
+margin_right = 650.0
+margin_bottom = 738.0
 
 [node name="MenuInv" parent="." instance=ExtResource( 1 )]
 

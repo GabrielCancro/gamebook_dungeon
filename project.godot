@@ -21,8 +21,8 @@ GC="*res://global_config.gd"
 
 [display]
 
-window/size/width=836
-window/size/height=1672
+window/size/width=720
+window/size/height=1600
 window/size/test_width=270
 window/size/test_height=600
 window/handheld/orientation="portrait"
