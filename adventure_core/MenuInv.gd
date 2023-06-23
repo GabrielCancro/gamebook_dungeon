@@ -26,7 +26,7 @@ func set_inv_label():
 	if(GC.ADV_DATA.items.keys().size()<=0): $NinePatchRect/ScrollContainer/Label_inv.text = "INVENTARIO (vacío)"
 	for obj_id in GC.ADV_DATA.items:
 		var obj = GC.ADV_DATA.items[obj_id]
-		$NinePatchRect/ScrollContainer/Label_inv.text += "- " + obj.name + ":" + obj.desc+ "\n"
+		$NinePatchRect/ScrollContainer/Label_inv.text += "\n- " + obj.name + ": " + obj.desc+ "\n"
 
 func hide_menu():
 	$Tween.interpolate_property($ColorRect,"modulate",$ColorRect.modulate,Color(1,1,1,0),.3,Tween.TRANS_LINEAR,Tween.EASE_OUT)

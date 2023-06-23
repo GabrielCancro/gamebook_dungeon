@@ -33,7 +33,7 @@ func change_room(room_id):
 		room_data_node.room_data['isShowed'] = false
 		GC.ADV_DATA[room_id] = room_data_node.room_data
 	GC.CURRENT_ROOM = room_id
-	
+	$RoomLabel.text = room_id
 	$NextPage.visible = false
 	if room_data_node.has_method("on_enter_room"): room_data_node.on_enter_room()
 	if room_data_node.has_method("on_dices_result"): $DicesResults.connect("on_accept_result",room_data_node,"on_dices_result")
