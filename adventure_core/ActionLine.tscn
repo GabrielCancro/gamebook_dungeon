@@ -9,7 +9,7 @@
 anchor_right = 0.924
 anchor_bottom = 0.042
 margin_right = 0.36792
-margin_bottom = -9.89201
+margin_bottom = -2.2
 rect_min_size = Vector2( 0, 60 )
 rect_pivot_offset = Vector2( 386, 64 )
 custom_colors/font_color = Color( 0.196078, 0.196078, 0.196078, 1 )

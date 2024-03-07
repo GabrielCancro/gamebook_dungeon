@@ -270,16 +270,16 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -351.5
 margin_top = -828.0
-margin_right = 298.5
+margin_right = 317.5
 margin_bottom = -90.0
 rect_min_size = Vector2( 650, 0 )
 custom_constants/separation = 36
 alignment = 2
 
 [node name="Line" type="TextureRect" parent="Desitions/Options"]
-margin_top = 410.0
-margin_right = 650.0
-margin_bottom = 435.0
+margin_top = 425.0
+margin_right = 669.0
+margin_bottom = 450.0
 rect_min_size = Vector2( 0, 25 )
 texture = ExtResource( 4 )
 stretch_mode = 6
@@ -287,22 +287,22 @@ stretch_mode = 6
 [node name="Desc" parent="Desitions/Options" instance=ExtResource( 13 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 471.0
-margin_right = 650.0
-margin_bottom = 536.0
+margin_top = 486.0
+margin_right = 669.0
+margin_bottom = 546.0
 
 [node name="Desc2" parent="Desitions/Options" instance=ExtResource( 13 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 572.0
-margin_right = 650.0
-margin_bottom = 637.0
+margin_top = 582.0
+margin_right = 669.0
+margin_bottom = 642.0
 
 [node name="Desc3" parent="Desitions/Options" instance=ExtResource( 13 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 673.0
-margin_right = 650.0
+margin_top = 678.0
+margin_right = 669.0
 margin_bottom = 738.0
 
 [node name="MenuInv" parent="." instance=ExtResource( 1 )]

@@ -6,8 +6,10 @@ var isRolled = false
 var dices_value = 0
 var pj_bo = 2
 var pj_ca = 8
+var pj_res = 0
 var en_bo = 1
 var en_ca = 8
+var en_res = 0
 var final_dice = 0
 
 signal end_run_dices
@@ -77,6 +79,8 @@ func show_actions():
 			$Player/Options.add_child(line)
 
 func end_player_turn():
+	if $CS.has_method("on_end_player_turn"): 
+		if $CS.on_end_player_turn(): return
 	show_turn_label("ENEMY")
 	yield(get_tree().create_timer(1.2),"timeout")
 	yield(get_tree().create_timer(.4),"timeout")
@@ -118,16 +122,18 @@ func apply_result(mode):
 	var hp_node = $Enemy/HP_ENEM
 	var dmg_label = $Enemy/DamageLabel
 	var CA = en_ca
+	var RES = en_res
 	if mode == "PLAYER": 
 		def_node = $Player/Def
 		hp_node = $Player/HP_PLAYER
 		dmg_label = $Player/DamageLabel
 		CA = pj_ca
+		RES = pj_res
 	$Tween.interpolate_property(def_node,"rect_scale",Vector2(1.5,1.5),Vector2(1,1),.5,Tween.TRANS_LINEAR,Tween.EASE_OUT)
 	$Tween.start()
 	yield(get_tree().create_timer(.7),"timeout")
 	if final_dice>=CA:
-		var damage = 20 + max(0,final_dice-CA) * 3
+		var damage = floor( (20 + max(0,final_dice-CA) * 3) * (1-RES) )
 		dmg_label.text = "-"+str(damage)
 		dmg_label.visible = true
 		if mode == "ENEMY": $Tween.interpolate_property($Enemy/Image,"modulate",Color(1,.2,.2,1),Color(1,1,1,1),.3,Tween.TRANS_LINEAR,Tween.EASE_OUT)

@@ -14,7 +14,7 @@ var room_data = {
 		"n1":{ "text":"Habla con el guardia" },
 		"n2":{ "text":"Parece la escena de un crimen, no te será difícil encontrar pistas (revisar la zona)", "isDice": 1 },
 		"n3":{ "text":"Entra en la cueva", "isHidden":true },
-		"n4":{ "text":"Acercate al guardia muerto", "isHidden":true }
+		"n4":{ "text":"Acercate al guardia muerto", "isHidden":false }
 	},
 	"pops":{
 		"p1":"""
@@ -44,7 +44,7 @@ func on_click_node(node_data,node_id):
 	elif node_id=="n3": 
 		GC.ADVENTURE.change_room("room_003")
 	elif node_id=="n4": 
-		yield(GC.POPUP.show_popup(room_data.pops.p1), "on_close")
+		GC.POPUP.show_popup(room_data.pops.p1)
 
 func on_dices_result(res):
 	if res.id=="r0":

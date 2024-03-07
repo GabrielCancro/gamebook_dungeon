@@ -7,11 +7,10 @@ var actions = {
 	"n3":{ "text":"Dar un super ataque (dos tiradas pero pierdes ataque)", "isDice": 1 },
 	"n4":{ "text":"Atacar a la bestia", "isDice": 1 },
 	"n5":{ "text":"Desenfundar mi espada (pierdes el turno pero obtienes mucho ataque)", "isHidden": true },
-	"n6":{ "text":"Utilizar la carne para distraer a la hiena (reduce su defensa)", "isHidden": true },
 }
 
-var win_room = "room_007"
-var lose_room = "end_001"
+var win_room = "end_004"
+var lose_room = "end_003"
 
 # Called when the node enters the scene tree for the first time.
 func init_combat_data():
@@ -19,8 +18,10 @@ func init_combat_data():
 	get_node("../Enemy/Image").texture = texture_image
 	get_parent().pj_bo = 2
 	get_parent().pj_ca = 8
+	get_parent().pj_res = 0
 	get_parent().en_bo = 2
 	get_parent().en_ca = 8
+	get_parent().en_res = .5
 	get_parent().on_finish_script_load()
 #	GC.ALL_ITEMS = {"sword":"x","meat":"x","torch":"x"}
 #	GC.add_item("sword")
@@ -70,10 +71,12 @@ func on_click_node(btn,node_id):
 		get_parent().add_player_stat("BO",2)
 		yield(get_parent(),"end_add_stat")
 		get_parent().end_player_turn()
-	
-	elif node_id=="n6": #carne
-		actions["n6"]["isHidden"] = true
-		GC.remove_item("meat")
-		get_parent().add_enemy_stat("CA",-1)
-		yield(get_parent(),"end_add_stat")
-		get_parent().end_player_turn()
+
+func on_end_player_turn():
+	#This func is called when end the player turn, if return true, break the end_player_turn func flow
+	var en_hp = get_node("../Enemy/HP_ENEM").value
+	if en_hp < 60:
+		GC.CURRENT_ROOM = win_room
+		get_tree().change_scene("res://adventure_core/Adventure.tscn")
+		return true
+	else: return false

@@ -19,8 +19,10 @@ func init_combat_data():
 	get_node("../Enemy/Image").texture = texture_image
 	get_parent().pj_bo = 2
 	get_parent().pj_ca = 8
+	get_parent().pj_res = 0
 	get_parent().en_bo = 1
 	get_parent().en_ca = 6
+	get_parent().en_res = 0
 	get_parent().on_finish_script_load()
 #	GC.ALL_ITEMS = {"sword":"x","meat":"x","torch":"x"}
 #	GC.add_item("sword")

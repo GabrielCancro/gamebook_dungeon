@@ -1,10 +1,11 @@
 extends Node
 
 var room_data = {
-	"name": "HienaGana",
+	"name": "TrollPalito",
 	"image": null,
 	"desc": """
-		El insistente \n\nDespués de molestar al Troll con el palito varias veces, empieza a quejarse y moverse de un lado a otro, es una criatura horrenda. Sientes un susurro provenir de sus fauces.
+		El insistente \n\n
+		Después de molestar al Troll con el palito varias veces, empieza a quejarse y moverse de un lado a otro, es una criatura horrenda. Sientes un susurro provenir de sus fauces.
 		
 		- Que bueno que viniste... -
 		

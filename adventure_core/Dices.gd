@@ -115,6 +115,8 @@ func set_usable_items():
 	if !"item" in dices_data: return
 	
 	var item_data = GC.get_item(dices_data["item"])
+	if !item_data: return
+	
 	item_bonif = 3
 	$Modif/AddItem.texture = load("res://adventures/"+GC.ADVENTURE_FOLDER+"/imgs/"+item_data.img+".png")
 	$Modif/Space.visible = true
