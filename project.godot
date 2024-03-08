@@ -23,8 +23,8 @@ GC="*res://global_config.gd"
 
 window/size/width=720
 window/size/height=1600
-window/size/test_width=270
-window/size/test_height=600
+window/size/test_width=200
+window/size/test_height=480
 window/handheld/orientation="portrait"
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"

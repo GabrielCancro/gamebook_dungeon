@@ -1,4 +1,4 @@
-extends Label
+extends Control
 
 var data
 signal on_click
@@ -7,12 +7,13 @@ signal on_click
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Button.connect("button_down",self,"onClick")
+	rect_min_size.y = (1+floor($Desc.text.length()/28)) * 30 + 30
+	print(rect_min_size.y)
 
 func set_node_data(_data):
 	print("NODE",_data)
 	data = _data
-	text = data.text
-	$Desc.text = text
+	$Desc.text = _data.text
 	rect_pivot_offset = rect_size/2
 	
 	if "isNew" in data && data.isNew:

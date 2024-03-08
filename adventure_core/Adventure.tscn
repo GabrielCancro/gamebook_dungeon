@@ -46,10 +46,9 @@ use_filter = true
 font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=5]
-size = 38
+size = 44
 outline_color = Color( 0.788235, 0.729412, 0.568627, 1 )
 use_filter = true
-extra_spacing_bottom = -5
 font_data = ExtResource( 3 )
 
 [node name="Adventure" type="Control"]
@@ -108,13 +107,13 @@ __meta__ = {
 [node name="VBox" type="VBoxContainer" parent="Narrator"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -344.0
-margin_right = 347.0
+margin_left = -331.5
+margin_right = 331.5
 margin_bottom = 752.0
 custom_constants/separation = 25
 
 [node name="Title" type="Control" parent="Narrator/VBox"]
-margin_right = 691.0
+margin_right = 663.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 0, 100 )
 
@@ -160,7 +159,7 @@ stretch_mode = 6
 
 [node name="Image" type="TextureRect" parent="Narrator/VBox"]
 margin_top = 125.0
-margin_right = 691.0
+margin_right = 663.0
 margin_bottom = 425.0
 rect_min_size = Vector2( 0, 300 )
 texture = ExtResource( 22 )
@@ -194,8 +193,8 @@ autowrap = true
 
 [node name="Desc" type="RichTextLabel" parent="Narrator/VBox"]
 margin_top = 450.0
-margin_right = 691.0
-margin_bottom = 651.0
+margin_right = 663.0
+margin_bottom = 705.0
 custom_colors/default_color = Color( 0.054902, 0.0509804, 0.0509804, 1 )
 custom_fonts/bold_font = SubResource( 6 )
 custom_fonts/normal_font = SubResource( 5 )
@@ -268,41 +267,38 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -351.5
+margin_left = -360.5
 margin_top = -828.0
-margin_right = 317.5
+margin_right = 357.5
 margin_bottom = -90.0
 rect_min_size = Vector2( 650, 0 )
-custom_constants/separation = 36
+custom_constants/separation = 33
 alignment = 2
 
 [node name="Line" type="TextureRect" parent="Desitions/Options"]
-margin_top = 425.0
-margin_right = 669.0
-margin_bottom = 450.0
+margin_top = 434.0
+margin_right = 718.0
+margin_bottom = 459.0
 rect_min_size = Vector2( 0, 25 )
 texture = ExtResource( 4 )
 stretch_mode = 6
 
 [node name="Desc" parent="Desitions/Options" instance=ExtResource( 13 )]
 anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 486.0
-margin_right = 669.0
-margin_bottom = 546.0
+margin_top = 492.0
+margin_right = 718.0
+margin_bottom = 552.0
 
 [node name="Desc2" parent="Desitions/Options" instance=ExtResource( 13 )]
 anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 582.0
-margin_right = 669.0
-margin_bottom = 642.0
+margin_top = 585.0
+margin_right = 718.0
+margin_bottom = 645.0
 
 [node name="Desc3" parent="Desitions/Options" instance=ExtResource( 13 )]
 anchor_right = 0.0
-anchor_bottom = 0.0
 margin_top = 678.0
-margin_right = 669.0
+margin_right = 718.0
 margin_bottom = 738.0
 
 [node name="MenuInv" parent="." instance=ExtResource( 1 )]

@@ -8,7 +8,7 @@ var room_data = {
 		No dudas en correr en su dirección. 
 		El grito te guía a través de los árboles fuera del camino. 
 		\nCuando llegas te encuentras con un guardia herido. Es un guardia Real. 
-		Aún sigue con vida y te pide ayuda.
+		\nAún sigue con vida y te pide ayuda.
 	""",
 	"actions": {
 		"n1":{ "text":"Habla con el guardia" },
